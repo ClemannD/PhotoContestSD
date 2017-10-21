@@ -9,24 +9,24 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
 
-public partial class WebServices_RetrieveUser : System.Web.UI.Page
+public partial class WebServices_LoginUser : System.Web.UI.Page
 {
 
-	public struct RetrieveUserRequest
+	public struct LoginUserRequest
 	{
-		public int user_id;
+		public string username, password;
 	}
 
-	public struct RetrieveUserResponse
+	public struct LoginUserResponse
 	{
-		public string userName, fullName, bio, email;
+		public int user_id;
 		public string error;
 	}
 
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		RetrieveUserRequest req;
-		RetrieveUserResponse res = new RetrieveUserResponse();
+		LoginUserRequest req;
+		LoginUserResponse res = new LoginUserResponse();
 		res.error = String.Empty;
 
 		// Need passed in store id and number of requested results.
@@ -52,16 +52,12 @@ public partial class WebServices_RetrieveUser : System.Web.UI.Page
 		{
 			connection.Open();
 
-			// Build SQL Query
-			string sql = String.Format("select * from Users where user_id={0}", req.user_id);
+			string sql = String.Format("SELECT user_id FROM Users WHERE UserName='{0}' AND Password='{1}'", req.username, req.password);
 			SqlCommand command = new SqlCommand( sql, connection );
 			SqlDataReader reader = command.ExecuteReader();
 			if( reader.Read() )
 			{
-				res.userName = Convert.ToString(reader["UserName"]);
-				res.fullName = Convert.ToString(reader["FullName"]);
-				res.email = Convert.ToString(reader["Email"]);
-				res.bio = Convert.ToString(reader["Bio"]);
+				res.user_id = Convert.ToInt32(reader["user_id"]);
 			}
 			reader.Close();
 		}
@@ -81,7 +77,7 @@ public partial class WebServices_RetrieveUser : System.Web.UI.Page
 		SendResultInfoAsJson(res);
 	}
 
-	RetrieveUserRequest GetRequestInfo()
+	LoginUserRequest GetRequestInfo()
 	{
 		// Get the Json from the POST.
 		string strJson = String.Empty;
@@ -93,12 +89,12 @@ public partial class WebServices_RetrieveUser : System.Web.UI.Page
 		}
 
 		// Deserialize the Json.
-		RetrieveUserRequest req = JsonConvert.DeserializeObject<RetrieveUserRequest>(strJson);
+		LoginUserRequest req = JsonConvert.DeserializeObject<LoginUserRequest>(strJson);
 
 		return (req);
 	}
 
-	void SendResultInfoAsJson(RetrieveUserResponse res)
+	void SendResultInfoAsJson(LoginUserResponse res)
 	{
 		string strJson = JsonConvert.SerializeObject(res);
 		Response.ContentType = "application/json; charset=utf-8";

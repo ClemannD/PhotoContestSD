@@ -1,2 +1,1 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Generic.aspx.cs" Inherits="WebServices_Generic" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="InsertUser.aspx.cs" Inherits="WebServices_InsertUser" %>

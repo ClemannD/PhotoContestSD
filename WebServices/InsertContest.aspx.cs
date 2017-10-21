@@ -9,24 +9,25 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
 
-public partial class WebServices_RetrieveUser : System.Web.UI.Page
+public partial class WebServices_InsertContest : System.Web.UI.Page
 {
 
-	public struct RetrieveUserRequest
+	public struct InsertContestRequest
 	{
-		public int user_id;
+		public int week;
+		public string category;
 	}
 
-	public struct RetrieveUserResponse
+	public struct InsertContestResponse
 	{
-		public string userName, fullName, bio, email;
+		public int contest_id;
 		public string error;
 	}
 
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		RetrieveUserRequest req;
-		RetrieveUserResponse res = new RetrieveUserResponse();
+		InsertContestRequest req;
+		InsertContestResponse res = new InsertContestResponse();
 		res.error = String.Empty;
 
 		// Need passed in store id and number of requested results.
@@ -53,17 +54,10 @@ public partial class WebServices_RetrieveUser : System.Web.UI.Page
 			connection.Open();
 
 			// Build SQL Query
-			string sql = String.Format("select * from Users where user_id={0}", req.user_id);
+			string sql = String.Format("insert into Contests (category, week) VALUES ('{0}','{1}')",
+									 							 req.category, req.week );
 			SqlCommand command = new SqlCommand( sql, connection );
-			SqlDataReader reader = command.ExecuteReader();
-			if( reader.Read() )
-			{
-				res.userName = Convert.ToString(reader["UserName"]);
-				res.fullName = Convert.ToString(reader["FullName"]);
-				res.email = Convert.ToString(reader["Email"]);
-				res.bio = Convert.ToString(reader["Bio"]);
-			}
-			reader.Close();
+			command.ExecuteNonQuery();
 		}
 		catch(Exception ex)
 		{
@@ -81,7 +75,7 @@ public partial class WebServices_RetrieveUser : System.Web.UI.Page
 		SendResultInfoAsJson(res);
 	}
 
-	RetrieveUserRequest GetRequestInfo()
+	InsertContestRequest GetRequestInfo()
 	{
 		// Get the Json from the POST.
 		string strJson = String.Empty;
@@ -93,12 +87,12 @@ public partial class WebServices_RetrieveUser : System.Web.UI.Page
 		}
 
 		// Deserialize the Json.
-		RetrieveUserRequest req = JsonConvert.DeserializeObject<RetrieveUserRequest>(strJson);
+		InsertContestRequest req = JsonConvert.DeserializeObject<InsertContestRequest>(strJson);
 
 		return (req);
 	}
 
-	void SendResultInfoAsJson(RetrieveUserResponse res)
+	void SendResultInfoAsJson(InsertContestResponse res)
 	{
 		string strJson = JsonConvert.SerializeObject(res);
 		Response.ContentType = "application/json; charset=utf-8";
