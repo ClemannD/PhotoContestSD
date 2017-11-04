@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/screens/Opening/OpeningScreen.unity
+  isLoaded: 1
+  isActive: 1
