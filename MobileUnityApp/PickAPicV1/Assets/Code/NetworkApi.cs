@@ -4,13 +4,14 @@ using System.Threading;
 using UnityEngine;
 using System;
 using System.Net;
+using Newtonsoft.Json;
 
 public class NetworkAPI:MonoBehaviour{
 	private const int RETRIES = 10;
 	private const int RETRY_SLEEP = 10;
 	public const string UPLOAD_URL = "http://INSERTDOMAIN/Webservices/";//TODO add pick a pic domain name??
 
-	/*
+
 	public struct InsertUserRequest
 	{
 		public string userName, fullName, bio, email, password;
@@ -22,7 +23,7 @@ public class NetworkAPI:MonoBehaviour{
 		public string error;
 	}
 
-	public static InsertUserResponse doUserInsert( string userName, string fullName, string bio, string email, string password, string domain )//TODO missing bio
+	public static InsertUserResponse doUserInsert( string userName, string fullName, string bio, string email, string password)//TODO missing bio
 	{
 		InsertUserRequest req = new InsertUserRequest();
 		req.userName = userName;
@@ -33,7 +34,7 @@ public class NetworkAPI:MonoBehaviour{
 		InsertUserResponse res = new InsertUserResponse();
 		res.error = String.Empty;
 
-		string strURL = string.Format("http://{0}/Webservices/InsertUser.aspx", domain);
+		string strURL = string.Format(UPLOAD_URL + "/InsertUser.aspx");
 		string strJsonInput = JsonConvert.SerializeObject(req);
 		WebClient wc = new WebClient();
 
@@ -67,7 +68,7 @@ public class NetworkAPI:MonoBehaviour{
 		public string error;
 	}
 
-	public static LoginUserResponse doUserLogin( string userName, string password, string domain )
+	public static LoginUserResponse DoUserLogin( string userName, string password)
 	{
 		LoginUserRequest req = new LoginUserRequest();
 		req.username = userName;
@@ -75,7 +76,7 @@ public class NetworkAPI:MonoBehaviour{
 		LoginUserResponse res = new LoginUserResponse();
 		res.error = String.Empty;
 
-		string strURL = string.Format("http://{0}/Webservices/LoginUser.aspx", domain);
+		string strURL = string.Format(UPLOAD_URL +  "/LoginUser.aspx");
 		string strJsonInput = JsonConvert.SerializeObject(req);
 		WebClient wc = new WebClient();
 
@@ -140,7 +141,7 @@ public class NetworkAPI:MonoBehaviour{
 		public string email;
 		public string password;
 	}
-
+	/*
 	public struct GenericResponse{
 		public int id;
 		public string error;
@@ -176,7 +177,7 @@ public class NetworkAPI:MonoBehaviour{
 
 		return genResponse;
 	}
-
+*/
 	public struct InsertContestRequest{
 		public int contest_id;
 		public int week;
@@ -259,7 +260,7 @@ public class NetworkAPI:MonoBehaviour{
 
 
 
-*/
+
 
 
 

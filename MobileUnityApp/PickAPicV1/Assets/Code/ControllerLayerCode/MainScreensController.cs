@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MainScreensController : MonoBehaviour {
-	private MainScreensUI ui;
+	//private MainScreensUI ui;
 
-	public MainScreensController(MainScreensUI ui){
-		this.ui = ui;
-	}
+	//public MainScreensController(MainScreensUI ui){
+	//	this.ui = ui;
+	//}
 
 	/// <summary>
 	/// Activated when the compete button is pressed. Takes the user to the compete screen 

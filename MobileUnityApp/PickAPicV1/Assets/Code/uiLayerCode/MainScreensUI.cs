@@ -10,7 +10,7 @@ public class MainScreensUI : MonoBehaviour {
 	private MainScreensController controller;
 
 	void Start(){
-		controller = new MainScreensController (this);
+		controller = new MainScreensController ();
 	}
 
 	/// <summary>
