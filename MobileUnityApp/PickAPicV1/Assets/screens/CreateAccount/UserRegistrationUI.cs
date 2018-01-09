@@ -9,12 +9,22 @@ public class UserRegistrationUI : MonoBehaviour {
 	public InputField password;
 	public InputField passwordConfirm;
 	public InputField birthday;
+	public InputField email;
+
+	private UserRegistrationController controller;
+
+
+	//todo need a variable and method relating to accepting the terms and conditions
 
 	// Use this for initialization
 	void Start () {
-		
+		this.controller = new UserRegistrationController (this);
 	}
-	
+
+	public string GetEmailAddress(){
+		return email.text;
+	}
+
 	public string GetUsername(){
 		return username.text;
 	}
@@ -33,6 +43,6 @@ public class UserRegistrationUI : MonoBehaviour {
 	}
 
 	public void SubmitFormListener(){
-
+		controller.SubmitFormPressed ();
 	}
 }

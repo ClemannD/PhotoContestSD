@@ -15,6 +15,7 @@ public class SceneIndices{
 	public const int ENTRIES = 0;
 	public const int PROFILE = 0;
 	public const int COMPETE = 0;
+	public const int SPLASH = 0;
 
 	//TODO many more?????
 
