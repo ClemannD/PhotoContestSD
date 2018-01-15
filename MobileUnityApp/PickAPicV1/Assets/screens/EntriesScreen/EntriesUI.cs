@@ -1,16 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class EntriesUI : MonoBehaviour {
+public class EntriesUI : MainScreensUI {
+	private const int MAX_NUM_PICS = 30;//the maximum number of images this class will pull from the server per call
 
-	private EntriesController controller;
+	public List<ImageForVoting> images;
+	public Text themeText;
+	InputField search;
+	//TODO search bar
 
 
-	// Use this for initialization
-	void Start () {
-		this.controller = new EntriesController (this);
-	}
+
+
+
+
+
+
+
+
+
+
 
 
 

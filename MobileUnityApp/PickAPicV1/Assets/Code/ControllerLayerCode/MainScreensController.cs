@@ -2,38 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainScreensController : MonoBehaviour {
-	//private MainScreensUI ui;
+public abstract class MainScreensController:MonoBehaviour{
 
-	//public MainScreensController(MainScreensUI ui){
-	//	this.ui = ui;
-	//}
+
+	protected void AddMainListeners(MainScreensUI mainUI){
+		mainUI.competeButton.onClick.AddListener(CompetePressed);
+		mainUI.entriesButton.onClick.AddListener(EntriesPressed);
+		mainUI.profileButton.onClick.AddListener(EntriesPressed);
+		mainUI.pastContestsButton.onClick.AddListener (PastContestsPressed);
+	}
+		
 
 	/// <summary>
 	/// Activated when the compete button is pressed. Takes the user to the compete screen 
 	/// </summary>
-	public void CompetePressed(){
+	protected virtual void CompetePressed(){
 		SceneTransitions.NextScene (SceneIndices.COMPETE);
 	}
 
 	/// <summary>
 	/// Activated when the entries button is pressed. Takes the user to the entries screen
 	/// </summary>
-	public void EntriesPressed(){
+	protected virtual void EntriesPressed(){
 		SceneTransitions.NextScene (SceneIndices.ENTRIES);
 	}
 
 	/// <summary>
 	/// Activated when the profile button is pressed. Takes the user to the profile screen
 	/// </summary>
-	public void ProfilePressed(){
+	protected virtual void ProfilePressed(){
 		SceneTransitions.NextScene (SceneIndices.PROFILE);
 	}
 
 	/// <summary>
 	/// Called when the past contests button is pressed. Takes the user to the past contests screen
 	/// </summary>
-	public void PastContestsPressed(){
+	protected virtual void PastContestsPressed(){
 		SceneTransitions.NextScene (SceneIndices.PAST_CONTESTS);
 	}
 

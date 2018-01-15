@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Text.RegularExpressions;
 
 
-public class UserRegistrationController : MonoBehaviour {
+public class UserRegistrationController{
 
 	private UserRegistrationUI ui;
 	private NetworkAPI.InsertUserResponse apiResponse;

@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class LoginController : MonoBehaviour {
 
-	private LoginScreenUI ui;
+	public LoginScreenUI ui;
 
 
 	NetworkAPI.LoginUserResponse loginResponse;
 
-	public LoginController(LoginScreenUI ui){
-		this.ui = ui;
+	void Start(){
+		ui.loginButton.onClick.AddListener (LoginPressed);
+		ui.signUpButton.onClick.AddListener (SignUpPressed);
 	}
 
 	//for when the user hits the login button
@@ -18,15 +19,17 @@ public class LoginController : MonoBehaviour {
 		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),ui.GetPassword());
 
 		if (loginResponse.error.Length > 0) {
-			Debug.Log (loginResponse.error);//maybe have a class with the error codes???
+			Debug.Log (loginResponse.error);
 			//tell the user something is wrong
 		} else {
 			UserInfo.userId = loginResponse.id;
 
 			SceneTransitions.NextScene (SceneIndices.ENTRIES);
 		}
+	}
 
-
+	public void SignUpPressed(){
+		SceneTransitions.NextScene (SceneIndices.CREATE_ACCOUNT);
 	}
 
 
