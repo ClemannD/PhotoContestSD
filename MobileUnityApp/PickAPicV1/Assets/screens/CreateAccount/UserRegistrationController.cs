@@ -4,14 +4,11 @@ using UnityEngine;
 using System.Text.RegularExpressions;
 
 
-public class UserRegistrationController{
+public class UserRegistrationController:MonoBehaviour{
 
-	private UserRegistrationUI ui;
+	public UserRegistrationUI ui;
 	private NetworkAPI.InsertUserResponse apiResponse;
 
-	public UserRegistrationController(UserRegistrationUI ui){
-		this.ui = ui;
-	}
 
 	public void SubmitFormPressed(){
 		//todo send information

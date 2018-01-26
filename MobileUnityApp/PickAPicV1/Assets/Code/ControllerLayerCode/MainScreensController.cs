@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MainScreensController:MonoBehaviour{
+public abstract class MainScreensController{
 
 
 	protected void AddMainListeners(MainScreensUI mainUI){

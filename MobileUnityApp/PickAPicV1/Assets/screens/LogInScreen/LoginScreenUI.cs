@@ -9,6 +9,11 @@ public class LoginScreenUI : MonoBehaviour {
 	public InputField password;
 	public Button signUpButton;
 
+	void Start(){
+
+
+	}
+
 
 	public string GetUsername(){
 		return username.text;

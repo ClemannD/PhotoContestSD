@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Starting main screen superclass, to be used wuth UI classes that have the navigation buttons at the bottom of the screen
 /// </summary>
-public class MainScreensUI{
+public class MainScreensUI:MonoBehaviour{
 
 	public Button competeButton;
 	public Button entriesButton;

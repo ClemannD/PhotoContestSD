@@ -11,15 +11,12 @@ public class UserRegistrationUI : MonoBehaviour {
 	public InputField birthday;
 	public InputField email;
 
-	private UserRegistrationController controller;
+	public UserRegistrationController controller;
 
 
 	//todo need a variable and method relating to accepting the terms and conditions
 
 	// Use this for initialization
-	void Start () {
-		this.controller = new UserRegistrationController (this);
-	}
 
 	public string GetEmailAddress(){
 		return email.text;
