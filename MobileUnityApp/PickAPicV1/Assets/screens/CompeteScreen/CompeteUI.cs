@@ -12,4 +12,10 @@ public class CompeteUI : MainScreensUI {
 
 
 
+	public void SetThemeText(string themeText){
+		this.themeText.text = themeText;
+	}
+
+
+
 }

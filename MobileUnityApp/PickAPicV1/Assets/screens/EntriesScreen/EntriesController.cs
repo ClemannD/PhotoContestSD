@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EntriesController:MainScreensController{
 
-	EntriesUI ui;
+	public static EntriesUI ui;
+
 
 	void Start(){
 		AddMainListeners (ui);

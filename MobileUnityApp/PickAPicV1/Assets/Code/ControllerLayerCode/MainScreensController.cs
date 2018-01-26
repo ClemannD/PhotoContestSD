@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MainScreensController{
-
-
+public class MainScreensController:MonoBehaviour{
+	
 	protected void AddMainListeners(MainScreensUI mainUI){
 		mainUI.competeButton.onClick.AddListener(CompetePressed);
 		mainUI.entriesButton.onClick.AddListener(EntriesPressed);
 		mainUI.profileButton.onClick.AddListener(EntriesPressed);
-		mainUI.pastContestsButton.onClick.AddListener (PastContestsPressed);
+		mainUI.pastContestsButton.onClick.AddListener(PastContestsPressed);
 	}
 		
 

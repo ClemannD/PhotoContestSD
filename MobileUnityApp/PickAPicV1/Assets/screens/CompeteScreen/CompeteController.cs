@@ -11,6 +11,7 @@ public class CompeteController : MainScreensController {
 		ui.uploadSelectButton.onClick.AddListener (uploadSelectPressed);
 
 	}
+		
 
 	private void RefreshGUI(){
 
@@ -27,7 +28,7 @@ public class CompeteController : MainScreensController {
 
 	protected override void CompetePressed ()
 	{
-		//base.CompetePressed ();
+		RefreshGUI ();
 	}
 
 

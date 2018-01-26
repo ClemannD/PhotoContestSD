@@ -12,7 +12,9 @@ public class EntriesUI : MainScreensUI {
 	//TODO search bar
 
 
-
+	public void SetThemeText(string themeText){
+		this.themeText.text = themeText;
+	}
 
 
 

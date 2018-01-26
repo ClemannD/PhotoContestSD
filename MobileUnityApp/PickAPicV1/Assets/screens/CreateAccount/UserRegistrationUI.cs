@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UserRegistrationUI : MonoBehaviour {
+public class UserRegistrationUI : MainScreensUI {
 
 	public InputField username;
 	public InputField password;

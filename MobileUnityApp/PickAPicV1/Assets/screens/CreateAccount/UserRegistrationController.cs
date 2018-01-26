@@ -4,10 +4,14 @@ using UnityEngine;
 using System.Text.RegularExpressions;
 
 
-public class UserRegistrationController:MonoBehaviour{
+public class UserRegistrationController:MainScreensController{
 
-	public UserRegistrationUI ui;
+	public static UserRegistrationUI ui;
 	private NetworkAPI.InsertUserResponse apiResponse;
+
+	void Start(){
+		AddMainListeners (ui);
+	}
 
 
 	public void SubmitFormPressed(){
