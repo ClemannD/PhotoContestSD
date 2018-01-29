@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class UserRegistrationUI : MainScreensUI {
 
@@ -10,36 +11,39 @@ public class UserRegistrationUI : MainScreensUI {
 	public InputField passwordConfirm;
 	public InputField birthday;
 	public InputField email;
+	public Toggle acceptTerms;
+	public Button submitButton;
+	public InputField fullName;
 
-	public UserRegistrationController controller;
 
-
-	//todo need a variable and method relating to accepting the terms and conditions
-
-	// Use this for initialization
 
 	public string GetEmailAddress(){
-		return email.text;
+		return NullHelper.SafeInputStringReturn (email);
+	}
+
+	public string GetFullName(){
+		return NullHelper.SafeInputStringReturn (fullName);
+	}
+
+	public bool TermsAccepted(){
+		return acceptTerms.isOn;
 	}
 
 	public string GetUsername(){
-		return username.text;
+		return NullHelper.SafeInputStringReturn (username);
 	}
 
 	public string GetPassword(){
-		return password.text;
+		return NullHelper.SafeInputStringReturn (password);
 	}
 
 	public string GetPasswordConfirmation(){
-		return passwordConfirm.text;
+		return NullHelper.SafeInputStringReturn (passwordConfirm);
 	}
 
 	//TODO wouldnt this field be designed to take in a specific format
 	public string GetBirthday(){
-		return birthday.text;
+		return  NullHelper.SafeInputStringReturn(birthday);
 	}
 
-	public void SubmitFormListener(){
-		controller.SubmitFormPressed ();
-	}
 }

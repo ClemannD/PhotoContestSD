@@ -9,53 +9,48 @@ using Newtonsoft.Json;
 public class NetworkAPI:MonoBehaviour{
 	private const int RETRIES = 10;
 	private const int RETRY_SLEEP = 10;
-	public const string UPLOAD_URL = "http://INSERTDOMAIN/Webservices/";//TODO add pick a pic domain name??
+	public const string UPLOAD_URL = "http://pick-apic/webservices/";//TODO add pick a pic domain name??
 
 
-	public struct InsertUserRequest
-	{
-		public string userName, fullName, bio, email, password;
+	public struct InsertUserRequest{
+		public string username;
+		public string fullname;
+		public string email;
+		public string pw;
+		public string bday;
 	}
 
-	public struct InsertUserResponse
-	{
+	public struct InsertUserResponse{
 		public int id;
 		public string error;
 	}
 
-	public static InsertUserResponse doUserInsert( string userName, string fullName, string bio, string email, string password)//TODO missing bio
-	{
-		InsertUserRequest req = new InsertUserRequest();
-		req.userName = userName;
-		req.fullName = fullName;
-		req.email = email;
-		req.password = password;
-		req.bio = bio;
-		InsertUserResponse res = new InsertUserResponse();
-		res.error = String.Empty;
+	public static InsertUserResponse InsertNewUser(string username, string fullName, string email, string password, string birthday){
+		InsertUserRequest request = new InsertUserRequest ();
+		request.username = username;
+		request.fullname = fullName;
+		request.bday = birthday;
+		request.email = email;
+		request.pw = password;
 
-		string strURL = string.Format(UPLOAD_URL + "/InsertUser.aspx");
-		string strJsonInput = JsonConvert.SerializeObject(req);
-		WebClient wc = new WebClient();
+		InsertUserResponse response = new InsertUserResponse();
 
-		for (int i = 0; i < RETRIES; i++)
-		{
-			try
-			{
-				wc.Headers[HttpRequestHeader.ContentType] = "application/json";
-				string strJsonResult = (string)wc.UploadString(strURL, "POST", strJsonInput);
-				res = JsonConvert.DeserializeObject<InsertUserResponse>(strJsonResult);
-				return (res);
-			}
-			catch (System.Exception ex)
-			{
-				res.error = ex.Message.ToString();
-			}
-			Thread.Sleep(RETRY_SLEEP);
+
+
+		response = ApiCall<InsertUserRequest,InsertUserResponse> (request,response,"InsertUser.aspx");
+
+		if (response.error == null) {
+			Debug.Log ("failed call");
 		}
 
-		return (res);
+		if (response.error.Length > 0) {
+			Debug.Log (response.error);
+		}
+		return response;
 	}
+
+
+
 
 	public struct LoginUserRequest
 	{
@@ -133,51 +128,8 @@ public class NetworkAPI:MonoBehaviour{
 		return removeUserResponse;
 	}
 
-	public struct GenericRequest{
-		public int id;
-		public string userName;
-		public string fullName;
-		public string bio;
-		public string email;
-		public string password;
-	}
-	/*
-	public struct GenericResponse{
-		public int id;
-		public string error;
-	}
-
-	public static GenericResponse doGenericRequest(int id, string userName, string fullName, string bio, string email, string password){
-		GenericRequest genRequest = new GenericRequest ();
-		genRequest.id = id;
-		genRequest.userName = userName;
-		genRequest.fullName = fullName;
-		genRequest.bio = bio;
-		genRequest.email = email;
-		genRequest.password = password;
-
-		WebClient webClient = new WebClient ();
-		string uploadJson = JsonConvert.SerializeObject(genRequest);
-
-		GenericResponse genResponse = new GenericResponse ();
 
 
-		for(int x=0;x<RETRIES;x++){
-
-			try {
-				webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
-				string returnString = (string)webClient.UploadString(UPLOAD_URL + "Generic.aspx","POST",uploadJson);
-				genResponse = JsonConvert.DeserializeObject<GenericResponse>(returnString);
-				break;
-			} catch (Exception ex) {
-				genResponse.error = ex.Message;
-			}
-			Thread.Sleep (RETRY_SLEEP);
-		}
-
-		return genResponse;
-	}
-*/
 	public struct InsertContestRequest{
 		public int contest_id;
 		public int week;
@@ -255,6 +207,38 @@ public class NetworkAPI:MonoBehaviour{
 
 		return retrieveUserResponse;
 
+
+	}
+
+
+
+
+
+
+	private static responseStructType ApiCall<sendStructType,responseStructType>(sendStructType send, responseStructType response, string aspxFilename){
+		
+
+		WebClient webClient = new WebClient ();
+		string uploadJson = JsonConvert.SerializeObject(send);
+
+
+		for(int x=0;x<RETRIES;x++){
+
+			try {
+				webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
+				string returnString = (string)webClient.UploadString(UPLOAD_URL + aspxFilename,"POST",uploadJson);
+				Debug.Log("the returned string after the api call is: " + returnString);
+				response = JsonConvert.DeserializeObject<responseStructType>(returnString);
+				break;
+			} catch (Exception ex) {
+				Debug.Log ("something bad happened");
+				Debug.Log (ex);
+			}
+			Thread.Sleep (RETRY_SLEEP);
+		}
+	
+
+		return response;
 
 	}
 

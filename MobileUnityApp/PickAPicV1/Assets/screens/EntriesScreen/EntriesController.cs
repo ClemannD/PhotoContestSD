@@ -14,11 +14,12 @@ public class EntriesController:MainScreensController{
 
 	public void RefreshGUI(){
 		//TODO something to fill up stuff
+		//some api that will get me the images in a list.
 	}
 
 	protected override void EntriesPressed ()
 	{
-		
+		RefreshGUI ();
 	}
 
 }

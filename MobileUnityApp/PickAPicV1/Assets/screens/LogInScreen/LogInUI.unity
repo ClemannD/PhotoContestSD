@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 154310618}
   - component: {fileID: 154310616}
+  - component: {fileID: 154310617}
   m_Layer: 0
   m_Name: UICode
   m_TagString: Untagged
@@ -144,7 +145,18 @@ MonoBehaviour:
   username: {fileID: 1617256497}
   password: {fileID: 909347162}
   signUpButton: {fileID: 1546332165}
-  ha: 0
+--- !u!114 &154310617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154310615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5154598a944a7ca4ebefd85b6ec3d7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 154310616}
 --- !u!4 &154310618
 Transform:
   m_ObjectHideFlags: 0
