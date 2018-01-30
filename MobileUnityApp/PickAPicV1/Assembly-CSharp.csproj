@@ -52,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Code\ControllerLayerCode\MainScreensController.cs" />
+     <Compile Include="Assets\Code\MessageForUser.cs" />
      <Compile Include="Assets\Code\NetworkApi.cs" />
+     <Compile Include="Assets\Code\NullHelper.cs" />
      <Compile Include="Assets\Code\SceneIndices.cs" />
      <Compile Include="Assets\Code\SceneTransitions.cs" />
      <Compile Include="Assets\Code\uiLayerCode\ImageEntry.cs" />
@@ -67,7 +69,8 @@
      <Compile Include="Assets\screens\EntriesScreen\ImageForVoting.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginController.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginScreenUI.cs" />
-     <None Include="Assets\Newtonsoft.Json.xml" />
+     <None Include="Assets\newtonsoftStuff\Newtonsoft.Json.xml" />
+     <None Include="Assets\newtonsoftStuff\license.txt" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
@@ -90,7 +93,7 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/Users/Rali/Google Drive/SD_project/PhotoContestSD/MobileUnityApp/PickAPicV1/Assets/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/Users/Rali/Google Drive/SD_project/PhotoContestSD/MobileUnityApp/PickAPicV1/Assets/newtonsoftStuff/Newtonsoft.Json.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
