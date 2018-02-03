@@ -9,15 +9,15 @@ using Newtonsoft.Json;
 public class NetworkAPI:MonoBehaviour{
 	private const int RETRIES = 10;
 	private const int RETRY_SLEEP = 10;
-	public const string UPLOAD_URL = "http://pick-apic/webservices/";//TODO add pick a pic domain name??
+	public const string UPLOAD_URL = "http://pick-apic.com/webservices/";
 
 
 	public struct InsertUserRequest{
-		public string username;
-		public string fullname;
+		public string userName;
+		public string fullName;
 		public string email;
-		public string pw;
-		public string bday;
+		public string password;
+		public string birthday;
 	}
 
 	public struct InsertUserResponse{
@@ -27,11 +27,11 @@ public class NetworkAPI:MonoBehaviour{
 
 	public static InsertUserResponse InsertNewUser(string username, string fullName, string email, string password, string birthday){
 		InsertUserRequest request = new InsertUserRequest ();
-		request.username = username;
-		request.fullname = fullName;
-		request.bday = birthday;
+		request.userName = username;
+		request.fullName = fullName;
+		request.birthday = birthday;
 		request.email = email;
-		request.pw = password;
+		request.password = password;
 
 		InsertUserResponse response = new InsertUserResponse();
 
@@ -50,48 +50,33 @@ public class NetworkAPI:MonoBehaviour{
 	}
 
 
+	/// /////////////
+
 
 
 	public struct LoginUserRequest
 	{
-		public string username, password;
+		public string username;
+		public string password;
 	}
 
 	public struct LoginUserResponse
 	{
 		public int id;
+		public string ApiKey;
 		public string error;
 	}
 
-	public static LoginUserResponse DoUserLogin( string userName, string password)
+	public static LoginUserResponse DoUserLogin(string username, string password)
 	{
 		LoginUserRequest req = new LoginUserRequest();
-		req.username = userName;
+		req.username = username;
 		req.password = password;
 		LoginUserResponse res = new LoginUserResponse();
-		res.error = String.Empty;
 
-		string strURL = string.Format(UPLOAD_URL +  "/LoginUser.aspx");
-		string strJsonInput = JsonConvert.SerializeObject(req);
-		WebClient wc = new WebClient();
+		res = ApiCall<LoginUserRequest,LoginUserResponse>(req,res,"LoginUser.aspx");
 
-		for (int i = 0; i < RETRIES; i++)
-		{
-			try
-			{
-				wc.Headers[HttpRequestHeader.ContentType] = "application/json";
-				string strJsonResult = (string)wc.UploadString(strURL, "POST", strJsonInput);
-				res = JsonConvert.DeserializeObject<LoginUserResponse>(strJsonResult);
-				return (res);
-			}
-			catch (System.Exception ex)
-			{
-				res.error = ex.Message.ToString();
-			}
-			Thread.Sleep(RETRY_SLEEP);
-		}
-
-		return (res);
+		return res;
 	}
 
 	public struct RemoveUserRequest{
@@ -209,11 +194,7 @@ public class NetworkAPI:MonoBehaviour{
 
 
 	}
-
-
-
-
-
+		
 
 	private static responseStructType ApiCall<sendStructType,responseStructType>(sendStructType send, responseStructType response, string aspxFilename){
 		

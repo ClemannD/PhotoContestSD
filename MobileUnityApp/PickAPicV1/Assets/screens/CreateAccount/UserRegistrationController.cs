@@ -19,7 +19,7 @@ public class UserRegistrationController:MainScreensController{
 	public void SubmitPressed(){
 
 		if (VerifyUsername() && VerifyPassword () && VerifyEmail ()  && VerifyBirthday() && ui.TermsAccepted()) {
-			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (ui.GetUsername (), ui.GetFullName(),ui.GetEmailAddress (), ui.GetPassword (), ui.GetBirthday ());
+			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (ui.GetUsername (), ui.GetFullName(),ui.GetEmailAddress (), ui.GetPassword (), BirthdayStringForm());
 			if (responseStruct.error.Length == 0) {
 				MessageForUser.OutputMessage (responseStruct.error);
 				SceneTransitions.NextScene (SceneIndices.ENTRIES);
@@ -78,6 +78,7 @@ public class UserRegistrationController:MainScreensController{
 		//TODO again the allowed characters seem too restrictive
 	}
 
+	//TODO really need help here
 	private bool VerifyEmail(){
 		string email = ui.GetEmailAddress ();
 
@@ -97,24 +98,69 @@ public class UserRegistrationController:MainScreensController{
 			return false;
 		}
 	}
-
-
-	//TODO
+		
 	private bool VerifyBirthday(){
-		int bday;
-		try {
-			bday = Convert.ToInt32(ui.GetBirthday());
-		} catch (Exception) {
+		int day = ui.GetBirthDay ();
+		int month = ui.GetBirthMonth ();
+		int year = ui.GetBirthYear ();
+
+		if (month < 1 || month > 12) {
 			return false;
 		}
 
-		DateTime currTime = DateTime.Now;
-		int difference = currTime.Year - bday;
-		if (difference < 13) {
+		if (year > DateTime.Now.Year) {
 			return false;
-		} else {
-			return true;
 		}
+
+		int[] months31Array = {1,3,5,7,8,10,12};
+		List<Int32> months31 = new List<Int32>();
+		for (int m = 0; m < months31Array.Length; m++) {
+			months31.Add (months31Array [m]);
+		}
+		
+		if (months31.Contains (month)) {
+			if (day < 1 || day > 31) {
+				return false;
+			}
+		}
+
+
+
+		int[] months30Array= { 4, 6, 9, 11 };
+		List<Int32> months30 = new List<Int32>();
+		for (int i = 0; i < months30Array.Length; i++) {
+			months30.Add (months30Array [i]);
+		}
+		if (months30.Contains (month)) {
+			if (day < 1 || day > 30) {
+				return false;
+			}
+		}
+
+		if (month == 2) {
+			if (DateTime.IsLeapYear (year)) {
+				if (day < 1 || day > 29) {
+					return false;
+				}
+			} else {
+				if (day < 1 || day > 28) {
+					return false;
+				}
+			}
+
+		}
+
+
+	
+
+
+		Birthday bday = new Birthday (day,month,year);
+
+		return bday.OlderThan (13);
+	}
+
+	private string BirthdayStringForm(){
+		return ui.GetBirthMonth()+ "/" + ui.GetBirthDay() + "/" + ui.GetBirthYear();
 	}
 
 

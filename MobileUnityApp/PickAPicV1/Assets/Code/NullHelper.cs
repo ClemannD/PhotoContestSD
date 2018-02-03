@@ -17,7 +17,7 @@ public class NullHelper{
 		string s = "";
 		try {
 			s = f.text;
-		} catch (System.Exception ex) {
+		} catch (System.Exception) {
 			
 		}
 

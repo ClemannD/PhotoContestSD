@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LoginController : MonoBehaviour {
-
+	//
+	//
 	public LoginScreenUI ui;
 
 	void Start(){
@@ -13,14 +14,15 @@ public class LoginController : MonoBehaviour {
 
 	//for when the user hits the login button
 	public void LoginPressed(){
-		NetworkAPI.LoginUserResponse loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),ui.GetPassword());
+		NetworkAPI.LoginUserResponse loginResponse = new NetworkAPI.LoginUserResponse ();
+
+		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),ui.GetPassword());
 
 		if (loginResponse.error.Length > 0) {
-			Debug.Log (loginResponse.error);
+			MessageForUser.OutputMessage(loginResponse.error);
 			//tell the user something is wrong
 		} else {
 			UserInfo.userId = loginResponse.id;
-
 			SceneTransitions.NextScene (SceneIndices.ENTRIES);
 		}
 	}
