@@ -17,7 +17,7 @@ public class UserRegistrationController:MainScreensController{
 
 
 	public void SubmitPressed(){
-
+		ImportantInfo.SetCurrentWeekData ();
 		if (VerifyUsername() && VerifyPassword () && VerifyEmail ()  && VerifyBirthday() && ui.TermsAccepted()) {
 			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (ui.GetUsername (), ui.GetFullName(),ui.GetEmailAddress (), ui.GetPassword (), BirthdayStringForm());
 			if (responseStruct.error.Length == 0) {

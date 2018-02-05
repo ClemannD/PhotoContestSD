@@ -8,6 +8,8 @@ public static class SceneTransitions{
 
 	public static void NextScene(int nextSceneIndex){
 		int currSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
+
+
 		pastScenes.Push (currSceneBuildIndex);
 		SceneManager.LoadScene (nextSceneIndex);
 	}
@@ -16,6 +18,5 @@ public static class SceneTransitions{
 		if (pastScenes.Count > 0) {
 			SceneManager.LoadScene (pastScenes.Pop ());
 		}
-
 	}
 }

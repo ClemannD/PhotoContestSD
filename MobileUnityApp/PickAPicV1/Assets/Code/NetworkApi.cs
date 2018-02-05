@@ -35,8 +35,6 @@ public class NetworkAPI:MonoBehaviour{
 
 		InsertUserResponse response = new InsertUserResponse();
 
-
-
 		response = ApiCall<InsertUserRequest,InsertUserResponse> (request,response,"InsertUser.aspx");
 
 		if (response.error == null) {
@@ -191,8 +189,34 @@ public class NetworkAPI:MonoBehaviour{
 		}
 
 		return retrieveUserResponse;
+	}
 
+	public struct RetrieveAllContestsRequest
+	{
+		public int adminID;
+		public string adminPassword;
+	}
 
+	public struct contestInfo{
+		public int contest_id;
+		public string category;
+		public int week;
+	}
+
+	public struct RetrieveAllContestsResponse
+	{
+		public int id;
+		public List<contestInfo> allContests;
+		public string error;
+	}
+
+	public static RetrieveAllContestsResponse RetrieveAllContests(int adminId, string adminPassword){
+		RetrieveAllContestsRequest request = new RetrieveAllContestsRequest();
+		request.adminID = adminId;
+		request.adminPassword = adminPassword;
+		RetrieveAllContestsResponse response = new RetrieveAllContestsResponse();
+		response = ApiCall<RetrieveAllContestsRequest,RetrieveAllContestsResponse>(request,response,"RetrieveAllContests.aspx");
+		return response;
 	}
 		
 
@@ -217,12 +241,34 @@ public class NetworkAPI:MonoBehaviour{
 			}
 			Thread.Sleep (RETRY_SLEEP);
 		}
-	
-
 		return response;
-
 	}
 
+	public struct RetrieveAllImagesRequest{
+		public int contest_id;
+	}
+
+	public struct imageInfo{
+		public int image_id;
+		public string image_url;
+		public string description;
+		public int user_id;
+	}
+
+	public struct RetrieveAllImagesResponse{
+		public int id;
+		public List<imageInfo> allImages;
+		public string error;
+	}
+
+	public static RetrieveAllImagesResponse RetrieveImages(int contestId){
+		RetrieveAllImagesRequest request = new RetrieveAllImagesRequest ();
+		request.contest_id = contestId;
+		RetrieveAllImagesResponse response = new RetrieveAllImagesResponse ();
+
+		response = ApiCall<RetrieveAllImagesRequest,RetrieveAllImagesResponse> (request, response, "RetrieveAllImages.aspx");
+		return response;
+	}
 
 
 

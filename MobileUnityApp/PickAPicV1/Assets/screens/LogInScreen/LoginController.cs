@@ -10,10 +10,15 @@ public class LoginController : MonoBehaviour {
 	void Start(){
 		ui.loginButton.onClick.AddListener (LoginPressed);
 		ui.signUpButton.onClick.AddListener (SignUpPressed);
+
+
 	}
 
 	//for when the user hits the login button
 	public void LoginPressed(){
+		ImportantInfo.SetCurrentWeekData ();
+		Debug.Log (ImportantInfo.contestOfWeek.contest_id);
+
 		NetworkAPI.LoginUserResponse loginResponse = new NetworkAPI.LoginUserResponse ();
 
 		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),ui.GetPassword());
@@ -22,7 +27,8 @@ public class LoginController : MonoBehaviour {
 			MessageForUser.OutputMessage(loginResponse.error);
 			//tell the user something is wrong
 		} else {
-			UserInfo.userId = loginResponse.id;
+			ImportantInfo.userId = loginResponse.id;
+
 			SceneTransitions.NextScene (SceneIndices.ENTRIES);
 		}
 	}

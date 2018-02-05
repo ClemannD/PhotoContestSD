@@ -1,11 +1,19 @@
 fileFormatVersion: 2
 guid: 8aa3aca817b21d145830acf847d0c285
-timeCreated: 1515355177
+timeCreated: 1517627979
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - competeButton: {instanceID: 0}
+  - entriesButton: {instanceID: 0}
+  - pastContestsButton: {instanceID: 0}
+  - profileButton: {instanceID: 0}
+  - themeText: {instanceID: 0}
+  - search: {instanceID: 0}
+  - contentBox: {instanceID: 0}
+  - panelPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
