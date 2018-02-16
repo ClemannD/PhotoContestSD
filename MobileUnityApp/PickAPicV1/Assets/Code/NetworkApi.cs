@@ -271,8 +271,50 @@ public class NetworkAPI:MonoBehaviour{
 	}
 
 
+	public struct RetrieveCurrentContestsRequest{
+
+	}
+
+	public struct RetrieveCurrentContestsResponse{
+		public int contest_id;
+		public string category;
+		public int week;
+		public string error;
+	}
+
+	public static RetrieveCurrentContestsResponse GetCurrentContestInfo(){
+		RetrieveCurrentContestsRequest request = new RetrieveCurrentContestsRequest ();
+		RetrieveCurrentContestsResponse response = new RetrieveCurrentContestsResponse ();
+
+		response = ApiCall<RetrieveCurrentContestsRequest,RetrieveCurrentContestsResponse> (request, response, "RetrieveCurrentContests.aspx");
+
+		return response;
+	}
 
 
+	public struct VoteRequest{
+		public int user_id;
+		public string password;
+		public int image_id;
+	}
+
+	public struct VoteResponse{
+		public int id;
+		public int votes;
+		public string error;
+	}
+
+	public static VoteResponse SendVote(int userId, string password, int image_id){
+		VoteRequest request = new VoteRequest ();
+		request.user_id = userId;
+		request.password = password;
+		request.image_id = image_id;
+		VoteResponse response = new VoteResponse ();
+
+		response = ApiCall<VoteRequest,VoteResponse> (request, response, "Vote.aspx");
+		return response;
+
+	}
 
 
 

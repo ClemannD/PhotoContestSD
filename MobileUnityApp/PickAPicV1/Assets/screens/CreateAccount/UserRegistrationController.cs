@@ -17,11 +17,13 @@ public class UserRegistrationController:MainScreensController{
 
 
 	public void SubmitPressed(){
-		ImportantInfo.SetCurrentWeekData ();
+		ContestInfo.SetCurrentWeekData ();
 		if (VerifyUsername() && VerifyPassword () && VerifyEmail ()  && VerifyBirthday() && ui.TermsAccepted()) {
 			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (ui.GetUsername (), ui.GetFullName(),ui.GetEmailAddress (), ui.GetPassword (), BirthdayStringForm());
 			if (responseStruct.error.Length == 0) {
 				MessageForUser.OutputMessage (responseStruct.error);
+				UserInfo.SetUserId (responseStruct.id);
+				UserInfo.SetUserPassword (ui.GetPassword ());
 				SceneTransitions.NextScene (SceneIndices.ENTRIES);
 			} else {
 				MessageForUser.OutputMessage (responseStruct.error);

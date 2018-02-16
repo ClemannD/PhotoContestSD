@@ -18,7 +18,7 @@ public class EntriesUI : MainScreensUI {
 	}
 
 	void Start(){
-		themeText.text += " " + ImportantInfo.contestOfWeek.category;
+		themeText.text += " " + ContestInfo.GetWeekTheme();
 	}
 
 	public void SetThemeText(string themeText){

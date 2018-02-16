@@ -6,6 +6,6 @@ public class MessageForUser : MonoBehaviour {
 
 	public static void OutputMessage(string message){
 		//TODO output the message to the user somehow
-		Debug.Log(message);
+		//Debug.Log(message);
 	}
 }

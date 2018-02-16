@@ -12,27 +12,34 @@ public class ImageEntry{
 	protected string description;
 	protected Texture entryImage;
 	protected bool flagged;
+	protected int imageId;
 
 	//What do i do for the image???
 	protected string authorInfo;
 
-	public ImageEntry(int userId, string imageURL, string weekTheme, int contestId, string description){
+	public ImageEntry(int userId, int imageId, string imageURL, string weekTheme, int contestId, string description){
 		flagged = false;
 		this.userId = userId;
 		this.imageURL = imageURL;
 		this.weekTheme = weekTheme;
 		this.contestId = contestId;
 		this.description = description;
+		this.imageId = imageId;
 	}
 
-	public ImageEntry(int userId, string imageURL, string weekTheme, int contestId, string description, Texture t){
+	public ImageEntry(int userId, int imageId, string imageURL, string weekTheme, int contestId, string description, Texture t){
 		flagged = false;
 		this.userId = userId;
 		this.imageURL = imageURL;
 		this.weekTheme = weekTheme;
 		this.contestId = contestId;
 		this.description = description;
+		this.imageId = imageId;
 		this.entryImage = t;
+	}
+
+	public int GetImageId(){
+		return imageId;
 	}
 
 	public Texture GetImage(){

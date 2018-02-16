@@ -6,26 +6,15 @@ using UnityEngine.Networking;
 public class EntriesController:MainScreensController{
 	public EntriesUI ui;
 
-	//ImageForVoting first = new ImageForVoting (0, "", "", 0, "haha");
-
-	//ImageForVoting second = new ImageForVoting (0, "", "", 0, "");
-
-	//ImageForVoting third = new ImageForVoting (0, "", "", 0, "");
-
 	void Start(){
 		AddMainListeners (ui);
 		StartCoroutine(RefreshGUI());
-
-
-		//ui.AddEntry (first);
-		//ui.AddEntry (second);
-		//ui.AddEntry (third);
 	}
 		
 
 	public IEnumerator RefreshGUI(){
-		Debug.Log ("week is: " + ImportantInfo.contestOfWeek.week);
-		NetworkAPI.RetrieveAllImagesResponse response = NetworkAPI.RetrieveImages (ImportantInfo.contestOfWeek.week);
+		Debug.Log ("week is: " + ContestInfo.GetWeekNumber());
+		NetworkAPI.RetrieveAllImagesResponse response = NetworkAPI.RetrieveImages (ContestInfo.GetContestID());
 		List<NetworkAPI.imageInfo> listOfEntries = response.allImages;
 
 
@@ -53,7 +42,7 @@ public class EntriesController:MainScreensController{
 				}
 
 			//readyImages.Add(new ImageForVoting(UserInfo.userId,"http://pick-apic.com/" + entry.image_url,UserInfo.contestOfWeek.contest_id,entry.description,textureHandler.texture));
-			ui.AddEntry (new ImageForVoting(ImportantInfo.userId,"http://pick-apic.com/" + entry.image_url,ImportantInfo.contestOfWeek.contest_id,entry.description,textureHandler.texture));
+			ui.AddEntry (new ImageForVoting(UserInfo.GetUserId(),entry.image_id,"http://pick-apic.com/" + entry.image_url,ContestInfo.GetContestID(),entry.description,textureHandler.texture));
 		}
 
 		//foreach (var pic in readyImages) {
@@ -63,7 +52,7 @@ public class EntriesController:MainScreensController{
 
 	protected override void EntriesPressed ()
 	{
-		RefreshGUI ();
+		//TODO RefreshGUI ();
 	}
 
 

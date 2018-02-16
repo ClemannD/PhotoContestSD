@@ -16,19 +16,19 @@ public class LoginController : MonoBehaviour {
 
 	//for when the user hits the login button
 	public void LoginPressed(){
-		ImportantInfo.SetCurrentWeekData ();
-		Debug.Log (ImportantInfo.contestOfWeek.contest_id);
+		ContestInfo.SetCurrentWeekData ();
+		Debug.Log (ContestInfo.GetContestID());
 
 		NetworkAPI.LoginUserResponse loginResponse = new NetworkAPI.LoginUserResponse ();
-
-		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),ui.GetPassword());
+		string password = ui.GetPassword ();
+		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),password);
 
 		if (loginResponse.error.Length > 0) {
 			MessageForUser.OutputMessage(loginResponse.error);
 			//tell the user something is wrong
 		} else {
-			ImportantInfo.userId = loginResponse.id;
-
+			UserInfo.SetUserId (loginResponse.id);
+			UserInfo.SetUserPassword (password);
 			SceneTransitions.NextScene (SceneIndices.ENTRIES);
 		}
 	}
