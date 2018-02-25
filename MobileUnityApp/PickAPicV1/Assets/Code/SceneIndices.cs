@@ -7,7 +7,6 @@ using UnityEngine;
 /// </summary>
 public class SceneIndices{
 
-	//TODO this will change depending on the build order
 	public const int OPENING = 0;
 	public const int CREATE_ACCOUNT = 1;
 	public const int LOGIN_SCREEN = 0;
@@ -16,8 +15,19 @@ public class SceneIndices{
 	public const int PROFILE = 0;
 	public const int COMPETE = 0;
 	public const int SPLASH = 0;
+	public const int CHANGE_PASSWORD = 0;
+	public const int TROPHY_CABINET = 0;
+	public const int REMOVE_PICTURE = 0;
+	public const int NEW_THEME = 0;
 
-	//TODO many more?????
+	//admin screens
+	public const int BAN_USERS = 0;
+	public const int REVIEW_PHOTOS = 0;
+	public const int ADMIN_ENTRIES = 0;
+	public const int ADMIN_PROFILE =  0;
+	public const int ADMIN = 0;
+	public const int ADMIN_PAST_CONTEST = 0;
 
-	//
+
+
 }

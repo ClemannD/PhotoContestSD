@@ -27,6 +27,11 @@ public class ImageForVoting : ImageEntry {
 		entryUI.SetAuthorInfo (authorInfo);
 	}
 
+	public void RefreshImage(){
+		entryUI.SetImage (entryImage);
+	}
+		
+
 	//TODO
 	public void VotePressed(){
 		//have an if statement here to check vote status. if not voted on this, vote. otherwise, remove vote.

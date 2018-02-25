@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class MainScreensUI:MonoBehaviour{
 
-	public Button competeButton;
+	//public Button competeButton;
 	public Button entriesButton;
 	public Button pastContestsButton;
 	public Button profileButton;

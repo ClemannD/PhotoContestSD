@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 //
-public class UserRegistrationUI : MainScreensUI {
+public class UserRegistrationUI : NormalUserScreensUI {
 
 	public InputField username;
 	public InputField password;

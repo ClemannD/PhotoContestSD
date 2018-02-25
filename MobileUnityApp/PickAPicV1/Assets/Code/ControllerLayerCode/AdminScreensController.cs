@@ -2,22 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainScreensController:MonoBehaviour{
-	
-	/*
+public class AdminScreensController:MonoBehaviour {
+
+
+	protected void AddAdminListeners(AdminScreensUI adminUI){
+		
+	}
+
+	public void AdminPressed(){
+
+	}
 
 	/// <summary>
 	/// Activated when the entries button is pressed. Takes the user to the entries screen
-	/// </summary>
+	/// </summary>0
 	protected virtual void EntriesPressed(){
-		SceneTransitions.NextScene (SceneIndices.ENTRIES);
+		SceneTransitions.NextScene (SceneIndices.ADMIN_ENTRIES);
 	}
 
 	/// <summary>
 	/// Activated when the profile button is pressed. Takes the user to the profile screen
 	/// </summary>
 	protected virtual void ProfilePressed(){
-		SceneTransitions.NextScene (SceneIndices.PROFILE);
+		SceneTransitions.NextScene (SceneIndices.ADMIN_PROFILE);
 	}
 
 	/// <summary>
@@ -26,6 +33,6 @@ public class MainScreensController:MonoBehaviour{
 	protected virtual void PastContestsPressed(){
 		SceneTransitions.NextScene (SceneIndices.PAST_CONTESTS);
 	}
-	*/
+		
 
 }

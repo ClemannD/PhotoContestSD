@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class EntriesUI : MainScreensUI {
+public class EntriesUI : NormalUserScreensUI {
 	private const int MAX_NUM_PICS = 30;//the maximum number of images this class will pull from the server per call
 
 	private List<ImageForVoting> images;
@@ -24,11 +24,7 @@ public class EntriesUI : MainScreensUI {
 	public void SetThemeText(string themeText){
 		this.themeText.text = themeText;
 	}
-
-	public ImageForVoting GetEntry(int index){
-		return images[index];
-	}
-
+		
 	public string GetSearchContent(){
 		return search.text;
 	}
@@ -42,9 +38,7 @@ public class EntriesUI : MainScreensUI {
 		panelToAdd.transform.SetParent (contentBox);
 	}
 
-	public IEnumerator AddEntryCoroutine(ImageForVoting entry){
-		yield return null;
-	}
+
 
 
 

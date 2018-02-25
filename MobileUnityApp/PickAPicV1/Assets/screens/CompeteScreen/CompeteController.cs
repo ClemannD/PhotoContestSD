@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompeteController : MainScreensController {
+public class CompeteController : NormalUserScreensController {
 	public CompeteUI ui;
 
 	void Start(){
-		AddMainListeners (ui);
+		AddListeners (ui);
 		ui.saveButton.onClick.AddListener (SavePressed);
 		ui.uploadSelectButton.onClick.AddListener (uploadSelectPressed);
 
@@ -26,7 +26,7 @@ public class CompeteController : MainScreensController {
 	}
 
 
-	protected override void CompetePressed ()
+	public override void CompetePressed ()
 	{
 		RefreshGUI ();
 	}

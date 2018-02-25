@@ -5,13 +5,13 @@ using System.Text.RegularExpressions;
 using System;
 
 
-public class UserRegistrationController:MainScreensController{
+public class UserRegistrationController:NormalUserScreensController{
 
 	public UserRegistrationUI ui;
 
 
 	void Start(){
-		AddMainListeners (ui);
+		AddListeners (ui);
 		ui.submitButton.onClick.AddListener (SubmitPressed);//need rali to make a submit button
 	}
 
