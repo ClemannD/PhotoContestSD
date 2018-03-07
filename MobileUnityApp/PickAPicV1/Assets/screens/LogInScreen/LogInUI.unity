@@ -335,7 +335,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter Password
+  m_Text: '**************'
 --- !u!222 &731371622
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -492,8 +492,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 909347163}
   m_TextComponent: {fileID: 731371621}
   m_Placeholder: {fileID: 846429870}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0

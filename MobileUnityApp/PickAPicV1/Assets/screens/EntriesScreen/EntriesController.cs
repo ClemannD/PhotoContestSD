@@ -8,18 +8,17 @@ public class EntriesController:NormalUserScreensController{
 
 	void Start(){
 		AddListeners (ui);
-		StartCoroutine( RefreshGUI());
+		StartCoroutine (RefreshPics ());
 	}
 		
 
-	private IEnumerator RefreshGUI(){
-		/*List<ImageForVoting> entryImages = RetrieveThisWeekContestPhotos ();
-		foreach (var pic in entryImages) {
-			ui.AddEntry (pic);
-		}
 
-		yield return null;
-		*/
+
+
+
+
+	private IEnumerator RefreshPics(){
+
 
 
 		Debug.Log ("week is: " + ContestInfo.GetWeekNumber());
@@ -55,32 +54,13 @@ public class EntriesController:NormalUserScreensController{
 				}
 			
 			//readyImages.Add(new ImageForVoting(UserInfo.userId,"http://pick-apic.com/" + entry.image_url,UserInfo.contestOfWeek.contest_id,entry.description,textureHandler.texture));
-			ui.AddEntry (new ImageForVoting(UserInfo.GetUserId(),entry.image_id,"http://pick-apic.com/" + entry.image_url,ContestInfo.GetContestID(),entry.description,textureHandler.texture));
+			ui.AddImage (new ImageForVoting(entry.user_id,entry.image_id,"http://pick-apic.com/" + entry.image_url,ContestInfo.GetContestID(),entry.description,textureHandler.texture));
 
 		}
 
 
 	}
 
-
-	//TODO maybe delete this
-	private List<ImageForVoting> RetrieveThisWeekContestPhotos(){
-		NetworkAPI.RetrieveAllImagesResponse response = NetworkAPI.RetrieveImages (21);//(ContestInfo.GetContestID());
-		List<NetworkAPI.imageInfo> listOfEntries = response.allImages;
-
-
-		List<ImageForVoting> returnList = new List<ImageForVoting> ();
-		Debug.Log ("num images from server: " + listOfEntries.Count);
-		foreach (NetworkAPI.imageInfo entry in listOfEntries) {
-			ImageForVoting  image = new ImageForVoting (UserInfo.GetUserId(),entry.image_id,"http://pick-apic.com/" + entry.image_url,ContestInfo.GetContestID(),entry.description);
-
-			ImageTools.DownloadAndSetPhoto (image,this);
-			returnList.Add (image);
-
-		}
-
-		return returnList;
-	}
 
 	protected override void EntriesPressed ()
 	{

@@ -16,9 +16,9 @@ public class ImageForVoting : ImageEntry {
 
 	}
 
-	public SingleEntryUI entryUI;
+	public VoteableEntry entryUI;
 
-	public void AttachUI(SingleEntryUI ui){
+	public void AttachUI(VoteableEntry ui){
 		entryUI = ui;
 		entryUI.voteButton.onClick.AddListener (VotePressed);
 		entryUI.reportButton.onClick.AddListener (ReportThis);

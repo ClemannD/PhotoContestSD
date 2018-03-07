@@ -90,8 +90,8 @@ GameObject:
   - component: {fileID: 224874996809522120}
   - component: {fileID: 222276835572787182}
   - component: {fileID: 114194348981784846}
-  - component: {fileID: 114671033351602544}
   - component: {fileID: 114927706445278102}
+  - component: {fileID: 114276802368084882}
   m_Layer: 5
   m_Name: Entry
   m_TagString: Untagged
@@ -305,6 +305,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
+--- !u!114 &114276802368084882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1446913380350456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55ed100c9904df468fc02f2c88212bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entryPic: {fileID: 114229998514217258}
+  authorInfo: {fileID: 114785147510684650}
+  description: {fileID: 114247934059692658}
+  voteButton: {fileID: 114035819742212942}
+  reportButton: {fileID: 114639183893652414}
 --- !u!114 &114381368161358286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -439,22 +455,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114671033351602544
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1446913380350456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb1e388650be93f48808d81a2e68cc67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entryPic: {fileID: 114229998514217258}
-  authorInfo: {fileID: 114785147510684650}
-  voteButton: {fileID: 114035819742212942}
-  reportButton: {fileID: 114639183893652414}
-  description: {fileID: 114247934059692658}
 --- !u!114 &114785147510684650
 MonoBehaviour:
   m_ObjectHideFlags: 1

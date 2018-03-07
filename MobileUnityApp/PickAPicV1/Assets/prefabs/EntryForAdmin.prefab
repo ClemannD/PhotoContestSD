@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 114671033351602544}
   - component: {fileID: 114927706445278102}
   m_Layer: 5
-  m_Name: Entry
+  m_Name: EntryForAdmin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

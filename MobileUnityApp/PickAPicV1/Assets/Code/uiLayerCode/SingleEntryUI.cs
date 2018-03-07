@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class SingleEntryUI : MonoBehaviour {
-
 	public RawImage entryPic;
 	public Text authorInfo;
-	public Button voteButton;
-	public Button reportButton;
+
 	public Text description;
 
 	public void SetAuthorInfo(string authorInfo){

@@ -29,14 +29,18 @@ public class EntriesUI : NormalUserScreensUI {
 		return search.text;
 	}
 
-	public void AddEntry(ImageForVoting entry){
+	public void AddImage(ImageForVoting entry){
 		Debug.Log ("adding pic");
 		images.Add (entry);
 		GameObject panelToAdd = GameObject.Instantiate(panelPrefab);
-		SingleEntryUI singleEntry = panelToAdd.GetComponent<SingleEntryUI> ();
+		VoteableEntry singleEntry = panelToAdd.GetComponent<VoteableEntry> ();
 		entry.AttachUI (singleEntry);
 		panelToAdd.transform.SetParent (contentBox);
 	}
+
+
+
+
 
 
 
