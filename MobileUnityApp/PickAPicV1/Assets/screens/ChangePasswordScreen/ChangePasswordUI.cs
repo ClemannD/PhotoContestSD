@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangePasswordUI : NormalUserScreensUI {
+public class ChangePasswordUI : MainScreensUI {
 	public InputField currentPassword;
 	public InputField newPassword;
 	public InputField confirmNewPassword;

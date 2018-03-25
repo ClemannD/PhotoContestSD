@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CompeteController : NormalUserScreensController {
+public class CompeteController : MainScreensController {
 	public CompeteUI ui;
 
 

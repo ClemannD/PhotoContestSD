@@ -313,7 +313,29 @@ public class NetworkAPI:MonoBehaviour{
 
 		response = ApiCall<VoteRequest,VoteResponse> (request, response, "Vote.aspx");
 		return response;
+	}
 
+	public struct UpdatePassRequest{
+		public string user_id;
+		public string password;
+		public string newpassword;
+	}
+
+	public struct UpdatePassResponse{
+		public int id;
+		public string error;
+	}
+
+	public static UpdatePassResponse NewPassword(string ID, string oldOne, string newOne){
+		UpdatePassRequest request = new UpdatePassRequest ();
+		request.user_id = ID;
+		request.password = oldOne;
+		request.newpassword = newOne;
+
+		UpdatePassResponse response = new UpdatePassResponse ();
+	
+		response = ApiCall<UpdatePassRequest,UpdatePassResponse> (request, response, "UpdatePass.aspx");
+		return response;
 	}
 
 

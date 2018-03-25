@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class EntriesController:NormalUserScreensController, IImageAdder{
+public class EntriesController:MainScreensController, IImageAdder{
 	public EntriesUI ui;
 
 	void Start(){
