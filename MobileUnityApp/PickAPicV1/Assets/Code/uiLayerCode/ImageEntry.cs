@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 
-public class ImageEntry{
+public class ImageEntry: IServerImage{
 	protected int userId;
 	protected string imageURL;
 	protected string weekTheme;
@@ -46,7 +46,7 @@ public class ImageEntry{
 		return this.entryImage;
 	}
 
-	public string GetUrl(){
+	public string GetServerURL(){
 		return imageURL;
 	}
 

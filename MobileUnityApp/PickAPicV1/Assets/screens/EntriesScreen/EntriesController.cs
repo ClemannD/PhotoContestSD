@@ -3,20 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class EntriesController:NormalUserScreensController{
+public class EntriesController:NormalUserScreensController, IImageAdder{
 	public EntriesUI ui;
 
 	void Start(){
 		AddListeners (ui);
-		StartCoroutine (RefreshPics ());
+
 	}
 		
 
+	public void RefreshPics(){
+		ImageAddingHelper addEntries = new ImageAddingHelper (this);
+		int contestId = NetworkAPI.GetCurrentContestInfo ().contest_id;
+		List<NetworkAPI.imageInfo> entries = NetworkAPI.RetrieveImages(contestId).allImages;
+		List<IServerImage> imagesToDisplay = new List<IServerImage> ();
+		foreach (var item in entries) {
+			ImageForVoting voteable = new ImageForVoting (item.user_id, item.image_id, item.image_url, contestId, item.description);
+			imagesToDisplay.Add (voteable);
+		}
+
+		addEntries.DownloadAndDisplayImages (imagesToDisplay);
+
+	}
+
+	public void AddImage(IServerImage entry){
+		ui.AddImage((ImageForVoting)entry);
+	}
 
 
-
-
-
+	/*
 	private IEnumerator RefreshPics(){
 
 
@@ -60,7 +75,11 @@ public class EntriesController:NormalUserScreensController{
 
 
 	}
+	*/
 
+	public MonoBehaviour GetMyMonoBehavior(){
+		return this;
+	}
 
 	protected override void EntriesPressed ()
 	{

@@ -17,7 +17,7 @@ public class LoginController : MonoBehaviour {
 	//for when the user hits the login button
 	public void LoginPressed(){
 		ContestInfo.SetCurrentWeekData ();
-		Debug.Log (ContestInfo.GetContestID());
+		//Debug.Log (ContestInfo.GetContestID());
 
 		NetworkAPI.LoginUserResponse loginResponse = new NetworkAPI.LoginUserResponse ();
 		string password = ui.GetPassword ();
