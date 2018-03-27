@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System;
 
 
-public class UserRegistrationController:NormalUserScreensController{
+public class UserRegistrationController:MainScreensController{
 
 	public UserRegistrationUI ui;
 

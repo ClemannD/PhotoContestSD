@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class MainScreensController:MonoBehaviour{
 	
-	/*
+
+	protected virtual void AddListeners(MainScreensUI userUI){
+		userUI.competeButton.onClick.AddListener(CompetePressed);
+		userUI.entriesButton.onClick.AddListener(EntriesPressed);
+		userUI.profileButton.onClick.AddListener(EntriesPressed);
+		userUI.pastContestsButton.onClick.AddListener(PastContestsPressed);
+	}
+
+
+	public virtual void CompetePressed(){
+		SceneTransitions.NextScene (SceneIndices.COMPETE);
+	}
 
 	/// <summary>
 	/// Activated when the entries button is pressed. Takes the user to the entries screen
@@ -26,6 +37,7 @@ public class MainScreensController:MonoBehaviour{
 	protected virtual void PastContestsPressed(){
 		SceneTransitions.NextScene (SceneIndices.PAST_CONTESTS);
 	}
-	*/
+
+
 
 }

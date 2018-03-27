@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainScreensUIAdmin : MonoBehaviour {
-
+public class FileSelectController : MonoBehaviour {
+	//TODO
 	// Use this for initialization
 	void Start () {
 		

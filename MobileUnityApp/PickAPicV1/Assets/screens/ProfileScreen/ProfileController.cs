@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProfileController : NormalUserScreensController {
+public class ProfileController : MainScreensController {
 	public ProfileUI ui;
 
 	// Use this for initialization

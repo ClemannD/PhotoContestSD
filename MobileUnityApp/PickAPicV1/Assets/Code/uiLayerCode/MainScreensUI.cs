@@ -12,6 +12,7 @@ public class MainScreensUI:MonoBehaviour{
 	public Button entriesButton;
 	public Button pastContestsButton;
 	public Button profileButton;
+	public Button competeButton;
 
 
 }

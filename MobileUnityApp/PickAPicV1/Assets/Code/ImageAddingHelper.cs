@@ -13,22 +13,15 @@ public class ImageAddingHelper{
 		this.forCoroutines = imageAdder.GetMyMonoBehavior ();
 	}
 
-	public IEnumerator DonwloadAndAddContestImages(int contestID){
-		NetworkAPI.RetrieveAllImagesResponse response = NetworkAPI.RetrieveImages(contestID);
-		List<NetworkAPI.imageInfo> listOfEntries = response.allImages;
+	/// <summary>
+	/// Takes the ImageEntry argument object and sets the texture (i.e. image) belonging to it. It then adds it to the screen.
+	/// </summary>
+	/// <returns>It's a coroutine</returns>
+	/// <param name="entry">Entry.</param>
 
-
-		NetworkAPI.RetrieveAllContestsResponse response2 = NetworkAPI.RetrieveAllContests(5,"donothackplz");
-		List<NetworkAPI.contestInfo> contests = response2.allContests;
-		string contestTheme = "";
-		foreach (var item in contests) {
-			if (item.contest_id == contestID) {
-				contestTheme = item.category;
-			}
-		}
-
-		foreach (NetworkAPI.imageInfo entry in listOfEntries) {
-			UnityWebRequest request = UnityWebRequestTexture.GetTexture ("http://pick-apic.com/" + entry.image_url);
+	public IEnumerator DownloadAndSetImages(List<IServerImage> listOfImages){
+		foreach (IServerImage image in listOfImages) {
+			UnityWebRequest request = UnityWebRequestTexture.GetTexture ("http://pick-apic.com/" + image.GetServerURL());
 			request.SendWebRequest ();
 
 			while (!request.isDone) {
@@ -44,13 +37,22 @@ public class ImageAddingHelper{
 				yield return null;
 			}
 
-			imageAdder.AddImage(new ImageEntry(entry.user_id,entry.image_id,entry.image_url,contestTheme,contestID,entry.description,textureHandler.texture));
+			image.SetTexture (textureHandler.texture);
+			imageAdder.AddImage (image);
 		}
 	}
 
-	public void GetContestImagesCoroutine(int contestID){
-		forCoroutines.StartCoroutine (DonwloadAndAddContestImages(contestID));
+	public void DownloadAndDisplayImage(IServerImage image){
+		List<IServerImage> singleImage =  new List<IServerImage>();
+		singleImage.Add(image);
+		forCoroutines.StartCoroutine (DownloadAndSetImages(singleImage));
 	}
+
+	public void DownloadAndDisplayImages(List<IServerImage> listOfImages){
+		forCoroutines.StartCoroutine (DownloadAndSetImages(listOfImages));
+	}
+
+
 
 
 

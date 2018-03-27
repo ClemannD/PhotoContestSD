@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class EntriesUI : NormalUserScreensUI {
+public class EntriesUI : MainScreensUI {
 	private const int MAX_NUM_PICS = 30;//the maximum number of images this class will pull from the server per call
 
 	private List<ImageForVoting> images;
