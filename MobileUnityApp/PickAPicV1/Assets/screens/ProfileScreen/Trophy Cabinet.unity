@@ -630,6 +630,7 @@ GameObject:
   - component: {fileID: 908917695}
   - component: {fileID: 908917697}
   - component: {fileID: 908917696}
+  - component: {fileID: 908917698}
   m_Layer: 5
   m_Name: Trophy Cabinet
   m_TagString: Untagged
@@ -694,6 +695,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 908917694}
+--- !u!114 &908917698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 908917694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.6838235, g: 0.6838235, b: 0.6838235, a: 0.897}
+  m_EffectDistance: {x: 3, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1231818214
 GameObject:
   m_ObjectHideFlags: 0

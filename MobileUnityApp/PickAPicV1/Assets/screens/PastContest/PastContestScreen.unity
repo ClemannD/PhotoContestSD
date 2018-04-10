@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 7873126}
   - component: {fileID: 7873128}
   - component: {fileID: 7873127}
+  - component: {fileID: 7873129}
   m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
@@ -187,6 +188,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 7873125}
+--- !u!114 &7873129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7873125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.6838235, g: 0.6838235, b: 0.6838235, a: 0.897}
+  m_EffectDistance: {x: 3, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &53916938
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,6 +508,16 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224825051873066340, guid: b4abfc76afab3447e930d8736f834575,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224825051873066340, guid: b4abfc76afab3447e930d8736f834575,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4abfc76afab3447e930d8736f834575, type: 2}
@@ -1196,7 +1221,7 @@ Prefab:
     - target: {fileID: 224052995139784836, guid: 120383bb086cb4b5c853b6e0c64a6b7e,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 2.800003
+      value: 2.7999878
       objectReference: {fileID: 0}
     - target: {fileID: 224052995139784836, guid: 120383bb086cb4b5c853b6e0c64a6b7e,
         type: 2}
