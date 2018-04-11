@@ -5,11 +5,18 @@ using UnityEngine;
 using System;
 using System.Net;
 using Newtonsoft.Json;
+using UnityEngine.Networking;
 
 public class NetworkAPI:MonoBehaviour{
 	private const int RETRIES = 10;
 	private const int RETRY_SLEEP = 10;
 	public const string UPLOAD_URL = "http://pick-apic.com/webservices/";
+
+
+
+
+
+
 
 
 	public struct InsertUserRequest{
@@ -244,6 +251,34 @@ public class NetworkAPI:MonoBehaviour{
 		return response;
 	}
 
+
+
+	private static responseStructType ApiCallUpload<sendStructType,responseStructType>(sendStructType send, responseStructType response, string aspxFilename){
+
+
+		WebClient webClient = new WebClient ();
+
+		string uploadJson = JsonConvert.SerializeObject(send);
+
+
+		for(int x=0;x<RETRIES;x++){
+
+			try {
+				webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
+				string returnString = (string)webClient.UploadString(UPLOAD_URL + aspxFilename,"POST",uploadJson);
+				Debug.Log("the returned string after the api call is: " + returnString);
+				response = JsonConvert.DeserializeObject<responseStructType>(returnString);
+				break;
+			} catch (Exception ex) {
+				Debug.Log ("something bad happened");
+				Debug.Log (ex);
+			}
+			Thread.Sleep (RETRY_SLEEP);
+		}
+		return response;
+	}
+
+
 	public struct RetrieveAllImagesRequest{
 		public int contest_id;
 	}
@@ -336,6 +371,76 @@ public class NetworkAPI:MonoBehaviour{
 	
 		response = ApiCall<UpdatePassRequest,UpdatePassResponse> (request, response, "UpdatePass.aspx");
 		return response;
+	}
+
+
+	//Reference: https://docs.unity3d.com/ScriptReference/WWWForm.html
+	//Reference: https://docs.unity3d.com/Manual/UnityWebRequest-SendingForm.html
+	//Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
+
+	public struct InsertImageResponse{
+		public string imgUrl;
+		public string error;
+	}
+
+	public static InsertImageResponse ResponseFromInsertImageCall(UnityWebRequest r){
+		string jsonReturned = r.downloadHandler.text;
+		InsertImageResponse response = JsonConvert.DeserializeObject<InsertImageResponse> (jsonReturned);
+		return response;
+	}
+
+	//Reference: https://docs.unity3d.com/ScriptReference/WWWForm.html
+	//Reference: https://docs.unity3d.com/Manual/UnityWebRequest-SendingForm.html
+	//Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
+
+	public static void UploadEntryCoroutine(UploadImage forUpload, MonoBehaviour callingClass){
+		callingClass.StartCoroutine (UploadEntry (forUpload));
+
+
+	}
+
+
+	public static IEnumerator UploadEntry(UploadImage forUpload){
+		//System.Drawing.Image a = System.Drawing.Image.FromFile(forUpload.url);
+		//Texture2D b = new Texture2D (a.Width, a.Height 	 );
+
+		byte[] forUploading= System.IO.File.ReadAllBytes (forUpload.url);
+		//ImageConversion.LoadImage (b, forUploading1);
+
+		//byte[] forUploading2 = b.EncodeToPNG ();
+	
+
+
+		WWWForm send = new WWWForm ();
+		send.AddField ("user_id", "" + UserInfo.GetUserId());
+		send.AddField ("username", UserInfo.GetUsername());
+		Debug.Log ("the images contest id is " + forUpload.contestId);
+		send.AddField ("contest_id", "" +  forUpload.contestId);
+		send.AddField ("description", forUpload.description);
+		send.AddBinaryData ("?",forUploading,"whatever","image/" + forUpload.ContentType());
+		UnityWebRequest sendIt = UnityWebRequest.Post ("http://pick-apic.com/webservices/InsertImage.aspx",send);
+
+		Debug.Log ("some info: " + sendIt.uploadHandler.contentType);
+
+		yield return sendIt.SendWebRequest ();
+
+
+
+
+		IDictionaryEnumerator bla = sendIt.GetResponseHeaders().GetEnumerator();
+		while (bla.MoveNext ()) {
+			KeyValuePair<string,string> stuff = (KeyValuePair<string,string>)bla.Current;
+			Debug.Log (" " + stuff.Key + ", " + stuff.Value );
+
+		}
+		//NetworkAPI.InsertImageResponse response = NetworkAPI.ResponseFromInsertImageCall (sendImages);
+
+		Debug.Log("hopefully this isnt gibberish: " + sendIt.downloadHandler.text);
+
+
+		Debug.Log ("ok it worked hopefully");
+
+
 	}
 
 

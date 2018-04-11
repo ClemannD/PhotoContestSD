@@ -35,6 +35,7 @@ public class EntriesUI : MainScreensUI {
 		GameObject panelToAdd = GameObject.Instantiate(panelPrefab);
 		VoteableEntry singleEntry = panelToAdd.GetComponent<VoteableEntry> ();
 		entry.AttachUI (singleEntry);
+		//singleEntry.entryPic.SetNativeSize ();
 		panelToAdd.transform.SetParent (contentBox);
 	}
 

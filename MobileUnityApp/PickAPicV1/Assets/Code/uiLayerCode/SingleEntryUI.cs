@@ -13,6 +13,12 @@ public class SingleEntryUI : MonoBehaviour {
 	}
 
 	public void SetImage(Texture pic){
+//		entryPic.texture.width = pic.width;
+//		entryPic.texture.height = pic.height;
+		//entryPic.rectTransform. = null;
+
+		//r.height = (float)5.5;
+		//entryPic.rectTransform.
 		entryPic.texture = pic;
 	}
 

@@ -8,7 +8,7 @@ public class MainScreensController:MonoBehaviour{
 	protected virtual void AddListeners(MainScreensUI userUI){
 		userUI.competeButton.onClick.AddListener(CompetePressed);
 		userUI.entriesButton.onClick.AddListener(EntriesPressed);
-		userUI.profileButton.onClick.AddListener(EntriesPressed);
+		userUI.profileButton.onClick.AddListener(ProfilePressed);
 		userUI.pastContestsButton.onClick.AddListener(PastContestsPressed);
 	}
 

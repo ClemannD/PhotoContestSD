@@ -32,7 +32,7 @@ public class ImageForVoting : ImageEntry {
 	}
 		
 
-	//TODO
+	//TODO move these to controller
 	public void VotePressed(){
 		//have an if statement here to check vote status. if not voted on this, vote. otherwise, remove vote.
 		//need different state animations

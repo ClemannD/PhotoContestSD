@@ -4,16 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CompeteUI : MainScreensUI {
-	public Text weekText;
 	public Text themeText;
 	public Button uploadSelectButton;
 	public Button saveButton;
-	public Image uploadImage;
+	public RawImage uploadImageDisplay;
+	public InputField description;
 
 
 
 	public void SetThemeText(string themeText){
 		this.themeText.text = themeText;
+	}
+
+
+	public void SetUploadImage(Texture2D pic){
+		uploadImageDisplay.texture = pic;
+	}
+
+	public string GetDescription(){
+		return description.text;
 	}
 
 

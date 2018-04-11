@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class UserInfo {
-	private static int userId;
-	private static string userPassword;
+public static class UserInfo {//TODO remove these later
+	private static int userId = 5;
+	private static string userPassword = "donothackplz";
+	private static string username = "commander_clutch";
 
 	public static int GetUserId(){
 		return userId;
@@ -20,6 +21,10 @@ public static class UserInfo {
 
 	public static string GetUserPassword(){
 		return userPassword;
+	}
+
+	public static string GetUsername(){
+		return username;
 	}
 
 }

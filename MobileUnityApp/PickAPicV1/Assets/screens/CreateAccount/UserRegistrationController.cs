@@ -152,10 +152,6 @@ public class UserRegistrationController:MainScreensController{
 
 		}
 
-
-	
-
-
 		Birthday bday = new Birthday (day,month,year);
 
 		return bday.OlderThan (13);

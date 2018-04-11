@@ -24,7 +24,7 @@ public class MobileFolder {
 		List<string> allowed = new List<string> ();
 		for (int x = 0; x < files.Length; x++) {
 			string name = files [x];
-			if (name.EndsWith ("jpg") || name.EndsWith ("png") || name.EndsWith ("JPG") || name.EndsWith ("PNG")) {
+			if (AllowedType(name)) {
 				allowed.Add (name);
 			}
 		}
@@ -53,6 +53,14 @@ public class MobileFolder {
 
 	public string[] GetFolderPaths(){
 		return folderPaths;
+	}
+
+	private bool AllowedType(string file){
+		if (file.EndsWith ("jpg") || file.EndsWith ("png") || file.EndsWith ("JPG") || file.EndsWith ("PNG")) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

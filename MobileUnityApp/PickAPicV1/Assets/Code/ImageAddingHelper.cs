@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using System.IO;
 
 //TODO 
 public class ImageAddingHelper{
@@ -22,7 +23,7 @@ public class ImageAddingHelper{
 	public IEnumerator DownloadAndSetImages(List<IServerImage> listOfImages){
 		foreach (IServerImage image in listOfImages) {
 			UnityWebRequest request = UnityWebRequestTexture.GetTexture ("http://pick-apic.com/" + image.GetServerURL());
-			request.SendWebRequest ();
+			yield return request.SendWebRequest ();
 
 			while (!request.isDone) {
 				yield return null;
@@ -37,8 +38,14 @@ public class ImageAddingHelper{
 				yield return null;
 			}
 
+
+
 			image.SetTexture (textureHandler.texture);
+
+
 			imageAdder.AddImage (image);
+
+			//File.WriteAllBytes ("C:\\PicsStuff\\whatever.JPG", textureHandler.texture.EncodeToJPG());
 		}
 	}
 

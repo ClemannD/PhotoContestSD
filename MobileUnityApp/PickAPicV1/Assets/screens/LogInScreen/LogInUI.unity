@@ -218,7 +218,7 @@ MonoBehaviour:
   loginButton: {fileID: 1888974303}
   username: {fileID: 1617256497}
   password: {fileID: 909347162}
-  signUpButton: {fileID: 0}
+  signUpButton: {fileID: 383661850}
 --- !u!114 &154310617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.53800005, y: 0.1834375}
   m_AnchorMax: {x: 0.7832593, y: 0.227875}
-  m_AnchoredPosition: {x: 2.3600006, y: -0.21002197}
+  m_AnchoredPosition: {x: 2.3599854, y: -0.21002197}
   m_SizeDelta: {x: -4.716217, y: -5.0999756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383661850
@@ -1386,7 +1386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21662965, y: 0.1834375}
   m_AnchorMax: {x: 0.45822224, y: 0.227875}
-  m_AnchoredPosition: {x: 2.9418488, y: 0.28997803}
+  m_AnchoredPosition: {x: 2.9418335, y: 0.28997803}
   m_SizeDelta: {x: -0.7162781, y: -6.0999756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888974303

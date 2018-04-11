@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobileFileStructure : MonoBehaviour {
-	public MobileFolder currentFolder;
-	public Stack<MobileFolder> folderHistory;
-	public string[] imagePaths;
-	public Dictionary<string,string> availableFolders;
+public class MobileFileStructure {
+	private MobileFolder currentFolder;
+	private Stack<MobileFolder> folderHistory;
+	private string[] imagePaths;
+	private Dictionary<string,string> availableFolders;
 
 	public MobileFileStructure(string startFilePath){
 		this.folderHistory = new Stack<MobileFolder> ();
