@@ -34,9 +34,27 @@ public class EntriesUI : MainScreensUI {
 		images.Add (entry);
 		GameObject panelToAdd = GameObject.Instantiate(panelPrefab);
 		VoteableEntry singleEntry = panelToAdd.GetComponent<VoteableEntry> ();
+		LayoutElement layoutElement = panelToAdd.GetComponent<LayoutElement> ();
+		//Debug.Log ("the width is  " + singleEntry.entryPic.rectTransform.sizeDelta.x);
+		//Vector2 newDimensions = adjustDimensions(entry.GetDimensions(),1080);
+		//singleEntry.entryPic.SetNativeSize();//.rectTransform.sizeDelta = newDimensions;
+		//layoutElement.minWidth = newDimensions.x;
+		//layoutElement.minHeight = newDimensions.y;
 		entry.AttachUI (singleEntry);
 		//singleEntry.entryPic.SetNativeSize ();
+		//singleEntry.entryPic.SetNativeSize ();
+
 		panelToAdd.transform.SetParent (contentBox);
+	}
+
+	private Vector2 adjustDimensions(Vector2 currentDimensions, float newWidth){
+		float width = currentDimensions.x;
+		float height = currentDimensions.y;
+		float newHeight = (newWidth * height) / width;
+
+		return new Vector2 (newWidth, newHeight);
+
+
 	}
 
 

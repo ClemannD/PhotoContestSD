@@ -4,4 +4,34 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/screens/LogInScreen/LogInUI.unity
+    guid: 733dc80dbf3054c5f85781ab7decd5ea
+  - enabled: 1
+    path: Assets/screens/CompeteScreen/FileStructureStuff/EditImageDetails/EditImageScene.unity
+    guid: 8de7873dd4885954da1d3c463ee4fc1d
+  - enabled: 1
+    path: Assets/screens/CompeteScreen/FileStructureStuff/FileSelection.unity
+    guid: ae8f4ada9b21341cd8f601892b33f84d
+  - enabled: 1
+    path: Assets/screens/EntriesScreen/EntriesScreen.unity
+    guid: fc018fb7c82dedc4aa4cca9e03ea6d9c
+  - enabled: 1
+    path: Assets/screens/CreateAccount/CreateAccountScreen.unity
+    guid: e2cdaa2651ed2294393256215f496ce6
+  - enabled: 1
+    path: Assets/screens/CompeteScreen/CompeteScreen.unity
+    guid: ba026ad64ebd942b38e46df483cab6b1
+  - enabled: 1
+    path: Assets/screens/ProfileScreen/ProfileScreen.unity
+    guid: 1f66cf4ad5bb4074f9bddd1fa9ed489a
+  - enabled: 1
+    path: Assets/screens/PastContest/Week#.unity
+    guid: d926823b31c074e518c83d68476c1a7b
+  - enabled: 1
+    path: Assets/screens/Password/Incorrect Password.unity
+    guid: 4d590d7b1b4494990bd2eb422ff9d684
+  - enabled: 1
+    path: Assets/screens/ProfileScreen/Trophy Cabinet.unity
+    guid: ab023b346a945416abc1288d906704fa
