@@ -29,7 +29,7 @@ public class ImageAddingHelper{
 				yield return null;
 			}
 
-			if (!request.isDone) {
+			if (request.isDone) {
 				Debug.Log ("Download done");
 			}
 

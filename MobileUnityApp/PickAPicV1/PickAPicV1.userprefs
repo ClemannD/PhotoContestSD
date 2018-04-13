@@ -1,8 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Code\ControllerLayerCode\MainScreensController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\screens\EntriesScreen\EntriesController.cs">
     <Files>
-      <File FileName="Assets\Code\ControllerLayerCode\MainScreensController.cs" Line="9" Column="1" />
+      <File FileName="Assets\screens\CompeteScreen\FileStructureStuff\FileSelectUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\screens\EntriesScreen\EntriesController.cs" Line="26" Column="31" />
+      <File FileName="Assets\screens\EntriesScreen\EntriesUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\StaticClasses\SceneIndices.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\StaticClasses\UserInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\ImageAddingHelper.cs" Line="1" Column="1" />
+      <File FileName="Assets\screens\EntriesScreen\ImageForVoting.cs" Line="1" Column="1" />
+      <File FileName="Assets\Code\uiLayerCode\ImageEntry.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

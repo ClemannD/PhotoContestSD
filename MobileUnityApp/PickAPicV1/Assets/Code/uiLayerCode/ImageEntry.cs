@@ -54,6 +54,17 @@ public class ImageEntry: IServerImage{
 		this.entryImage = t;
 	}
 
+	/// <summary>
+	/// Array holding width and height in that order
+	/// </summary>
+	/// <returns>The dimensions.</returns>
+	public Vector2 GetDimensions(){
+		//int[] arrayOfDimensions= { this.entryImage.width, this.entryImage.height };
+		//return arrayOfDimensions;
+		Debug.Log("width is " + this.entryImage.width);
+		return new Vector2(this.entryImage.width, this.entryImage.height);
+	}
+
 	public void ReportThis(){
 		flagged = true;
 		//something else?
