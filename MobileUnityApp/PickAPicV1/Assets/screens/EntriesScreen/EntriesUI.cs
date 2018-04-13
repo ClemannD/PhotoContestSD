@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 
 public class EntriesUI : MainScreensUI {
 	private const int MAX_NUM_PICS = 30;//the maximum number of images this class will pull from the server per call
+	private const int PREFAB_WIDTH = 1000;//pixels wide
 
 	private List<ImageForVoting> images;
 	public Text themeText;
@@ -31,22 +32,21 @@ public class EntriesUI : MainScreensUI {
 
 	public void AddImage(ImageForVoting entry){
 		Debug.Log ("adding pic");
-		images.Add (entry);
+		//images.Add (entry);
 		GameObject panelToAdd = GameObject.Instantiate(panelPrefab);
-		VoteableEntry singleEntry = panelToAdd.GetComponent<VoteableEntry> ();
-		LayoutElement layoutElement = panelToAdd.GetComponent<LayoutElement> ();
-		//Debug.Log ("the width is  " + singleEntry.entryPic.rectTransform.sizeDelta.x);
-		//Vector2 newDimensions = adjustDimensions(entry.GetDimensions(),1080);
-		//singleEntry.entryPic.SetNativeSize();//.rectTransform.sizeDelta = newDimensions;
-		//layoutElement.minWidth = newDimensions.x;
-		//layoutElement.minHeight = newDimensions.y;
-		entry.AttachUI (singleEntry);
-		//singleEntry.entryPic.SetNativeSize ();
-		//singleEntry.entryPic.SetNativeSize ();
+		VotableEntryPrefabValues singleEntryPrefab = panelToAdd.GetComponent<VotableEntryPrefabValues> ();
+
+		Texture photoTexture = entry.GetImageTexture ();
+		Vector2 currentImageDimensions = new Vector2 (photoTexture.width, photoTexture.height);
+		currentImageDimensions = adjustDimensions (currentImageDimensions,PREFAB_WIDTH);
+		singleEntryPrefab.AdjustRawImageDimensions (currentImageDimensions);
+		singleEntryPrefab.AdjustPrefabDimensions (currentImageDimensions.x, currentImageDimensions.y + singleEntryPrefab.GetTextPanelHeight ());
+		entry.AttachUI (singleEntryPrefab);
 
 		panelToAdd.transform.SetParent (contentBox);
 	}
 
+	//todo maybe make it so that there's no decimal places
 	private Vector2 adjustDimensions(Vector2 currentDimensions, float newWidth){
 		float width = currentDimensions.x;
 		float height = currentDimensions.y;

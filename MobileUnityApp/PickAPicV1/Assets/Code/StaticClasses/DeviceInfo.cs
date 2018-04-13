@@ -8,6 +8,7 @@ public class DeviceInfo {
 	public const int IOS = 1;
 	public const int WINDOWS = 2;
 
+
 	public static int thisDeviceOS = 2;//set this somewhere
 
 

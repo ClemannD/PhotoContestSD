@@ -18,8 +18,9 @@ public class EntriesController:MainScreensController, IImageAdder{
 		int contestId = NetworkAPI.GetCurrentContestInfo ().contest_id;
 		List<NetworkAPI.imageInfo> entries = NetworkAPI.RetrieveImages(contestId).allImages;
 		List<IServerImage> imagesToDisplay = new List<IServerImage> ();
-		foreach (var item in entries) {
-			ImageForVoting voteable = new ImageForVoting (item.user_id, item.image_id, item.image_url, contestId, item.description);
+		foreach (NetworkAPI.imageInfo item in entries) {
+			ImageForVoting voteable = new ImageForVoting (item);
+
 			imagesToDisplay.Add (voteable);
 		}
 

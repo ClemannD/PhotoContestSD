@@ -13,36 +13,35 @@ public class ImageEntry: IServerImage{
 	protected Texture entryImage;
 	protected bool flagged;
 	protected int imageId;
+	protected int votes;
 
 	//What do i do for the image???
 	protected string authorInfo;
 
-	public ImageEntry(int userId, int imageId, string imageURL, string weekTheme, int contestId, string description){
-		flagged = false;
+	public ImageEntry(int userId, int imageId, string imageURL, int contestId, string description, string authorInfo, int votes, bool flagged){
+		this.flagged = flagged;
 		this.userId = userId;
 		this.imageURL = imageURL;
 		this.weekTheme = weekTheme;
 		this.contestId = contestId;
 		this.description = description;
 		this.imageId = imageId;
+		this.authorInfo = authorInfo;
+		this.votes = votes;
+		this.flagged = flagged;
+
 	}
 
-	public ImageEntry(int userId, int imageId, string imageURL, string weekTheme, int contestId, string description, Texture t){
-		flagged = false;
-		this.userId = userId;
-		this.imageURL = imageURL;
-		this.weekTheme = weekTheme;
-		this.contestId = contestId;
-		this.description = description;
-		this.imageId = imageId;
-		this.entryImage = t;
-	}
+
+
+
+
 
 	public int GetImageId(){
 		return imageId;
 	}
 
-	public Texture GetImage(){
+	public Texture GetImageTexture(){
 		return this.entryImage;
 	}
 

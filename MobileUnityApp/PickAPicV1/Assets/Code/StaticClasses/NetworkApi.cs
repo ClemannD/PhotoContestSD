@@ -288,6 +288,10 @@ public class NetworkAPI:MonoBehaviour{
 		public string image_url;
 		public string description;
 		public int user_id;
+		public string username;
+		public int votes;
+		public int isFlagged;
+		public int contest_id;
 	}
 
 	public struct RetrieveAllImagesResponse{

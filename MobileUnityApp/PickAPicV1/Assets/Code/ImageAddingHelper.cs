@@ -23,7 +23,7 @@ public class ImageAddingHelper{
 	public IEnumerator DownloadAndSetImages(List<IServerImage> listOfImages){
 		foreach (IServerImage image in listOfImages) {
 			UnityWebRequest request = UnityWebRequestTexture.GetTexture ("http://pick-apic.com/" + image.GetServerURL());
-			yield return request.SendWebRequest ();
+			request.SendWebRequest ();
 
 			while (!request.isDone) {
 				yield return null;
@@ -34,9 +34,9 @@ public class ImageAddingHelper{
 			}
 
 			DownloadHandlerTexture textureHandler = (DownloadHandlerTexture)request.downloadHandler;
-			while (!textureHandler.isDone) {
-				yield return null;
-			}
+			//while (!textureHandler.isDone) {
+			//	yield return null;
+			//}
 
 
 
