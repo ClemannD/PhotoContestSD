@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 224389648972369384}
   - component: {fileID: 222719423858265052}
   - component: {fileID: 114958816091452464}
+  - component: {fileID: 114442868100067846}
   m_Layer: 5
   m_Name: 1stPlaceDisplayed
   m_TagString: trophySymbol
@@ -89,6 +90,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114442868100067846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713232959537812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259a6e3092e0dd14a9bdf3d116dd82f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trophySymbol: {fileID: 114175581530075478}
+  trophyLabel: {fileID: 114679907664544232}
 --- !u!114 &114679907664544232
 MonoBehaviour:
   m_ObjectHideFlags: 1

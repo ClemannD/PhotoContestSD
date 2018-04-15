@@ -98,6 +98,7 @@
      <Compile Include="Assets\screens\PastContest\PastContestsController.cs" />
      <Compile Include="Assets\screens\PastContest\PastContestsUI.cs" />
      <Compile Include="Assets\screens\PastContest\SelectedContest.cs" />
+     <Compile Include="Assets\screens\PastContest\TrophySymbolPrefabValues.cs" />
      <Compile Include="Assets\screens\PastContest\WeekButtonPrefabValues.cs" />
      <Compile Include="Assets\screens\PastContest\WinningImageEntry.cs" />
      <Compile Include="Assets\screens\PastContest\WinningImagePrefabValues.cs" />

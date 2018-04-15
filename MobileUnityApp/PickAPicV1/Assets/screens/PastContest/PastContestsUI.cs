@@ -12,9 +12,10 @@ public class PastContestsUI : MainScreensUI {
 	public GameObject imagePrefab;
 	public GameObject weekButton;
 
-	public RectTransform firstPlaceSymbol;
-	public RectTransform secondPlaceSymbol;
-	public RectTransform thirdPlaceSymbol;
+	public GameObject firstPlaceSymbol;//prefab
+	public GameObject secondPlaceSymbol;//prefab
+	public GameObject thirdPlaceSymbol;//prefab
+	public GameObject[] placeSymbols;
 
 
 	private List<GameObject> winners;
@@ -30,7 +31,7 @@ public class PastContestsUI : MainScreensUI {
 	public Button next;
 	public Button previous;
 
-
+	public GameObject trophyInfoDisplayed;
 
 
 
@@ -38,6 +39,12 @@ public class PastContestsUI : MainScreensUI {
 		winners = new List<GameObject>();//delete this??s
 		//imageTable = new Dictionary<int, List<GameObject>> ();
 		place = 0;
+		placeSymbols = new GameObject[3];
+		placeSymbols [0] = GameObject.Instantiate (firstPlaceSymbol);
+		placeSymbols [1] = GameObject.Instantiate (secondPlaceSymbol);
+		placeSymbols [2] = GameObject.Instantiate (thirdPlaceSymbol);
+
+
 	}
 
 	public void SetTheme(string theme){
@@ -60,18 +67,20 @@ public class PastContestsUI : MainScreensUI {
 	}
 
 	public void DisplayImage(int p){
+		if (!trophyInfoDisplayed.activeInHierarchy) {
+			trophyInfoDisplayed.SetActive (true);
+		}
+
 		attachPhotoToThis.DetachChildren ();
 		//TODO deal with existing pics
 		winners [p].transform.SetParent (attachPhotoToThis);//TODO
-		/*
-		attachTrophySymbolsToThis.Ga
-		if (p == 0) {
-			firstPlaceSymbol.transform.SetParent (attachTrophySymbolsToThis);
-		} else if (p == 1) {
-			secondPlaceSymbol.transform.SetParent (attachTrophySymbolsToThis);
-		} else if (p == 2) {
-			thirdPlaceSymbol.transform.SetParent (attachTrophySymbolsToThis);
-		}*/
+
+		TrophySymbolPrefabValues valuesToChange = trophyInfoDisplayed.GetComponent<TrophySymbolPrefabValues> ();
+		TrophySymbolPrefabValues useTheseValues = placeSymbols [p].GetComponent<TrophySymbolPrefabValues> ();
+
+		valuesToChange.SetImage (useTheseValues.GetImageSprite ());
+		valuesToChange.SetLabel (useTheseValues.GetLabel ());
+	
 
 	}
 
