@@ -7,7 +7,6 @@ using System.IO;
 public class ImageEntry: IServerImage{
 	protected int userId;
 	protected string imageURL;
-	protected string weekTheme;
 	protected int contestId;
 	protected string description;
 	protected Texture entryImage;
@@ -22,7 +21,6 @@ public class ImageEntry: IServerImage{
 		this.flagged = flagged;
 		this.userId = userId;
 		this.imageURL = imageURL;
-		this.weekTheme = weekTheme;
 		this.contestId = contestId;
 		this.description = description;
 		this.imageId = imageId;
@@ -32,9 +30,18 @@ public class ImageEntry: IServerImage{
 
 	}
 
+	public int GetContestID(){
+		return this.contestId;
+	}
 
+	public int GetVotes(){
 
+		return this.votes;
+	}
 
+	public int GetUserID(){
+		return this.userId;
+	}
 
 
 	public int GetImageId(){

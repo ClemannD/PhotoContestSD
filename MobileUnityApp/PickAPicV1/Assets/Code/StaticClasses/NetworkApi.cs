@@ -13,12 +13,6 @@ public class NetworkAPI:MonoBehaviour{
 	public const string UPLOAD_URL = "http://pick-apic.com/webservices/";
 
 
-
-
-
-
-
-
 	public struct InsertUserRequest{
 		public string userName;
 		public string fullName;
@@ -163,19 +157,24 @@ public class NetworkAPI:MonoBehaviour{
 
 	public struct RetrieveUserRequest{
 		public int user_id;
+		public string password;
 	}
 
 	public struct RetrieveUserResponse{
+		public int id;
 		public string userName;
 		public string fullName;
 		public string bio;
-		public string email;
 		public string error;
+		public int totalVotes;
+		public int totalPictures;
+		public int totalContests;
 	}
 
-	public static RetrieveUserResponse DoRetrieveUserRequest(int userId){
+	public static RetrieveUserResponse DoRetrieveUserRequest(int userId, string password){
 		RetrieveUserRequest retrieveUserRequest = new RetrieveUserRequest();
 		retrieveUserRequest.user_id = userId;
+		retrieveUserRequest.password = password;
 
 		WebClient webClient = new WebClient ();
 		string uploadJson = JsonConvert.SerializeObject(retrieveUserRequest);
@@ -378,6 +377,107 @@ public class NetworkAPI:MonoBehaviour{
 	}
 
 
+
+
+	public struct RetrieveUserImagesRequest{
+		public int user_id;
+		public string password;
+	}
+
+
+	public struct RetrieveUserImagesResponse{
+		public int id;
+		public List<imageInfo> userInfo;
+		public string error;
+	}
+
+	public RetrieveUserImagesResponse GetUserImages(int userId, string password){
+
+		RetrieveUserImagesRequest request = new RetrieveUserImagesRequest();
+		request.user_id = userId;
+		request.password = password;
+
+		RetrieveUserImagesResponse response = new RetrieveUserImagesResponse();
+		response = ApiCall<RetrieveUserImagesRequest,RetrieveUserImagesResponse>(request,response,"RetrieveUserImages.aspx");
+		return response;
+
+	}
+
+
+
+	public struct ForgotPassRequest{
+		public string username;
+		public string verifyCode;
+		public string password;
+	}
+
+	public struct ForgotPassResponse{
+		public int id;
+		public string error;
+	}
+
+	public ForgotPassResponse ForgotPassword(string userName, string password, string code){
+		ForgotPassRequest request = new ForgotPassRequest ();
+		request.username = userName;
+		request.password = password;
+		request.verifyCode = code;
+
+		ForgotPassResponse response = new ForgotPassResponse ();
+
+		response = ApiCall<ForgotPassRequest,ForgotPassResponse> (request, response, "ForgotPass.aspx");
+		return response;
+	}
+
+
+
+
+
+	public class ContestWinners{
+		public struct contestInfo{
+			public int contest_id;
+			public string category;
+			public int week;
+			public int image1;
+			public int image2;
+			public int image3;
+		}
+
+		public struct RetrievePastContestsRequest{
+		}
+
+		public struct RetrievePastContestsResponse{
+			public List<contestInfo> PastContests;
+			public List<imageInfo> ContestImages;
+			public string error;
+		}
+
+		public static RetrievePastContestsResponse GetPastContestInfo(){
+			RetrievePastContestsRequest request = new RetrievePastContestsRequest ();
+			RetrievePastContestsResponse response = new RetrievePastContestsResponse ();
+			response = ApiCall<RetrievePastContestsRequest,RetrievePastContestsResponse> (request, response, "RetrievePastContests.aspx");
+
+
+			return response;
+
+		}
+		
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//Reference: https://docs.unity3d.com/ScriptReference/WWWForm.html
 	//Reference: https://docs.unity3d.com/Manual/UnityWebRequest-SendingForm.html
 	//Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
@@ -427,8 +527,6 @@ public class NetworkAPI:MonoBehaviour{
 		Debug.Log ("some info: " + sendIt.uploadHandler.contentType);
 
 		yield return sendIt.SendWebRequest ();
-
-
 
 
 		IDictionaryEnumerator bla = sendIt.GetResponseHeaders().GetEnumerator();

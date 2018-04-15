@@ -38,8 +38,7 @@ public class ImageForVoting : ImageEntry {
 		entryUI.SetDescription (description);
 		entryUI.SetAuthorInfo (authorInfo);
 		entryUI.SetVotes (votes);
-		//add votes
-		//what if it is flagged
+	
 	}
 
 

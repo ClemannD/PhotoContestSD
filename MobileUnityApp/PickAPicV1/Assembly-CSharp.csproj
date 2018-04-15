@@ -95,8 +95,17 @@
      <Compile Include="Assets\screens\EntriesScreen\VoteableEntry.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginController.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginScreenUI.cs" />
+     <Compile Include="Assets\screens\PastContest\PastContestsController.cs" />
+     <Compile Include="Assets\screens\PastContest\PastContestsUI.cs" />
+     <Compile Include="Assets\screens\PastContest\SelectedContest.cs" />
+     <Compile Include="Assets\screens\PastContest\WeekButtonPrefabValues.cs" />
+     <Compile Include="Assets\screens\PastContest\WinningImageEntry.cs" />
+     <Compile Include="Assets\screens\PastContest\WinningImagePrefabValues.cs" />
      <Compile Include="Assets\screens\ProfileScreen\ProfileController.cs" />
      <Compile Include="Assets\screens\ProfileScreen\ProfileUI.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\TrophyController.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\TrophyPrefabValues.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\TrophyUI.cs" />
      <None Include="Assets\newtonsoftStuff\Newtonsoft.Json.xml" />
      <None Include="Assets\newtonsoftStuff\license.txt" />
      <None Include="Assets\FlatButtonIconPack\readme.txt" />
