@@ -35,6 +35,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/screens/CompeteScreen/FileStructureStuff/FileSelection.unity
     guid: ae8f4ada9b21341cd8f601892b33f84d
-  - enabled: 1
-    path: Assets/screens/Password/Incorrect Password.unity
-    guid: 4d590d7b1b4494990bd2eb422ff9d684

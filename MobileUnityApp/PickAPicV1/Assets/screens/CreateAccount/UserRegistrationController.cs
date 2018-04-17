@@ -39,7 +39,7 @@ public class UserRegistrationController:MainScreensController{
 			}
 		} else {
 			
-			string message = "One or more fields do not meet requirements";
+			string message = "One or more fields do not meet requirements. \n";
 			if (!VerifyPassword()) {
 				message+= "Password and/or Password confirm field does not meet requirements";
 			}
@@ -56,8 +56,8 @@ public class UserRegistrationController:MainScreensController{
 				message += "\n You may not user pick a pic. All users must be age 13 or above.";
 			}
 
-			MessageForUser.OutputMessage (message);
-
+			failurePopupController = new FailurePopupController (ui, message);
+			failurePopupController.Show ();
 		}
 			
 	}
