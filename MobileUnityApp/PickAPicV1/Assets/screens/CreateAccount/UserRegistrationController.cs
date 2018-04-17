@@ -8,7 +8,8 @@ using System;
 public class UserRegistrationController:MainScreensController{
 
 	public UserRegistrationUI ui;
-
+	private SuccessPopupController successPopupController;
+	private FailurePopupController failurePopupController;
 
 	void Start(){
 		AddListeners (ui);
@@ -19,14 +20,22 @@ public class UserRegistrationController:MainScreensController{
 	public void SubmitPressed(){
 		ContestInfo.SetCurrentWeekData ();
 		if (VerifyUsername() && VerifyPassword () && VerifyEmail ()  && VerifyBirthday() && ui.TermsAccepted()) {
-			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (ui.GetUsername (), ui.GetFullName(),ui.GetEmailAddress (), ui.GetPassword (), BirthdayStringForm());
+			string username = ui.GetUsername ();
+			string password = ui.GetPassword ();
+			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (username, ui.GetFullName(),ui.GetEmailAddress (), password, BirthdayStringForm());
 			if (responseStruct.error.Length == 0) {
 				MessageForUser.OutputMessage (responseStruct.error);
 				UserInfo.SetUserId (responseStruct.id);
-				UserInfo.SetUserPassword (ui.GetPassword ());
-				SceneTransitions.NextScene (SceneIndices.ENTRIES);
+				UserInfo.SetUserPassword (password);
+				UserInfo.SetUsername (username);
+				//TODO popup showing failure or success
+				//SceneTransitions.NextScene (SceneIndices.LOGIN_SCREEN);
+				successPopupController = new SuccessPopupController(ui);
+				successPopupController.Show ();
+
 			} else {
-				MessageForUser.OutputMessage (responseStruct.error);
+				failurePopupController = new FailurePopupController (ui,responseStruct.error);
+				failurePopupController.Show ();
 			}
 		} else {
 			
@@ -159,6 +168,47 @@ public class UserRegistrationController:MainScreensController{
 
 	private string BirthdayStringForm(){
 		return ui.GetBirthMonth()+ "/" + ui.GetBirthDay() + "/" + ui.GetBirthYear();
+	}
+
+	private class SuccessPopupController{
+		 private UserRegistrationUI ui;
+
+		public SuccessPopupController(UserRegistrationUI ui){
+			this.ui = ui;
+			ui.successPopup.ok.onClick.AddListener(OkPressed);
+		}
+
+		public void Show(){
+			ui.ShowSuccessPopup (true);
+		}
+
+
+		public void OkPressed(){
+			SceneTransitions.NextScene (SceneIndices.LOGIN_SCREEN);
+		}
+
+	}
+
+	private class FailurePopupController{
+		private UserRegistrationUI ui;
+		private string message;
+		public FailurePopupController(UserRegistrationUI ui, string message){
+			this.message = message;
+			this.ui = ui;
+			this.ui.failurePopup.ok.onClick.AddListener(OkPressed);
+			this.ui.failurePopup.SetErrorMessage(message);
+		}
+
+
+
+		public void Show(){
+			ui.failurePopup.gameObject.SetActive (true);
+		}
+
+		public void OkPressed(){
+			ui.failurePopup.gameObject.SetActive (false);
+		}
+
 	}
 
 

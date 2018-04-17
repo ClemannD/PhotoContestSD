@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class EntriesController:MainScreensController, IImageAdder{
 	public EntriesUI ui;
+	private List<ImageEntryConnector> connectorLists;
+	private VotePopupControl votePopupControl;
 
 	void Start(){
 		AddListeners (ui);
+		connectorLists = new List<ImageEntryConnector> ();
 		RefreshPics ();
 	}
 		
@@ -19,6 +22,9 @@ public class EntriesController:MainScreensController, IImageAdder{
 		List<NetworkAPI.imageInfo> entries = NetworkAPI.RetrieveImages(contestId).allImages;
 		List<IServerImage> imagesToDisplay = new List<IServerImage> ();
 		foreach (NetworkAPI.imageInfo item in entries) {
+			if (item.isFlagged == 1) {
+				continue;
+			}
 			ImageForVoting voteable = new ImageForVoting (item);
 
 			imagesToDisplay.Add (voteable);
@@ -29,64 +35,104 @@ public class EntriesController:MainScreensController, IImageAdder{
 	}
 
 	public void AddImage(IServerImage entry){
-		ui.AddImage((ImageForVoting)entry);
+		ImageEntryConnector c = new ImageEntryConnector ((ImageForVoting)entry, this);
+		connectorLists.Add (c);
+		ui.AddImage((ImageForVoting)entry,c);
 	}
 
-
-	/*
-	private IEnumerator RefreshPics(){
-
-
-
-		Debug.Log ("week is: " + ContestInfo.GetWeekNumber());
-
-
-
-
-		NetworkAPI.RetrieveAllImagesResponse response = NetworkAPI.RetrieveImages (21);//(ContestInfo.GetContestID());//TODO
-		List<NetworkAPI.imageInfo> listOfEntries = response.allImages;
-
-
-		List<ImageForVoting> readyImages = new List<ImageForVoting> ();
-		Debug.Log ("num images from server: " + listOfEntries.Count);
-		foreach (NetworkAPI.imageInfo entry in listOfEntries) {
-			
-			
-			UnityWebRequest request = UnityWebRequestTexture.GetTexture ("http://pick-apic.com/" + entry.image_url);
-			request.SendWebRequest ();
-			Debug.Log ("here we go");
-				while (!request.isDone) {
-					yield return null;
-				}
-			Debug.Log ("done");
-				if (request.isDone) {
-					Debug.Log ("Download done");
-				}
-				DownloadHandlerTexture textureHandler = (DownloadHandlerTexture)request.downloadHandler;
-			while (!textureHandler.isDone) {
-				yield return null;
-			}
-				if (textureHandler.isDone) {
-					Debug.Log ("download handler is done");
-				}
-			
-			//readyImages.Add(new ImageForVoting(UserInfo.userId,"http://pick-apic.com/" + entry.image_url,UserInfo.contestOfWeek.contest_id,entry.description,textureHandler.texture));
-			ui.AddImage (new ImageForVoting(entry.user_id,entry.image_id,"http://pick-apic.com/" + entry.image_url,ContestInfo.GetContestID(),entry.description,textureHandler.texture));
-
-		}
-
-
-	}
-	*/
 
 	public MonoBehaviour GetMyMonoBehavior(){
 		return this;
 	}
 
-	protected override void EntriesPressed ()
-	{
-		//TODO RefreshGUI ();
+
+	public void Vote(ImageForVoting entry){
+		votePopupControl = new EntriesController.VotePopupControl (ui);
+
+		NetworkAPI.VoteResponse response = NetworkAPI.SendVote(UserInfo.GetUserId(),UserInfo.GetUserPassword(),entry.GetImageId());
+		if (response.error.Length == 0) {
+			
+			votePopupControl.SetMessage ("Vote sent");
+
+		} else {
+			//TODO ui message on whats wrong
+			votePopupControl.SetMessage(response.error);
+		}
+
+		votePopupControl.Show ();
+		//TODO have some dialogue to confirm the button press.
+
+		Debug.Log ("vote button was pressed");
+		//todo send the vote command to the ui, the ui then figures out what to do
 	}
+
+	public void Report(ImageForVoting entry){
+		Debug.Log ("report this!!!!");
+
+	}
+
+
+	private class VotePopupControl
+	{
+		
+		EntriesUI ui;
+
+		public VotePopupControl(EntriesUI ui){
+			this.ui = ui;
+			try {
+				ui.votePopup.ok.onClick.AddListener(TappedOk);
+			} catch (System.Exception ex) {
+				
+			}
+
+		}
+
+		public void TappedOk(){
+			ui.ShowVotePopup (false);
+		}
+
+		public void Show(){
+			ui.ShowVotePopup (true);
+		}
+
+		public void SetMessage(string message){
+			ui.votePopup.SetMessage (message);
+		}
+			
+
+	}
+
+	private class ReportPopupControl
+	{
+		private ReportPopupValues values;
+		private EntriesUI ui;
+
+		public ReportPopupControl(EntriesUI ui){
+			this.ui = ui;
+		}
+
+		public void Show(){
+			ui.ShowReportPopup (true);
+		}
+
+		public void CancelPressed(){
+			ui.ShowReportPopup (false);
+		}
+
+		public void YesPressed(){
+			//api stuff
+			//TODO
+
+			ui.ShowReportPopup (false);
+		}
+	}
+
+	//protected override void EntriesPressed ()
+	//{
+		//TODO RefreshGUI ();
+	//}
+
+
 
 
 }

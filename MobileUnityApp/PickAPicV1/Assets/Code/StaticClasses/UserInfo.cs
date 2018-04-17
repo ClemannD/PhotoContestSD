@@ -23,6 +23,10 @@ public static class UserInfo {//TODO remove these later
 		return userPassword;
 	}
 
+	public static void SetUsername(string name){
+		username = name;
+	}
+
 	public static string GetUsername(){
 		return username;
 	}

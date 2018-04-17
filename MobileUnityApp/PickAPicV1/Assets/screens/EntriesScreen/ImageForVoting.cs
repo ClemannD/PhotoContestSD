@@ -32,8 +32,8 @@ public class ImageForVoting : ImageEntry {
 
 	public void AttachUI(VotableEntryPrefabValues ui){
 		entryUI = ui;
-		entryUI.vote.onClick.AddListener (VotePressed);
-		entryUI.report.onClick.AddListener (ReportThis);
+//		entryUI.vote.onClick.AddListener (VotePressed);
+//		entryUI.report.onClick.AddListener (ReportThis);
 		entryUI.SetImageTexture (entryImage);
 		entryUI.SetDescription (description);
 		entryUI.SetAuthorInfo (authorInfo);
@@ -42,20 +42,13 @@ public class ImageForVoting : ImageEntry {
 	}
 
 
-		
+
+
+		/*
 
 	//TODO move these to controller
 	public void VotePressed(){
-		//have an if statement here to check vote status. if not voted on this, vote. otherwise, remove vote.
-		//need different state animations
-		NetworkAPI.VoteResponse response = NetworkAPI.SendVote(UserInfo.GetUserId(),UserInfo.GetUserPassword(),imageId);
-		if (response.error.Length > 0) {
-			Debug.Log (response.error);
-			MessageForUser.OutputMessage ("Error!!");
-		}
-		//TODO have some dialogue to confirm the button press.
-		entryUI.vote.interactable = false;
-		Debug.Log ("vote button was pressed");
+		
 	}
 
 	public void ReportPressed(){
@@ -64,5 +57,5 @@ public class ImageForVoting : ImageEntry {
 		Debug.Log ("report button pressed");
 	}
 
-
+	*/
 }

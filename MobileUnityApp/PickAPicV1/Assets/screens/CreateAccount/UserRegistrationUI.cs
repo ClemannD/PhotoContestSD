@@ -19,6 +19,13 @@ public class UserRegistrationUI : MainScreensUI {
 	public Button submitButton;
 	public InputField fullName;
 
+	public SuccessPopupValues successPopup;
+	public FailurePopupValues failurePopup;
+
+	public void ShowSuccessPopup(bool b){
+		successPopup.gameObject.SetActive (b);
+	}
+
 
 
 	public string GetEmailAddress(){

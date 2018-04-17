@@ -71,10 +71,7 @@ public class ImageEntry: IServerImage{
 		return new Vector2(this.entryImage.width, this.entryImage.height);
 	}
 
-	public void ReportThis(){
-		flagged = true;
-		//something else?
-	}
+
 
 
 

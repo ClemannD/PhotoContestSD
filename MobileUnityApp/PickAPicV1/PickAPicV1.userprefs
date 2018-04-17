@@ -1,24 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\screens\PastContest\PastContestsUI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\screens\CreateAccount\UserRegistrationController.cs">
     <Files>
-      <File FileName="Assets\screens\PastContest\PastContestsUI.cs" Line="71" Column="41" />
-      <File FileName="Assets\screens\PastContest\PastContestsController.cs" Line="100" Column="1" />
-      <File FileName="Assets\Code\ImageAddingHelper.cs" Line="60" Column="1" />
-      <File FileName="Assets\screens\EntriesScreen\EntriesController.cs" Line="16" Column="28" />
-      <File FileName="Assets\Code\StaticClasses\NetworkApi.cs" Line="1" Column="1" />
-      <File FileName="Assets\screens\EntriesScreen\EntriesUI.cs" Line="11" Column="1" />
-      <File FileName="Assets\screens\PastContest\WinningImagePrefabValues.cs" Line="6" Column="1" />
-      <File FileName="Assets\Code\uiLayerCode\ImageEntry.cs" Line="1" Column="1" />
-      <File FileName="Assets\screens\PastContest\WinningImageEntry.cs" Line="1" Column="1" />
-      <File FileName="Assets\screens\EntriesScreen\ImageForVoting.cs" Line="16" Column="2" />
-      <File FileName="Assets\screens\EntriesScreen\VotableEntryPrefabValues.cs" Line="14" Column="26" />
-      <File FileName="Assets\screens\PastContest\TrophySymbolPrefabValues.cs" Line="24" Column="31" />
+      <File FileName="Assets\Code\StaticClasses\NetworkApi.cs" Line="520" Column="39" />
+      <File FileName="Assets\screens\EntriesScreen\ReportPopupValues.cs" Line="10" Column="2" />
+      <File FileName="Assets\Code\StaticClasses\UserInfo.cs" Line="22" Column="41" />
+      <File FileName="Assets\screens\LogInScreen\LoginController.cs" Line="15" Column="3" />
+      <File FileName="Assets\screens\CreateAccount\SuccessPopupValues.cs" Line="10" Column="2" />
+      <File FileName="Assets\screens\CreateAccount\UserRegistrationUI.cs" Line="23" Column="41" />
+      <File FileName="Assets\screens\CreateAccount\UserRegistrationController.cs" Line="204" Column="22" />
+      <File FileName="Assets\screens\CreateAccount\FailurePopupValues.cs" Line="13" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="C:\Users\Alex\Desktop\School2018SSD\SeniorDesign\PhotoContestSD\MobileUnityApp\PickAPicV1\Assets\screens\PastContest\PastContestsController.cs" line="65" column="1" />
+      <Breakpoint file="C:\Users\Alex\Desktop\School2018SSD\SeniorDesign\PhotoContestSD\MobileUnityApp\PickAPicV1\Assets\screens\EntriesScreen\EntriesController.cs" line="102" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

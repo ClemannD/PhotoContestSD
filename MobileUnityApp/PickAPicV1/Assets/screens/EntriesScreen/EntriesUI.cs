@@ -13,6 +13,8 @@ public class EntriesUI : MainScreensUI {
 	public InputField search;
 	public Transform contentBox;
 	public GameObject panelPrefab;
+	public VotePopupValues votePopup;
+	public ReportPopupValues reportPopup;
 
 	void Awake(){
 		images = new List<ImageForVoting> ();
@@ -30,7 +32,15 @@ public class EntriesUI : MainScreensUI {
 		return search.text;
 	}
 
-	public void AddImage(ImageForVoting entry){
+	public void RemoveFromList(ImageForVoting removeThis){
+		VotableEntryPrefabValues values = removeThis.entryUI;
+		if (values != null) {
+			values.gameObject.transform.SetParent (null);
+		}
+
+	}
+
+	public void AddImage(ImageForVoting entry, ImageEntryConnector c){
 		Debug.Log ("adding pic");
 		//images.Add (entry);
 		GameObject panelToAdd = GameObject.Instantiate(panelPrefab);
@@ -42,7 +52,9 @@ public class EntriesUI : MainScreensUI {
 		singleEntryPrefab.AdjustRawImageDimensions (currentImageDimensions);
 		singleEntryPrefab.AdjustPrefabDimensions (currentImageDimensions.x, currentImageDimensions.y + singleEntryPrefab.GetTextPanelHeight ());
 		entry.AttachUI (singleEntryPrefab);
-
+		//entry.ConnectToImageEntryConnector (c);
+		c.SetPrefabValues(entry.entryUI);
+		c.ActivateListeners ();
 		panelToAdd.transform.SetParent (contentBox);
 	}
 
@@ -53,9 +65,17 @@ public class EntriesUI : MainScreensUI {
 		float newHeight = (newWidth * height) / width;
 
 		return new Vector2 (newWidth, newHeight);
-
-
 	}
+
+	public void ShowVotePopup(bool b){
+		votePopup.gameObject.SetActive (b);
+	}
+
+	public void ShowReportPopup(bool b){
+		reportPopup.gameObject.SetActive (b);
+	}
+
+
 
 
 

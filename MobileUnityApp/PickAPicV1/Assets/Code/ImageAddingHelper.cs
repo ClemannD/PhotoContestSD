@@ -22,7 +22,6 @@ public class ImageAddingHelper{
 
 	public IEnumerator DownloadAndSetImages(List<IServerImage> listOfImages){
 		foreach (IServerImage image in listOfImages) {
-			Debug.Log ("Whats the problem: " + ((WinningImageEntry)image).GetVotes());
 			UnityWebRequest request = UnityWebRequestTexture.GetTexture ("http://pick-apic.com/" + image.GetServerURL());Debug.Log ("the url is " + image.GetServerURL());
 			request.SendWebRequest ();
 
