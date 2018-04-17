@@ -13,7 +13,7 @@ public class EntriesUI : MainScreensUI {
 	public InputField search;
 	public Transform contentBox;
 	public GameObject panelPrefab;
-	public VotePopupValues votePopup;
+	public PopupValues popup;
 	public ReportPopupValues reportPopup;
 
 	void Awake(){
@@ -67,8 +67,8 @@ public class EntriesUI : MainScreensUI {
 		return new Vector2 (newWidth, newHeight);
 	}
 
-	public void ShowVotePopup(bool b){
-		votePopup.gameObject.SetActive (b);
+	public void ShowPopup(bool b){
+		popup.gameObject.SetActive (b);
 	}
 
 	public void ShowReportPopup(bool b){
@@ -76,7 +76,9 @@ public class EntriesUI : MainScreensUI {
 	}
 
 
-
+	public void RemoveImage(ImageForVoting entry){
+		GameObject.Destroy (entry.entryUI.gameObject);
+	}
 
 
 

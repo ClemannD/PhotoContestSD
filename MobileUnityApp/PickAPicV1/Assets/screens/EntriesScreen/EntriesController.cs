@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class EntriesController:MainScreensController, IImageAdder{
 	public EntriesUI ui;
 	private List<ImageEntryConnector> connectorLists;
-	private VotePopupControl votePopupControl;
+	private PopupControl popupControl;
+	private ReportPopupControl reportPopupControl;
 
 	void Start(){
 		AddListeners (ui);
@@ -47,19 +48,19 @@ public class EntriesController:MainScreensController, IImageAdder{
 
 
 	public void Vote(ImageForVoting entry){
-		votePopupControl = new EntriesController.VotePopupControl (ui);
+		popupControl = new EntriesController.PopupControl (ui);
 
 		NetworkAPI.VoteResponse response = NetworkAPI.SendVote(UserInfo.GetUserId(),UserInfo.GetUserPassword(),entry.GetImageId());
 		if (response.error.Length == 0) {
 			
-			votePopupControl.SetMessage ("Vote sent");
+			popupControl.SetMessage ("Vote sent");
 
 		} else {
 			//TODO ui message on whats wrong
-			votePopupControl.SetMessage(response.error);
+			popupControl.SetMessage(response.error);
 		}
 
-		votePopupControl.Show ();
+		popupControl.Show ();
 		//TODO have some dialogue to confirm the button press.
 
 		Debug.Log ("vote button was pressed");
@@ -67,51 +68,70 @@ public class EntriesController:MainScreensController, IImageAdder{
 	}
 
 	public void Report(ImageForVoting entry){
-		Debug.Log ("report this!!!!");
-
+		reportPopupControl = new ReportPopupControl (ui,entry);
+		reportPopupControl.Show ();
 	}
 
 
-	private class VotePopupControl
+
+	private class PopupControl
 	{
 		
 		EntriesUI ui;
+		private string pendingMessage;
 
-		public VotePopupControl(EntriesUI ui){
+		public PopupControl(EntriesUI ui, string message){
 			this.ui = ui;
-			try {
-				ui.votePopup.ok.onClick.AddListener(TappedOk);
-			} catch (System.Exception ex) {
-				
-			}
+			this.pendingMessage = message;
+		}
 
+		public PopupControl(EntriesUI ui){
+			this.ui = ui;
+			this.pendingMessage = "";
 		}
 
 		public void TappedOk(){
-			ui.ShowVotePopup (false);
-		}
-
-		public void Show(){
-			ui.ShowVotePopup (true);
+			ui.ShowPopup (false);
 		}
 
 		public void SetMessage(string message){
-			ui.votePopup.SetMessage (message);
+			this.pendingMessage = message;
 		}
-			
 
+		public void Show(){
+			//ui.ShowReportPopup (false);
+			ui.ShowPopup (false);
+			ui.popup.ok.onClick.RemoveAllListeners();
+			ui.popup.ok.onClick.AddListener(TappedOk);
+			ui.popup.SetMessage (pendingMessage);
+			ui.ShowPopup (true);
+		}
+
+
+			
 	}
 
 	private class ReportPopupControl
 	{
-		private ReportPopupValues values;
+		
 		private EntriesUI ui;
+		private ImageForVoting entry;
+		private PopupControl generalPopup;
 
-		public ReportPopupControl(EntriesUI ui){
+		public ReportPopupControl(EntriesUI ui, ImageForVoting entry){
 			this.ui = ui;
+			this.entry = entry;
 		}
 
+
 		public void Show(){
+			//ui.ShowPopup (false);
+			ui.ShowReportPopup (false);
+			this.ui.reportPopup.cancel.onClick.RemoveAllListeners();
+			this.ui.reportPopup.yes.onClick.RemoveAllListeners();
+			this.ui.reportPopup.cancel.onClick.AddListener(CancelPressed);
+			this.ui.reportPopup.yes.onClick.AddListener(YesPressed);
+			ui.reportPopup.SetMessage("Are you sure you want to report this photo by " + entry.GetUsername() + "?");
 			ui.ShowReportPopup (true);
 		}
 
@@ -120,10 +140,25 @@ public class EntriesController:MainScreensController, IImageAdder{
 		}
 
 		public void YesPressed(){
+			NetworkAPI.FlagResponse response = NetworkAPI.FlagImage (UserInfo.GetUserId (), UserInfo.GetUserPassword (), entry.GetImageId (), 1);
 			//api stuff
 			//TODO
+			if (response.error.Length == 0) {
+				//use the ui to remove the thing TODO
+				ui.RemoveImage(entry);
+				generalPopup = new PopupControl (ui);
+				generalPopup.SetMessage ("Image reported.");
+				ui.ShowReportPopup (false);
+				generalPopup.Show ();
+			} else {
+				
+				//ui.ShowPopup (false);
+				generalPopup = new PopupControl (ui);
+				generalPopup.SetMessage ("Could not report image");
+				ui.ShowReportPopup (false);
+				generalPopup.Show ();
+			}
 
-			ui.ShowReportPopup (false);
 		}
 	}
 

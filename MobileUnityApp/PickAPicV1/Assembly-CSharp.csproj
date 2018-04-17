@@ -94,10 +94,10 @@
      <Compile Include="Assets\screens\EntriesScreen\EntriesUI.cs" />
      <Compile Include="Assets\screens\EntriesScreen\ImageEntryController.cs" />
      <Compile Include="Assets\screens\EntriesScreen\ImageForVoting.cs" />
+     <Compile Include="Assets\screens\EntriesScreen\PopupValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\ReportPopupValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\VotableEntryPrefabValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\VoteableEntry.cs" />
-     <Compile Include="Assets\screens\EntriesScreen\VotePopupValues.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginController.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginScreenUI.cs" />
      <Compile Include="Assets\screens\PastContest\PastContestsController.cs" />

@@ -13,7 +13,7 @@ public class WinningImageEntry : ImageEntry {
 
 			values.SetImageTexture (entryImage);
 			values.SetDescription (description);
-			values.SetAuthorInfo (authorInfo);
+			values.SetAuthorInfo (username);
 			values.SetVotes (votes);
 	}
 }

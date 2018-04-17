@@ -36,7 +36,7 @@ public class ImageForVoting : ImageEntry {
 //		entryUI.report.onClick.AddListener (ReportThis);
 		entryUI.SetImageTexture (entryImage);
 		entryUI.SetDescription (description);
-		entryUI.SetAuthorInfo (authorInfo);
+		entryUI.SetAuthorInfo (username);
 		entryUI.SetVotes (votes);
 	
 	}

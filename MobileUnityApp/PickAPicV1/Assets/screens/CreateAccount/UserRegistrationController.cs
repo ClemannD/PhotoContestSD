@@ -184,7 +184,7 @@ public class UserRegistrationController:MainScreensController{
 
 
 		public void OkPressed(){
-			SceneTransitions.NextScene (SceneIndices.LOGIN_SCREEN);
+			SceneTransitions.NextScene (SceneIndices.OPENING);
 		}
 
 	}

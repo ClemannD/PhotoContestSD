@@ -15,19 +15,23 @@ public class ImageEntry: IServerImage{
 	protected int votes;
 
 	//What do i do for the image???
-	protected string authorInfo;
+	protected string username;
 
-	public ImageEntry(int userId, int imageId, string imageURL, int contestId, string description, string authorInfo, int votes, bool flagged){
+	public ImageEntry(int userId, int imageId, string imageURL, int contestId, string description, string username, int votes, bool flagged){
 		this.flagged = flagged;
 		this.userId = userId;
 		this.imageURL = imageURL;
 		this.contestId = contestId;
 		this.description = description;
 		this.imageId = imageId;
-		this.authorInfo = authorInfo;
+		this.username = username;
 		this.votes = votes;
 		this.flagged = flagged;
 
+	}
+
+	public string GetUsername(){
+		return this.username;
 	}
 
 	public int GetContestID(){

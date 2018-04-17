@@ -430,6 +430,30 @@ public class NetworkAPI:MonoBehaviour{
 
 
 
+	public struct FlagRequest{
+		public int user_id;
+		public string password;
+		public int image_id;
+		public int flagAction;
+	}
+
+	public struct FlagResponse{
+		public int id;
+		public string error;
+	}
+
+	public static FlagResponse FlagImage(int userId, string password, int imageId, int flagValue){
+		FlagRequest request = new FlagRequest ();
+		request.user_id = userId;
+		request.password = password;
+		request.image_id = imageId;
+		request.flagAction = flagValue;
+		FlagResponse response = new FlagResponse ();
+
+		response = ApiCall<FlagRequest,FlagResponse> (request, response, "Flag.aspx");
+
+		return response;
+	}
 
 
 	public class ContestWinners{
