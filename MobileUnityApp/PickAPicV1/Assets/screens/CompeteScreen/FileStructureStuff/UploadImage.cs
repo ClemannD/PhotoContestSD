@@ -7,16 +7,18 @@ public class UploadImage{
 	public int contestId;
 	public string description;
 	public string url;
+	public string username;
 	public Texture2D texture;
 	private FileSelectController controller;
 
 	//TODO some method that helps adjust the size
 
-	public UploadImage(string url, int userId, int contestId, Texture2D texture, FileSelectController controller){
+	public UploadImage(string url, int userId, string username, int contestId, Texture2D texture, FileSelectController controller){
 		this.controller = controller;
 		this.userId = userId;
 		this.contestId = contestId;
 		this.texture = texture;
+		this.username = username;
 		this.url = url;
 	}
 

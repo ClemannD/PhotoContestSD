@@ -140,7 +140,7 @@ public class EntriesController:MainScreensController, IImageAdder{
 		}
 
 		public void YesPressed(){
-			NetworkAPI.FlagResponse response = NetworkAPI.FlagImage (UserInfo.GetUserId (), UserInfo.GetUserPassword (), entry.GetImageId (), 1);
+			NetworkAPI.FlagResponse response = NetworkAPI.FlagImage (UserInfo.GetUserId (), UserInfo.GetUserPassword (), entry.GetImageId (), 0);
 			//api stuff
 			//TODO
 			if (response.error.Length == 0) {

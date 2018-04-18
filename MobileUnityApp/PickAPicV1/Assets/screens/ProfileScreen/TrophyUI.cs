@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TrophyUI : MonoBehaviour {
+public class TrophyUI : MainScreensUI {
 
 	public Transform attachToThis;
 	public GameObject firstPlace;

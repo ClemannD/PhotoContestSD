@@ -2,24 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.IO;
+using System.IO;//todo
 
 public class CompeteController : MainScreensController {
 	public CompeteUI ui; 
-	public UploadImage imageToUpload;
+	private UploadImage imageToUpload;
+	private CapturedImage capturedImageToUpload;
+	private int contestId;
 
 	void Start(){
+		//NetworkAPI.RetrieveCurrentContestsResponse info = NetworkAPI.GetCurrentContestInfo ();
+		ContestInfo.SetCurrentWeekData();
+		contestId = ContestInfo.GetContestID();
+		ui.SetThemeText ("This Week's Theme: " + ContestInfo.GetWeekTheme());
 		AddListeners (ui);
 		ui.saveButton.onClick.AddListener (SavePressed);
 		ui.uploadSelectButton.onClick.AddListener (UploadSelectPressed);
 	
 		if (SelectedImageStorage.selectedImageIsReady) {
+			capturedImageToUpload = null;
 			imageToUpload = SelectedImageStorage.selectedImage;
 			ui.SetUploadImage (imageToUpload.texture);
+			SelectedImageStorage.selectedImage = null;
+			SelectedImageStorage.selectedImageIsReady = false;
 		}
 
-		ContestInfo.SetCurrentWeekData ();
-		ui.SetThemeText ("This Week's Theme: " + ContestInfo.GetWeekTheme());
+
+
 	}
 
 
@@ -30,13 +39,31 @@ public class CompeteController : MainScreensController {
 
 	}
 
+	public void SetPicFromCamera(Texture2D pic){
+		imageToUpload = null;
+		capturedImageToUpload = new CapturedImage (UserInfo.GetUserId (),UserInfo.GetUsername(), contestId,pic);
+		ui.SetUploadImage (capturedImageToUpload.texture);
+	}
+
 	private void SavePressed(){
-		if (imageToUpload != null) {
-			imageToUpload.description = ui.GetDescription ();
-			NetworkAPI.UploadEntryCoroutine (imageToUpload, this);
-			ui.SetUploadImage (null);
-			imageToUpload = null;
+		string description = ui.GetDescription ().Trim ();
+		if (description.Length == 0) {
+			description = "_";
 		}
+		if (imageToUpload != null) {
+			imageToUpload.description = description;
+			NetworkAPI.UploadEntryCoroutine (imageToUpload, this);
+			ui.RemoveUploadImage();
+			imageToUpload = null;
+
+		} else if (capturedImageToUpload != null) {
+			capturedImageToUpload.SetDescription ("HIII");
+			NetworkAPI.UploadCapturedEntry (capturedImageToUpload, this);
+			ui.RemoveUploadImage();
+			capturedImageToUpload = null;
+		}
+
+
 
 	}
 

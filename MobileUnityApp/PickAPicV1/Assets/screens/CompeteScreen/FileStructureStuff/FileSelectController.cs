@@ -15,7 +15,7 @@ public class FileSelectController : MainScreensController {
 		AddListeners (ui);
 		string startPath = "";
 		if (DeviceInfo.thisDeviceOS == DeviceInfo.ANDROID) {
-			startPath = "/sdcard/DCIM";   //sdcard/DCIM";
+			startPath = "/sdcard/data/DCIM";   //sdcard/DCIM";
 		} else {
 			//TODO
 			startPath = "C:\\PicsStuff";
@@ -23,8 +23,9 @@ public class FileSelectController : MainScreensController {
 
 		fileStructure = new MobileFileStructure (startPath);
 		contestId = ContestInfo.GetContestID ();
-		Debug.Log ("the contest id may be " + contestId);
 
+		Debug.Log ("the contest id may be " + contestId);
+		ui.SetTheme (ContestInfo.GetWeekTheme ());
 
 
 
@@ -42,7 +43,7 @@ public class FileSelectController : MainScreensController {
 		int bla = 0;
 		foreach (string filename in filesToShow) {
 			Texture2D picTexture = ImageIO.MakeImageFromFile (filename);
-			UploadImage potentialImage = new UploadImage (filename,UserInfo.GetUserId (),contestId,picTexture,this);
+			UploadImage potentialImage = new UploadImage (filename,UserInfo.GetUserId (),UserInfo.GetUsername(),contestId,picTexture,this);
 			potentialImage.SetDescription ("?");
 			ui.DisplayFile (potentialImage);
 		}

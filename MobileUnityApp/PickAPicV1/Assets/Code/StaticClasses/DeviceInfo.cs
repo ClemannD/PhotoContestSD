@@ -9,7 +9,8 @@ public class DeviceInfo {
 	public const int WINDOWS = 2;
 
 
-	public static int thisDeviceOS = 2;//set this somewhere
+
+	public static int thisDeviceOS = 0;//set this somewhere
 
 
 

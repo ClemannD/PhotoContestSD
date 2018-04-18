@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PastContestsController : MainScreensController, IImageAdder {
 
-	List<WeekButtonConnector> buttonConnections;
+	public List<WeekButtonConnector> buttonConnections;
 	public PastContestsUI ui;
 	NetworkAPI.ContestWinners.RetrievePastContestsResponse contests;
 
@@ -27,6 +27,12 @@ public class PastContestsController : MainScreensController, IImageAdder {
 
 		ui.previous.onClick.AddListener (Previous);
 		ui.next.onClick.AddListener (Next);
+
+		try {
+			buttonConnections[0].WeekSelected();
+		} catch (System.Exception ex) {
+			
+		}
 	}
 
 	public void Next(){
@@ -116,7 +122,7 @@ public class PastContestsController : MainScreensController, IImageAdder {
 		return this;
 	}
 
-	private class WeekButtonConnector{
+	public class WeekButtonConnector{
 		private WeekButtonPrefabValues values;
 		private NetworkAPI.ContestWinners.contestInfo info;
 		private PastContestsController controller;

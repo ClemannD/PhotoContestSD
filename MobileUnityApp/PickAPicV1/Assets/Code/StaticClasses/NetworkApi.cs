@@ -521,14 +521,18 @@ public class NetworkAPI:MonoBehaviour{
 	//Reference: https://docs.unity3d.com/Manual/UnityWebRequest-SendingForm.html
 	//Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
 
+	/// <summary>
+	/// For pics from the device
+	/// </summary>
+	/// <param name="forUpload">For upload.</param>
+	/// <param name="callingClass">Calling class.</param>
 	public static void UploadEntryCoroutine(UploadImage forUpload, MonoBehaviour callingClass){
 		callingClass.StartCoroutine (UploadEntry (forUpload));
 
 
 	}
 
-
-	public static IEnumerator UploadEntry(UploadImage forUpload){
+	private static IEnumerator UploadEntry(UploadImage forUpload){
 		//System.Drawing.Image a = System.Drawing.Image.FromFile(forUpload.url);
 		//Texture2D b = new Texture2D (a.Width, a.Height 	 );
 
@@ -536,12 +540,12 @@ public class NetworkAPI:MonoBehaviour{
 		//ImageConversion.LoadImage (b, forUploading1);
 
 		//byte[] forUploading2 = b.EncodeToPNG ();
-	
+
 
 
 		WWWForm send = new WWWForm ();
-		send.AddField ("user_id", "" + UserInfo.GetUserId());
-		send.AddField ("username", UserInfo.GetUsername());
+		send.AddField ("user_id", "" + forUpload.userId);
+		send.AddField ("username", forUpload.username);
 		Debug.Log ("the images contest id is " + forUpload.contestId);
 		send.AddField ("contest_id", "" +  forUpload.contestId);
 		send.AddField ("description", forUpload.description);
@@ -568,6 +572,61 @@ public class NetworkAPI:MonoBehaviour{
 
 
 	}
+
+	/// <summary>
+	/// For pics taken by the in app camera
+	/// </summary>
+	/// <param name="forUpload">For upload.</param>
+	/// <param name="callingClass">Calling class.</param>
+	public static void UploadCapturedEntry(CapturedImage forUpload, MonoBehaviour callingClass){
+		callingClass.StartCoroutine (UploadCapturedEntry (forUpload));
+	}
+
+
+
+
+	private static IEnumerator UploadCapturedEntry(CapturedImage forUpload){
+		//System.Drawing.Image a = System.Drawing.Image.FromFile(forUpload.url);
+		//Texture2D b = new Texture2D (a.Width, a.Height 	 );
+
+		byte[] forUploading= forUpload.texture.EncodeToPNG();
+		//ImageConversion.LoadImage (b, forUploading1);
+
+		//byte[] forUploading2 = b.EncodeToPNG ();
+
+
+
+		WWWForm send = new WWWForm ();
+		send.AddField ("user_id", "" + forUpload.userId);
+		send.AddField ("username", forUpload.username);
+		Debug.Log ("the images contest id is " + forUpload.contestId);
+		send.AddField ("contest_id", "" +  forUpload.contestId);
+		send.AddField ("description", forUpload.description);
+		send.AddBinaryData ("?",forUploading,"whatever","image/png");
+		UnityWebRequest sendIt = UnityWebRequest.Post ("http://pick-apic.com/webservices/InsertImage.aspx",send);
+
+		Debug.Log ("some info: " + sendIt.uploadHandler.contentType);
+
+		yield return sendIt.SendWebRequest ();
+
+
+		IDictionaryEnumerator bla = sendIt.GetResponseHeaders().GetEnumerator();
+		while (bla.MoveNext ()) {
+			KeyValuePair<string,string> stuff = (KeyValuePair<string,string>)bla.Current;
+			Debug.Log (" " + stuff.Key + ", " + stuff.Value );
+
+		}
+		//NetworkAPI.InsertImageResponse response = NetworkAPI.ResponseFromInsertImageCall (sendImages);
+
+		Debug.Log("hopefully this isnt gibberish: " + sendIt.downloadHandler.text);
+
+
+		Debug.Log ("ok it worked hopefully");
+
+
+	}
+
+
 
 
 
