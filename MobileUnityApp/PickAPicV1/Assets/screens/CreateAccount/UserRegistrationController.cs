@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using System.Text;
 using System;
 
 
@@ -16,12 +18,24 @@ public class UserRegistrationController:MainScreensController{
 		ui.submitButton.onClick.AddListener (SubmitPressed);//need rali to make a submit button
 	}
 
+	static string sha256(string stringToHash)
+	{
+		var crypt = new System.Security.Cryptography.SHA256Managed();
+		var hash = new System.Text.StringBuilder();
+		byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(stringToHash));
+		foreach (byte theByte in crypto)
+		{
+			hash.Append(theByte.ToString("x2"));
+		}
+		return hash.ToString();
+	}
 
 	public void SubmitPressed(){
 		ContestInfo.SetCurrentWeekData ();
 		if (VerifyUsername() && VerifyPassword () && VerifyEmail ()  && VerifyBirthday() && ui.TermsAccepted()) {
 			string username = ui.GetUsername ();
-			string password = ui.GetPassword ();
+			string password = sha256("hello");
+			Debug.Log (password);
 			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (username, ui.GetFullName(),ui.GetEmailAddress (), password, BirthdayStringForm());
 			if (responseStruct.error.Length == 0) {
 				MessageForUser.OutputMessage (responseStruct.error);
