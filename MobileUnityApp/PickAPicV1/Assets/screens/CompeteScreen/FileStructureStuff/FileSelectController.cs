@@ -55,8 +55,8 @@ public class FileSelectController : MainScreensController {
 		string[] foldersToShow = fileStructure.GetFolders ();
 		//ui.prevFolder.GetComponent<Text> ().text = "yo " + foldersToShow [0];
 
-		foreach (string name in foldersToShow) {
-			FolderIcon folder = new FolderIcon (name,this);
+		foreach (string folderpath in foldersToShow) {
+			FolderIcon folder = new FolderIcon (folderpath,this);
 			ui.DisplayFolder (folder);
 		}
 	}
@@ -73,7 +73,7 @@ public class FileSelectController : MainScreensController {
 
 	public void FolderClicked(FolderIcon clickedFolder){
 		//Debug.Log ("hello");
-		fileStructure.EnterFolder (clickedFolder.folderName);
+		fileStructure.EnterFolder (clickedFolder.folderPath);
 		Reset ();
 	}
 

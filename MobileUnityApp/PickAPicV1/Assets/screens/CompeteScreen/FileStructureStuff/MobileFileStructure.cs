@@ -6,44 +6,39 @@ public class MobileFileStructure {
 	private MobileFolder currentFolder;
 	private Stack<MobileFolder> folderHistory;
 	private string[] imagePaths;
-	private Dictionary<string,string> availableFolders;
+
+	private List<string> folders;
 
 	public MobileFileStructure(string startFilePath){
 		this.folderHistory = new Stack<MobileFolder> ();
 		this.currentFolder = new MobileFolder (startFilePath);
 		this.imagePaths = currentFolder.GetFilePaths ();
 
-		this.availableFolders = new Dictionary<string, string> ();
+		this.folders = new List<string> ();
 
 		//make hash table
-		FillDictionary();
+		FillFolderList();
 
 	}
 
-	private void FillDictionary(){
-		availableFolders.Clear ();
+	private void FillFolderList(){
+		folders.Clear ();
 		string[] folderPaths = currentFolder.GetFolderPaths ();
 		for (int i = 0; i < folderPaths.Length; i++) {
-			string longer = folderPaths [i];
-			string shorter = ShortFileName (longer);
-
-			availableFolders.Add (shorter, longer);
+			folders.Add(folderPaths [i]);
 		}
 	}
 
 
 
-	private string ShortFileName(string filepath){
-		char[] slash = new char[1];
-		slash [0] = '/';
 
-		return filepath.Split (slash) [slash.Length - 1];
-	}
 
-	public void EnterFolder(string folderName){
+
+	//use real path
+	public void EnterFolder(string folderPath){
 		folderHistory.Push (currentFolder);
-		currentFolder = currentFolder.GoToFolder (availableFolders[folderName]);//TODO possible error? what if its not there
-		FillDictionary ();
+		currentFolder = currentFolder.GoToFolder (folderPath);//TODO possible error? what if its not there
+		FillFolderList();
 		imagePaths = currentFolder.GetFilePaths ();
 	}
 
@@ -53,14 +48,12 @@ public class MobileFileStructure {
 
 
 	public string[] GetFolders(){
-		string[] returnArray = new string[availableFolders.Count];
-		IDictionaryEnumerator s = availableFolders.GetEnumerator ();
-		int index = 0;
-		while (s.MoveNext()) {
-			KeyValuePair<string,string> contents = (KeyValuePair<string,string>)s.Current;
-			returnArray [index] = contents.Key;
-			index++;
+		string[] returnArray = new string[folders.Count];
+		for (int i = 0; i < folders.Count; i++) {
+			returnArray [i] = folders [i];
 		}
+
+
 		return returnArray;
 	}
 
