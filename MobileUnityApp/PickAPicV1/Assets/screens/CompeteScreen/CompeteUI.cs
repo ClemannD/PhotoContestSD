@@ -15,14 +15,10 @@ public class CompeteUI : MainScreensUI {
 	public Button useCamera;
 
 	void Awake(){
-		useCamera.onClick.AddListener (OpenCamera);
+		
 	}
 
-	public void OpenCamera(){
-		WebCamDevice[] stuff = WebCamTexture.devices;
 
-		cam.OpenCam (stuff [0].name, stuff [1].name);
-	}
 
 	public void SetThemeText(string themeText){
 		this.themeText.text = themeText;

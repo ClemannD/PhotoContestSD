@@ -30,7 +30,20 @@ public class PhotoCamera : MonoBehaviour {
 
 		takePic.onClick.AddListener (TakePic);
 		exitCam.onClick.AddListener (ExitCam);
+
 	}
+		
+
+	public void AdjustScreen(){
+		
+		Vector2 original = screen.rectTransform.sizeDelta;
+		Vector2 newThing = new Vector2 (original.y, original.x);
+		screen.rectTransform.sizeDelta = newThing;
+		Debug.Log ("good so far");
+		//screen.SetNativeSize ();
+	}
+
+
 
 	public void AutoFindCams(){
 		cameraOptions = WebCamTexture.devices;
@@ -64,9 +77,14 @@ public class PhotoCamera : MonoBehaviour {
 
 		this.frontOn = true;
 		cam = new WebCamTexture (front);
-		
+
+
 		screen.gameObject.SetActive (true);
+		//AdjustScreen ();
+
 		cam.Play ();
+
+		//screen.SetNativeSize ();
 	}
 		
 
@@ -95,6 +113,7 @@ public class PhotoCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//screen.texture = cam;
 		screen.texture = cam;
 	}
 

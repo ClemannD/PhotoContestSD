@@ -26,11 +26,16 @@ public class CompeteController : MainScreensController {
 			SelectedImageStorage.selectedImage = null;
 			SelectedImageStorage.selectedImageIsReady = false;
 		}
-
+		ui.useCamera.onClick.AddListener (OpenCamera);
 
 
 	}
 
+	public void OpenCamera(){
+		WebCamDevice[] stuff = WebCamTexture.devices;
+	
+		ui.cam.OpenCam (stuff [0].name, stuff [1].name);
+	}
 
 
 		

@@ -5221,7 +5221,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You have been successfully registered!
+  m_Text: You are almost registered. To fully use the app, please check the email
+    you supplied for a confirmation code.
 --- !u!222 &2075179980
 CanvasRenderer:
   m_ObjectHideFlags: 0

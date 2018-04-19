@@ -1,20 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\screens\CompeteScreen\FileStructureStuff\FileSelectController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\screens\LogInScreen\LoginScreenUI.cs">
     <Files>
-      <File FileName="Assets\screens\CompeteScreen\FileStructureStuff\FolderIcon.cs" Line="1" Column="1" />
-      <File FileName="Assets\screens\CompeteScreen\FileStructureStuff\FileSelectUI.cs" Line="23" Column="28" />
-      <File FileName="Assets\screens\CompeteScreen\CompeteImagePrefabValues.cs" Line="10" Column="2" />
-      <File FileName="Assets\screens\Opening\OpeningController.cs" Line="10" Column="21" />
-      <File FileName="Assets\screens\Opening\OpeningUI.cs" Line="6" Column="2" />
-      <File FileName="Assets\screens\CompeteScreen\FileStructureStuff\FileSelectController.cs" Line="18" Column="30" />
+      <File FileName="Assets\screens\CompeteScreen\FileStructureStuff\FileSelectUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\screens\CompeteScreen\CompeteImagePrefabValues.cs" Line="2" Column="31" />
+      <File FileName="Assets\screens\LogInScreen\LoginScreenUI.cs" Line="28" Column="20" />
+      <File FileName="Assets\Code\Interfaces\IUsesGeneralPopup.cs" Line="7" Column="32" />
       <File FileName="Assets\Code\StaticClasses\NetworkApi.cs" Line="605" Column="61" NotebookId="1" />
-      <File FileName="Assets\screens\EntriesScreen\EntriesController.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\screens\CompeteScreen\PhotoCamera.cs" Line="23" Column="15" NotebookId="1" />
-      <File FileName="Assets\screens\ProfileScreen\TrophyController.cs" Line="11" Column="20" NotebookId="1" />
-      <File FileName="Assets\screens\ProfileScreen\TrophyUI.cs" Line="6" Column="38" NotebookId="1" />
-      <File FileName="Assets\Code\StaticClasses\DeviceInfo.cs" Line="13" Column="36" NotebookId="1" />
-      <File FileName="Assets\screens\CompeteScreen\CompeteController.cs" Line="61" Column="28" NotebookId="1" />
+      <File FileName="Assets\screens\CompeteScreen\PhotoCamera.cs" Line="117" Column="24" NotebookId="1" />
+      <File FileName="Assets\screens\CompeteScreen\CompeteUI.cs" Line="21" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

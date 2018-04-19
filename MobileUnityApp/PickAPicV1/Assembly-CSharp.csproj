@@ -51,10 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Code\ControllerLayerCode\GeneralPopupController.cs" />
      <Compile Include="Assets\Code\ControllerLayerCode\MainScreensController.cs" />
      <Compile Include="Assets\Code\ImageAddingHelper.cs" />
      <Compile Include="Assets\Code\Interfaces\IImageAdder.cs" />
      <Compile Include="Assets\Code\Interfaces\IServerImage.cs" />
+     <Compile Include="Assets\Code\Interfaces\IUsesGeneralPopup.cs" />
      <Compile Include="Assets\Code\StaticClasses\ContestInfo.cs" />
      <Compile Include="Assets\Code\StaticClasses\DeviceInfo.cs" />
      <Compile Include="Assets\Code\StaticClasses\ImageIO.cs" />
@@ -69,6 +71,7 @@
      <Compile Include="Assets\Code\TextureDownloader.cs" />
      <Compile Include="Assets\Code\uiLayerCode\ImageEntry.cs" />
      <Compile Include="Assets\Code\uiLayerCode\MainScreensUI.cs" />
+     <Compile Include="Assets\Code\uiLayerCode\PopupValues.cs" />
      <Compile Include="Assets\Code\uiLayerCode\SingleEntryUI.cs" />
      <Compile Include="Assets\screens\ChangePasswordScreen\ChangePasswordController.cs" />
      <Compile Include="Assets\screens\ChangePasswordScreen\ChangePasswordUI.cs" />
@@ -97,7 +100,6 @@
      <Compile Include="Assets\screens\EntriesScreen\EntriesUI.cs" />
      <Compile Include="Assets\screens\EntriesScreen\ImageEntryController.cs" />
      <Compile Include="Assets\screens\EntriesScreen\ImageForVoting.cs" />
-     <Compile Include="Assets\screens\EntriesScreen\PopupValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\ReportPopupValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\VotableEntryPrefabValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\VoteableEntry.cs" />

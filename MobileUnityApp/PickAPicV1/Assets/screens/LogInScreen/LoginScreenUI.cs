@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoginScreenUI : MonoBehaviour {
+public class LoginScreenUI : MonoBehaviour, IUsesGeneralPopup {
 	public Button loginButton;
 	public InputField username;
 	public InputField password;
 	public Button signUpButton;
+	public PopupValues values;
 
 	void Start(){
 
@@ -24,7 +25,9 @@ public class LoginScreenUI : MonoBehaviour {
 	}
 
 
-
+	public PopupValues GetPopupValues(){
+		return values;
+	}
 
 
 }

@@ -163,6 +163,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+0656449cccc674e6a09c923bd5a499a8 Assembly-CSharp.dll:.OpeningController
 675ead6e28a368dcb1301df35a89ca6b Assembly-CSharp.dll:.ReportPopupValues
 00f4abc853e773deb6f602c6120b09bc Assembly-CSharp.dll:.LoginController
 52d83fb4060eef4e98dba875a669624d Assembly-CSharp.dll:.CompeteUI
@@ -185,6 +186,5 @@ e301afc9dee71bdacb638f1fd391d83c Assembly-CSharp.dll:.EditImageUI
 1557c07e96262e0a50cdf677a8f34b26 Assembly-CSharp.dll:.FileSelectUI
 b8a6681d77863afd80c4725f878d1fcb Assembly-CSharp.dll:.SingleEntryUI
 3d132e88dde3eecdcf0f492fbca9b1a4 Assembly-CSharp.dll:.UserRegistrationUI
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MessageForUser
 fd43a61204707e535932ee3af1fb2a9c Assembly-CSharp.dll:.OpeningUI
-0656449cccc674e6a09c923bd5a499a8 Assembly-CSharp.dll:.OpeningController
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MessageForUser

@@ -41,15 +41,15 @@ public class UserRegistrationController:MainScreensController{
 			
 			string message = "One or more fields do not meet requirements. \n";
 			if (!VerifyPassword()) {
-				message+= "Password and/or Password confirm field does not meet requirements";
+				message+= "Password and/or Password confirm field does not meet requirements. Passwords must be between 6 to 16 characters long; and the confirm password must match the password.\n";
 			}
 
 			if (!VerifyUsername()) {
-				message += "\nusername does not meet requirements. Must be bla bla bla";
+				message += "\nusername does not meet requirements. Must be between 6 and 20 characters long.\n";
 			}
 
 			if (!VerifyEmail()) {
-				message += "\n Invalid email address.";
+				message += "\n Invalid email address.\n";
 			}
 
 			if (!VerifyBirthday ()) {
@@ -97,7 +97,7 @@ public class UserRegistrationController:MainScreensController{
 			return false;
 		}
 		email = email.ToLower ();//TODO fix Regex
-		Regex reg = new Regex ("[a-z]+[0-9]*@[a-z]+.[a-z]+");
+		Regex reg = new Regex ("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
 
 		bool properFormat = reg.IsMatch (email);
 		bool realEmail = true;//todo change later
