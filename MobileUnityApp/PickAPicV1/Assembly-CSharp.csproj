@@ -59,6 +59,7 @@
      <Compile Include="Assets\Code\Interfaces\IUsesGeneralPopup.cs" />
      <Compile Include="Assets\Code\StaticClasses\ContestInfo.cs" />
      <Compile Include="Assets\Code\StaticClasses\DeviceInfo.cs" />
+     <Compile Include="Assets\Code\StaticClasses\DimensionValues.cs" />
      <Compile Include="Assets\Code\StaticClasses\ImageIO.cs" />
      <Compile Include="Assets\Code\StaticClasses\MessageForUser.cs" />
      <Compile Include="Assets\Code\StaticClasses\NetworkApi.cs" />
