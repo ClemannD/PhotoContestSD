@@ -903,6 +903,90 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 536232414}
+--- !u!1 &559011259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 559011263}
+  - component: {fileID: 559011262}
+  - component: {fileID: 559011261}
+  - component: {fileID: 559011260}
+  m_Layer: 0
+  m_Name: Code
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &559011260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559011259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7942c448bfdf7cf439fd8d1c2c1efc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screen: {fileID: 8178879}
+  switchCam: {fileID: 1008159636}
+  takePic: {fileID: 172981489}
+  exitCam: {fileID: 1877742350}
+  storeImage: {fileID: 0}
+  controller: {fileID: 559011261}
+--- !u!114 &559011261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559011259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 532a22a6249bb6f4d8a8f50aef4660a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ui: {fileID: 559011262}
+--- !u!114 &559011262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559011259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4183149a7ae9b694292ce2c1f62a398f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entriesButton: {fileID: 2100354789}
+  pastContestsButton: {fileID: 1843043788}
+  profileButton: {fileID: 1878436921}
+  competeButton: {fileID: 740468143}
+  themeText: {fileID: 215838425}
+  uploadSelectButton: {fileID: 2131674316}
+  saveButton: {fileID: 1748647230}
+  competeImagePrefab: {fileID: 1401776768504220, guid: d3031653e6809984cafb3aa082bba0bf,
+    type: 2}
+  description: {fileID: 1807054449}
+  attachPicToThis: {fileID: 6295506}
+  cam: {fileID: 559011260}
+  useCamera: {fileID: 818329252}
+--- !u!4 &559011263
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559011259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 402.53668, y: 107.256935, z: -6.9926243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &581315516
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,90 +1061,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 581315516}
---- !u!1 &682901711
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 682901715}
-  - component: {fileID: 682901714}
-  - component: {fileID: 682901713}
-  - component: {fileID: 682901712}
-  m_Layer: 0
-  m_Name: Code
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &682901712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682901711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7942c448bfdf7cf439fd8d1c2c1efc91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screen: {fileID: 0}
-  switchCam: {fileID: 0}
-  takePic: {fileID: 0}
-  exitCam: {fileID: 0}
-  storeImage: {fileID: 0}
-  controller: {fileID: 682901713}
---- !u!114 &682901713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682901711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a22a6249bb6f4d8a8f50aef4660a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ui: {fileID: 682901714}
---- !u!114 &682901714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682901711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4183149a7ae9b694292ce2c1f62a398f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entriesButton: {fileID: 2100354789}
-  pastContestsButton: {fileID: 1843043788}
-  profileButton: {fileID: 1878436921}
-  competeButton: {fileID: 740468143}
-  themeText: {fileID: 215838425}
-  uploadSelectButton: {fileID: 2131674316}
-  saveButton: {fileID: 1748647230}
-  competeImagePrefab: {fileID: 1401776768504220, guid: d3031653e6809984cafb3aa082bba0bf,
-    type: 2}
-  description: {fileID: 0}
-  attachPicToThis: {fileID: 6295506}
-  cam: {fileID: 682901712}
-  useCamera: {fileID: 818329252}
---- !u!4 &682901715
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 682901711}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 402.53668, y: 107.256935, z: -6.9926243}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &740468141
 Prefab:
   m_ObjectHideFlags: 0

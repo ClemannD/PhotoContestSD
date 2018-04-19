@@ -10,7 +10,7 @@ public class DeviceInfo {
 
 
 
-	public static int thisDeviceOS = 0;//set this somewhere
+	public static int thisDeviceOS = 2;//set this somewhere
 
 
 

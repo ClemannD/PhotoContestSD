@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/screens/CompeteScreen/CompeteScreen.unity
+- path: Assets/screens/CompeteScreen/FileStructureStuff/FileSelection.unity
   isLoaded: 1
   isActive: 1
