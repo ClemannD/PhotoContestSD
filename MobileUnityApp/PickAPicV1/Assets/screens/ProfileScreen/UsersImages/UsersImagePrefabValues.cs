@@ -13,6 +13,12 @@ public class UsersImagePrefabValues : MonoBehaviour {
 	public LayoutElement layoutElement;
 	public Text votes;
 
+	public Sprite firstPlace;
+	public Sprite secondPlace;
+	public Sprite thirdPlace;
+
+	public Image visiblePlace;
+
 
 
 
@@ -37,6 +43,19 @@ public class UsersImagePrefabValues : MonoBehaviour {
 		this.votes.text += votes.ToString();
 	}
 
+	public void SetPlace(int place){
+		if (place == 1) {
+			visiblePlace.sprite = firstPlace;
+		} else if (place == 2) {
+			visiblePlace.sprite = secondPlace;
+
+		} else if (place == 3) {
+			visiblePlace.sprite = thirdPlace;
+		} else {
+			return;
+		}
+		visiblePlace.gameObject.SetActive (true);
+	}
 
 	public void AdjustRawImageDimensions(Vector2 dimensions){
 		photo.rectTransform.sizeDelta = dimensions;

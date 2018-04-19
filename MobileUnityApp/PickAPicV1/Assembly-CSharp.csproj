@@ -120,6 +120,10 @@
      <Compile Include="Assets\screens\ProfileScreen\TrophyController.cs" />
      <Compile Include="Assets\screens\ProfileScreen\TrophyPrefabValues.cs" />
      <Compile Include="Assets\screens\ProfileScreen\TrophyUI.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\UsersImages\ConfirmDeletePopupValues.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\UsersImages\ImageForViewing.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\UsersImages\UserImagesController.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\UsersImages\UserImagesUI.cs" />
      <Compile Include="Assets\screens\ProfileScreen\UsersImages\UsersImagePrefabValues.cs" />
      <None Include="Assets\newtonsoftStuff\Newtonsoft.Json.xml" />
      <None Include="Assets\newtonsoftStuff\license.txt" />

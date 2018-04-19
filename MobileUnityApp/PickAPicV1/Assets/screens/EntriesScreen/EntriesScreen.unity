@@ -1485,9 +1485,9 @@ GameObject:
   - component: {fileID: 1172947499}
   - component: {fileID: 1172947498}
   - component: {fileID: 1172947500}
-  - component: {fileID: 1172947497}
   - component: {fileID: 1172947496}
   - component: {fileID: 1172947495}
+  - component: {fileID: 1172947497}
   m_Layer: 5
   m_Name: ReportPopup
   m_TagString: Untagged
@@ -1555,8 +1555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7d9d6d9239e6c44b84b31aa72ceb4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ok: {fileID: 1168066280}
-  message: {fileID: 1512768771}
+  ok: {fileID: 886743379}
+  message: {fileID: 1167239443}
 --- !u!114 &1172947498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2135,7 +2135,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 929544583}
   m_HandleRect: {fileID: 929544582}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2836,7 +2836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000029583543}
+  m_AnchoredPosition: {x: 0, y: -0.00009176389}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046935012

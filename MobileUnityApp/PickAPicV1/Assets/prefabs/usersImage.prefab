@@ -116,6 +116,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1772567673388070
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224971790285708200}
+  - component: {fileID: 222026996193263982}
+  - component: {fileID: 114535795252436774}
+  m_Layer: 5
+  m_Name: trophy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1807390756825918
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +286,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Votes:'
+  m_Text: 'Votes: '
 --- !u!114 &114337814528678740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,6 +338,10 @@ MonoBehaviour:
   delete: {fileID: 114968441861005080}
   layoutElement: {fileID: 114061642463591372}
   votes: {fileID: 114182547020262492}
+  firstPlace: {fileID: 21300000, guid: c587bc40cf4b24c768093a575e4f4dbd, type: 3}
+  secondPlace: {fileID: 21300000, guid: 12c564d92d1f547f5a3f48d4d733c5e6, type: 3}
+  thirdPlace: {fileID: 21300000, guid: c96f8b2a41d974a598bab3e55f2d8351, type: 3}
+  visiblePlace: {fileID: 114535795252436774}
 --- !u!114 &114405448181291552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -376,6 +397,33 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114535795252436774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1772567673388070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &114607188846999866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,6 +645,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1716585158715460}
+--- !u!222 &222026996193263982
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1772567673388070}
 --- !u!222 &222266200386890856
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -667,7 +721,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 20, y: -9}
-  m_SizeDelta: {x: 519.5, y: 55.800003}
+  m_SizeDelta: {x: 770.9, y: 55.8}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224293026959934322
 RectTransform:
@@ -757,6 +811,7 @@ RectTransform:
   - {fileID: 224151750887630234}
   - {fileID: 224824253558102482}
   - {fileID: 224336289053515326}
+  - {fileID: 224971790285708200}
   m_Father: {fileID: 224584808863633242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -765,3 +820,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!224 &224971790285708200
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1772567673388070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224895261748332040}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -20, y: -7}
+  m_SizeDelta: {x: 62, y: 62}
+  m_Pivot: {x: 1, y: 1}

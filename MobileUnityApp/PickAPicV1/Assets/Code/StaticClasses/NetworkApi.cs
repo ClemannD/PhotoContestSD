@@ -165,8 +165,9 @@ public class NetworkAPI:MonoBehaviour{
 
 	public struct RetrieveUserResponse{
 		public int id;
-		public string userName;
-		public string fullName;
+		public string username;
+		public string fullname;
+		public string email;
 		public string bio;
 		public string error;
 		public int totalVotes;
@@ -332,6 +333,29 @@ public class NetworkAPI:MonoBehaviour{
 		return response;
 	}
 
+	public struct DeleteImageRequest{
+		public int user_id;
+		public string password;
+		public int contest_id;
+		public int image_id;
+	}
+
+	public struct DeleteImageResponse{
+		public int id;
+		public string error;
+	}
+
+
+	public static DeleteImageResponse DeleteUserImage(int userId, string password, int contestId, int imageId){
+		DeleteImageRequest request = new DeleteImageRequest ();
+		request.user_id = userId;
+		request.password = password;
+		request.contest_id = contestId;
+		request.image_id = imageId;
+		DeleteImageResponse response = new DeleteImageResponse ();
+		response = ApiCall<DeleteImageRequest,DeleteImageResponse> (request, response, "DeleteImage.aspx");
+		return response;
+	}
 
 	public struct VoteRequest{
 		public int user_id;
@@ -390,11 +414,11 @@ public class NetworkAPI:MonoBehaviour{
 
 	public struct RetrieveUserImagesResponse{
 		public int id;
-		public List<imageInfo> userInfo;
+		public List<GetUserImagesImageInfo.imageInfo> userImages;
 		public string error;
 	}
 
-	public RetrieveUserImagesResponse GetUserImages(int userId, string password){
+	public static RetrieveUserImagesResponse GetUserImages(int userId, string password){
 
 		RetrieveUserImagesRequest request = new RetrieveUserImagesRequest();
 		request.user_id = userId;
@@ -403,7 +427,22 @@ public class NetworkAPI:MonoBehaviour{
 		RetrieveUserImagesResponse response = new RetrieveUserImagesResponse();
 		response = ApiCall<RetrieveUserImagesRequest,RetrieveUserImagesResponse>(request,response,"RetrieveUserImages.aspx");
 		return response;
+	}
 
+	public class GetUserImagesImageInfo{
+
+		public struct imageInfo{
+			public int image_id;
+			public string image_url;
+			public string category;
+			public string description;
+			public int user_id;
+			public string username;
+			public int votes;
+			public int isFlagged;
+			public int contest_id;
+			public int place;
+		}
 	}
 
 
@@ -430,6 +469,11 @@ public class NetworkAPI:MonoBehaviour{
 		response = ApiCall<ForgotPassRequest,ForgotPassResponse> (request, response, "ForgotPass.aspx");
 		return response;
 	}
+
+
+
+
+
 
 
 

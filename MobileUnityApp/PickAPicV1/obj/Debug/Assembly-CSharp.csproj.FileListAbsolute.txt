@@ -70,3 +70,4 @@ C:\Users\Alex\Desktop\School2018SSD\SeniorDesign\PhotoContestSD\MobileUnityApp\P
 C:\Users\Alex\Desktop\School2018SSD\SeniorDesign\PhotoContestSD\MobileUnityApp\PickAPicV1\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
 C:\Users\Alex\Desktop\School2018SSD\SeniorDesign\PhotoContestSD\MobileUnityApp\PickAPicV1\obj\Debug\Assembly-CSharp.dll
 C:\Users\Alex\Desktop\School2018SSD\SeniorDesign\PhotoContestSD\MobileUnityApp\PickAPicV1\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Alex\Desktop\School2018SSD\SeniorDesign\PhotoContestSD\MobileUnityApp\PickAPicV1\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

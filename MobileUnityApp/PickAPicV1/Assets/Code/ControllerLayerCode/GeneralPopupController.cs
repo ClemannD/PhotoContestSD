@@ -32,7 +32,7 @@ public class GeneralPopupController{
 		values.ok.onClick.RemoveAllListeners();
 		values.ok.onClick.AddListener(TappedOk);
 		values.SetMessage (pendingMessage);
-		values.gameObject.SetActive (false);
+		values.gameObject.SetActive (true);
 	}
 
 }
