@@ -105,7 +105,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-981665201d576348d7edd803ad03c0a6 Assembly-CSharp.dll:.LoginScreenUI
+bddb13337ae89efb40d1243c1afb69f7 Assembly-CSharp.dll:.LoginScreenUI
 f4ecb1538a58d5c9417478d9d2bdb999 Assembly-CSharp.dll:.CompeteImagePrefabValues
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -180,7 +180,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 3d950ad40df58d8448acf3318069501f Assembly-CSharp.dll:.PastContestsUI
 4dd0aadaec050bd8c8a6035bf117a84a Assembly-CSharp.dll:.TrophyController
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-0f0685d65c91f070c98d86638b4c9958 Assembly-CSharp.dll:.ClickImagePrefabValues
+70a2c7a4ffedecd0c22cb7d08ef9dfa6 Assembly-CSharp.dll:.ClickImagePrefabValues
 e301afc9dee71bdacb638f1fd391d83c Assembly-CSharp.dll:.EditImageUI
 3ec0ef4bbea5d862dce74b52e5a05fe5 Assembly-CSharp.dll:.PopupValues
 1557c07e96262e0a50cdf677a8f34b26 Assembly-CSharp.dll:.FileSelectUI
@@ -188,3 +188,4 @@ b8a6681d77863afd80c4725f878d1fcb Assembly-CSharp.dll:.SingleEntryUI
 3d132e88dde3eecdcf0f492fbca9b1a4 Assembly-CSharp.dll:.UserRegistrationUI
 fd43a61204707e535932ee3af1fb2a9c Assembly-CSharp.dll:.OpeningUI
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MessageForUser
+44cb1f507d4003282c757854c946b724 Assembly-CSharp.dll:.UsersImagePrefabValues

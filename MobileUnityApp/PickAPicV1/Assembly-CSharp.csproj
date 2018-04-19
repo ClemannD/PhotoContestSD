@@ -120,6 +120,7 @@
      <Compile Include="Assets\screens\ProfileScreen\TrophyController.cs" />
      <Compile Include="Assets\screens\ProfileScreen\TrophyPrefabValues.cs" />
      <Compile Include="Assets\screens\ProfileScreen\TrophyUI.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\UsersImages\UsersImagePrefabValues.cs" />
      <None Include="Assets\newtonsoftStuff\Newtonsoft.Json.xml" />
      <None Include="Assets\newtonsoftStuff\license.txt" />
      <None Include="Assets\FlatButtonIconPack\readme.txt" />

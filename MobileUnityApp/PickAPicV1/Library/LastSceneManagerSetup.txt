@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/screens/CreateAccount/CreateAccountScreen.unity
+- path: Assets/screens/ProfileScreen/UsersImages/UserPicturesScreen.unity
   isLoaded: 1
   isActive: 1
