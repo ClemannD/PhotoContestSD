@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/screens/PastContest/Week#.unity
+- path: Assets/screens/CreateAccount/CreateAccountScreen.unity
   isLoaded: 1
   isActive: 1

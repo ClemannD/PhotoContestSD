@@ -438,7 +438,7 @@ MonoBehaviour:
   themeText: {fileID: 1909195076}
   search: {fileID: 855619306}
   contentBox: {fileID: 2046935011}
-  panelPrefab: {fileID: 1726126349923110, guid: 537af9ed287c4054c81ed97a8500fc3f,
+  panelPrefab: {fileID: 1403371860236442, guid: 510b8e42901869b4e867e7c0ef406ba3,
     type: 2}
   popup: {fileID: 237241792}
   reportPopup: {fileID: 1172947500}
@@ -2136,7 +2136,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 929544582}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2836,7 +2836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00015548176}
+  m_AnchoredPosition: {x: 0, y: -0.000061040744}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046935012

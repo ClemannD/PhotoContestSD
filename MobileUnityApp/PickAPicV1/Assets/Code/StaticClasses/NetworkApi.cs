@@ -62,6 +62,7 @@ public class NetworkAPI:MonoBehaviour{
 	public struct LoginUserResponse
 	{
 		public int id;
+		public int isBanned;
 		public string ApiKey;
 		public string error;
 	}

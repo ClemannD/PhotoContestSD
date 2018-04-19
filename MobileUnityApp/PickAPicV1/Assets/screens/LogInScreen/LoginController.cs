@@ -6,6 +6,7 @@ public class LoginController : MonoBehaviour {
 	//
 	//
 	public LoginScreenUI ui;
+	public GeneralPopupController popupControl;
 
 	void Start(){
 		ui.loginButton.onClick.AddListener (LoginPressed);
@@ -24,7 +25,14 @@ public class LoginController : MonoBehaviour {
 		string username = ui.GetUsername ();
 		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),password);
 
-		if (loginResponse.error.Length > 0) {
+		if (loginResponse.error.Length > 0 || (loginResponse.isBanned == 1)) {
+			string message = loginResponse.error;
+			if (loginResponse.isBanned == 1) {
+				message = "You have been banned and may not login at this time";
+			}
+			popupControl = new GeneralPopupController (ui);
+			popupControl.SetMessage (message);
+			popupControl.Show ();
 			//MessageForUser.OutputMessage(loginResponse.error);
 			//tell the user something is wrong TODO
 		} else {
