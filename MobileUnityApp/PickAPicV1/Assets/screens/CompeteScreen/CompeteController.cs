@@ -62,7 +62,7 @@ public class CompeteController : MainScreensController {
 			imageToUpload = null;
 
 		} else if (capturedImageToUpload != null) {
-			capturedImageToUpload.SetDescription ("HIII");
+			capturedImageToUpload.SetDescription (description);
 			NetworkAPI.UploadCapturedEntry (capturedImageToUpload, this);
 			ui.RemoveUploadImage();
 			capturedImageToUpload = null;
