@@ -39,7 +39,7 @@ public class UserRegistrationController:MainScreensController{
 			}
 		} else {
 			
-			string message = "One or more fields do not meet requirements. \n";
+			string message = "One or more fields do not meet requirements. \n\n";
 			if (!VerifyPassword()) {
 				message+= "Password and/or Password confirm field does not meet requirements. Passwords must be between 6 to 16 characters long; and the confirm password must match the password.\n";
 			}
