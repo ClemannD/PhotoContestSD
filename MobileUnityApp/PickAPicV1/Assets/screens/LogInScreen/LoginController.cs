@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Security.Cryptography;
+using System.Text;
 
 public class LoginController : MonoBehaviour {
 	//
@@ -15,13 +17,25 @@ public class LoginController : MonoBehaviour {
 
 	}
 
+	static string sha256(string stringToHash)
+	{
+		var crypt = new System.Security.Cryptography.SHA256Managed();
+		var hash = new System.Text.StringBuilder();
+		byte[] crypto = crypt.ComputeHash(Encoding.UTF8.GetBytes(stringToHash));
+		foreach (byte theByte in crypto)
+		{
+			hash.Append(theByte.ToString("x2"));
+		}
+		return hash.ToString();
+	}
+
 	//for when the user hits the login button
 	public void LoginPressed(){
 		
 		//Debug.Log (ContestInfo.GetContestID());
 
 		NetworkAPI.LoginUserResponse loginResponse = new NetworkAPI.LoginUserResponse ();
-		string password = ui.GetPassword ();
+		string password = sha256(ui.GetPassword());
 		string username = ui.GetUsername ();
 		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),password);
 

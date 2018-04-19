@@ -19,6 +19,7 @@ public class NetworkAPI:MonoBehaviour{
 		public string email;
 		public string password;
 		public string birthday;
+		public int isMobile;
 	}
 
 	public struct InsertUserResponse{
@@ -26,13 +27,14 @@ public class NetworkAPI:MonoBehaviour{
 		public string error;
 	}
 
-	public static InsertUserResponse InsertNewUser(string username, string fullName, string email, string password, string birthday){
+	public static InsertUserResponse InsertNewUser(string username, string fullName, string email, string password, string birthday, int isMobile){
 		InsertUserRequest request = new InsertUserRequest ();
 		request.userName = username;
 		request.fullName = fullName;
 		request.birthday = birthday;
 		request.email = email;
 		request.password = password;
+		request.isMobile = 1;
 
 		InsertUserResponse response = new InsertUserResponse();
 

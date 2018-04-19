@@ -34,9 +34,8 @@ public class UserRegistrationController:MainScreensController{
 		ContestInfo.SetCurrentWeekData ();
 		if (VerifyUsername() && VerifyPassword () && VerifyEmail ()  && VerifyBirthday() && ui.TermsAccepted()) {
 			string username = ui.GetUsername ();
-			string password = sha256("hello");
-			Debug.Log (password);
-			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (username, ui.GetFullName(),ui.GetEmailAddress (), password, BirthdayStringForm());
+			string password = sha256(ui.GetPassword());
+			NetworkAPI.InsertUserResponse responseStruct = NetworkAPI.InsertNewUser (username, ui.GetFullName(),ui.GetEmailAddress (), password, BirthdayStringForm(), 1);
 			if (responseStruct.error.Length == 0) {
 				MessageForUser.OutputMessage (responseStruct.error);
 				UserInfo.SetUserId (responseStruct.id);

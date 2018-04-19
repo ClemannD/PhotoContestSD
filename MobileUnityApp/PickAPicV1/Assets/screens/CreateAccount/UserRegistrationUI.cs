@@ -88,7 +88,7 @@ public class UserRegistrationUI : MainScreensUI {
 	public int GetBirthYear(){
 		int year = 0;
 		try {
-			year = Convert.ToInt32(birthdayYears);
+			year = Convert.ToInt32(NullHelper.SafeInputStringReturn(birthdayYears));
 		} catch (Exception) {
 			
 		}
