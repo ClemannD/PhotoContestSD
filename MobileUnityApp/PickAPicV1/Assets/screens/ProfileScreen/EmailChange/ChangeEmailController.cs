@@ -12,14 +12,14 @@ public class ChangeEmailController : MainScreensController {
 	}
 	
 	public void SubmitChange(){
-		NetworkAPI.UpdateEmailResponse response = NetworkAPI.ChangeEmail ("" + UserInfo.GetUserId (), ui.GetPassword(), ui.GetNewEmail ());
+		NetworkAPI.UpdateEmailResponse response = NetworkAPI.ChangeEmail ("" + UserInfo.GetUserId (), Hashing.sha256(ui.GetPassword()), ui.GetNewEmail ());
 		if (response.error.Length == 0) {
 			generalPopupController = new GeneralPopupController (ui);
 			generalPopupController.SetMessage ("Email Changed");
 			generalPopupController.Show ();
 		} else {
 			generalPopupController = new GeneralPopupController (ui);
-			generalPopupController.SetMessage (response.error);
+			generalPopupController.SetMessage ("Unable to change email");
 			generalPopupController.Show ();
 		}
 

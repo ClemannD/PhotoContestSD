@@ -18,7 +18,7 @@ public class UserRegistrationController:MainScreensController{
 		ui.submitButton.onClick.AddListener (SubmitPressed);//need rali to make a submit button
 	}
 
-	static string sha256(string stringToHash)
+	public static string sha256(string stringToHash)
 	{
 		var crypt = new System.Security.Cryptography.SHA256Managed();
 		var hash = new System.Text.StringBuilder();
@@ -197,7 +197,7 @@ public class UserRegistrationController:MainScreensController{
 
 
 		public void OkPressed(){
-			SceneTransitions.NextScene (SceneIndices.OPENING);
+			SceneTransitions.NextScene (SceneIndices.VERIFY);
 		}
 
 	}

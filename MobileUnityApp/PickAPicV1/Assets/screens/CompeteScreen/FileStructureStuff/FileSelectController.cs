@@ -13,15 +13,15 @@ public class FileSelectController : MainScreensController {
 	void Start(){
 		//ui.SetTheme ("" + Directory.Exists("/sdcard/DCIM"));
 		AddListeners (ui);
-		string startPath = "";
+		/*string startPath = "";
 		if (DeviceInfo.thisDeviceOS == DeviceInfo.ANDROID) {
 			startPath = "/sdcard/data/DCIM";   //sdcard/DCIM";
 		} else {
 			//TODO
 			startPath = "C:\\PicsStuff";
 		}
-
-		fileStructure = new MobileFileStructure (startPath);
+*/
+		fileStructure = new MobileFileStructure (DeviceInfo.GetStartPath());
 		contestId = ContestInfo.GetContestID ();
 
 		Debug.Log ("the contest id may be " + contestId);

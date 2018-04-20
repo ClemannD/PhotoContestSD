@@ -10,19 +10,19 @@ public class DeviceInfo {
 
 
 
-	public static int thisDeviceOS = 2;//set this somewhere
+	public static int thisDeviceOS = 0;//set this somewhere
 
 
 
 //	public const string ANDROID_START_PATH = "";
 
-	public string GetStartPath(int device){
+	public static string GetStartPath(){
 		if (thisDeviceOS == ANDROID) {
 			return "/sdcard/DCIM";
 		} else if (thisDeviceOS == WINDOWS) {
 			return "C:\\PicsStuff";//dont need this later
 		} else if (thisDeviceOS == IOS) {
-			return "";//????
+			return "/private/var/mobile/Media/DCIM/";
 		} else {
 			return "";
 		}

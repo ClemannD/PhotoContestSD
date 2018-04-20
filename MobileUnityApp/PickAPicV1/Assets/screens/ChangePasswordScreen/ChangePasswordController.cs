@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangePasswordController:MainScreensController{
 	public ChangePasswordUI ui;
+	private GeneralPopupController popupControl;
 
 	// Use this for initialization
 	void Start () {
@@ -14,17 +15,26 @@ public class ChangePasswordController:MainScreensController{
 	public void SubmitListener(){
 		bool valid = VerificationTools.VerifyPassword (ui.getNewPassword (), ui.getConfirmNewPassword ());
 		if (valid) {
-			string error = NetworkAPI.NewPassword ("" + UserInfo.GetUserId (), ui.getCurrentPassword (), ui.getNewPassword ()).error;
+			string error = NetworkAPI.NewPassword ("" + UserInfo.GetUserId (), Hashing.sha256(ui.getCurrentPassword ()), Hashing.sha256(ui.getNewPassword ())).error;
 			if (error.Length == 0) {
-				SceneTransitions.NextScene (SceneIndices.ENTRIES);
+				popupControl = new GeneralPopupController (ui);
+				popupControl.SetMessage ("password changed");
+				popupControl.Show ();
 			} else {
-				//TODO error message
+				popupControl = new GeneralPopupController (ui);
+				popupControl.SetMessage ("Unable to change password");
+				popupControl.Show ();
 			}
 
+
 		} else {
-			//TODO show pop up or toast saying mistake
+			popupControl = new GeneralPopupController (ui);
+			popupControl.SetMessage ("Unable to change password. Check that passwords match. \n Passwords should be between 6 and 16 characters.");
+			popupControl.Show ();
 		}
 	}
+
+
 
 
 }

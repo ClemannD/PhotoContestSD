@@ -60,6 +60,7 @@
      <Compile Include="Assets\Code\StaticClasses\ContestInfo.cs" />
      <Compile Include="Assets\Code\StaticClasses\DeviceInfo.cs" />
      <Compile Include="Assets\Code\StaticClasses\DimensionValues.cs" />
+     <Compile Include="Assets\Code\StaticClasses\Hashing.cs" />
      <Compile Include="Assets\Code\StaticClasses\ImageIO.cs" />
      <Compile Include="Assets\Code\StaticClasses\MessageForUser.cs" />
      <Compile Include="Assets\Code\StaticClasses\NetworkApi.cs" />
@@ -117,6 +118,7 @@
      <Compile Include="Assets\screens\PastContest\WeekButtonPrefabValues.cs" />
      <Compile Include="Assets\screens\PastContest\WinningImageEntry.cs" />
      <Compile Include="Assets\screens\PastContest\WinningImagePrefabValues.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\DeleteProfilePopupValues.cs" />
      <Compile Include="Assets\screens\ProfileScreen\EmailChange\ChangeEmailController.cs" />
      <Compile Include="Assets\screens\ProfileScreen\EmailChange\ChangeEmailUI.cs" />
      <Compile Include="Assets\screens\ProfileScreen\ProfileController.cs" />
@@ -129,6 +131,8 @@
      <Compile Include="Assets\screens\ProfileScreen\UsersImages\UserImagesController.cs" />
      <Compile Include="Assets\screens\ProfileScreen\UsersImages\UserImagesUI.cs" />
      <Compile Include="Assets\screens\ProfileScreen\UsersImages\UsersImagePrefabValues.cs" />
+     <Compile Include="Assets\screens\VerifyCodeScreen\VerifyCodeController.cs" />
+     <Compile Include="Assets\screens\VerifyCodeScreen\VerifyCodeUI.cs" />
      <None Include="Assets\newtonsoftStuff\Newtonsoft.Json.xml" />
      <None Include="Assets\newtonsoftStuff\license.txt" />
      <None Include="Assets\FlatButtonIconPack\readme.txt" />

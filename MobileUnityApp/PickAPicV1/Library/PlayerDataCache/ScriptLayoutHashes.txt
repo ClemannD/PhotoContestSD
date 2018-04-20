@@ -1,6 +1,6 @@
 Android
 SceneListBegin?
-Assets/screens/Opening/OpeningScreen.unity
+Assets/screens/GuestEntries/GuestEntries.unity
 Assets/screens/LogInScreen/LogInUI.unity
 Assets/screens/CreateAccount/CreateAccountScreen.unity
 Assets/screens/PastContest/Week#.unity
@@ -8,8 +8,10 @@ Assets/screens/EntriesScreen/EntriesScreen.unity
 Assets/screens/ProfileScreen/ProfileScreen.unity
 Assets/screens/CompeteScreen/CompeteScreen.unity
 Assets/screens/ChangePasswordScreen/ChangePassword.unity
-Assets/screens/ProfileScreen/Trophy Cabinet.unity
 Assets/screens/CompeteScreen/FileStructureStuff/FileSelection.unity
+Assets/screens/Opening/OpeningScreen.unity
+Assets/screens/ProfileScreen/UsersImages/UserPicturesScreen.unity
+Assets/screens/ProfileScreen/EmailChange/ChangeEmailUI.unity
 SceneListEnd?
 56d2ec9d1533dfb045fa2a8bcd60e506 Assembly-CSharp.dll:.VoteableEntry
 efcd64946dca914c494b98fb2fb01744 Assembly-CSharp.dll:.TrophySymbolPrefabValues
@@ -27,6 +29,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 947ce44184ce25ca0540456f207a8e3d Assembly-CSharp.dll:.WinningImagePrefabValues
+699b3e7f297cd14854729cc0808a06a8 Assembly-CSharp.dll:.ChangeEmailUI
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -60,7 +63,7 @@ f61c0793411f10cf5fbfa1473fef5ef2 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 86d36c43c53541d667100dc90b89cfba UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 1b8c02d0aa82fbf036a2b9b2d713eec3 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 559a1af00c663ec13de437785aacc6dc Assembly-CSharp.dll:.VotableEntryPrefabValues
-a5535674737856b2a2c7c6cd1b8ce732 Assembly-CSharp.dll:.UserImagesUI
+6230f19a6d811584e3b1f6347ba8c511 Assembly-CSharp.dll:.UserImagesUI
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -126,7 +129,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 faa096a6b0bec156258b2f97720abc8f Assembly-CSharp.dll:.UserImagesController
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 fd43a61204707e535932ee3af1fb2a9c Assembly-CSharp.dll:.MainScreensUI
-abe6860b0fcf344bcf3b22fa6b08465d Assembly-CSharp.dll:.UsersImagePrefabValues
+2ea4f0879ffc9fd76da59360f5fdaf8a Assembly-CSharp.dll:.UsersImagePrefabValues
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 e0a9869bdbc22ffb91e44dc0540a3dd7 Assembly-CSharp.dll:.ChangePasswordController
@@ -136,9 +139,11 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 eedc8647423dca2d51acedecfe44df4d Assembly-CSharp.dll:.EditImageController
+4c86c9ca1c4c432e0b588b250b571eb6 Assembly-CSharp.dll:.GuestEntriesUI
 99c71148474092793ed0a2afcd3458e3 Assembly-CSharp.dll:.PastContestsController
 23fcad822ea743527762349f54ad7eaf Assembly-CSharp.dll:.CompeteController
-b200f0d2341aa7b2a2007302244a8679 Assembly-CSharp.dll:.ProfileUI
+91d027f5a560843dc8e0e627a096bac5 Assembly-CSharp.dll:.ConfirmDeletePopupValues
+aa17d4aa84f78228b43909e4994b3c61 Assembly-CSharp.dll:.ProfileUI
 7fc4b202f2db74b13418325c409fdc10 Assembly-CSharp.dll:.ProfileController
 b80e49fd952dd80576a2ec93a5ac622e Assembly-CSharp.dll:.FileSelectController
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
@@ -175,6 +180,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
+85bd2d2b55210f80c6f77169ad686297 Assembly-CSharp.dll:.ChangeEmailController
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -190,5 +196,6 @@ e301afc9dee71bdacb638f1fd391d83c Assembly-CSharp.dll:.EditImageUI
 b8a6681d77863afd80c4725f878d1fcb Assembly-CSharp.dll:.SingleEntryUI
 3d132e88dde3eecdcf0f492fbca9b1a4 Assembly-CSharp.dll:.UserRegistrationUI
 fd43a61204707e535932ee3af1fb2a9c Assembly-CSharp.dll:.OpeningUI
+81627428cbea114a221d20a2a9a717df Assembly-CSharp.dll:.GuestEntriesController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MessageForUser
-91d027f5a560843dc8e0e627a096bac5 Assembly-CSharp.dll:.ConfirmDeletePopupValues
+72b609646d5fd98178b8521b69be080a Assembly-CSharp.dll:.DeleteProfilePopupValues

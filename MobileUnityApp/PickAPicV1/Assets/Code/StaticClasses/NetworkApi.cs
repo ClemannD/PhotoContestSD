@@ -146,6 +146,25 @@ public class NetworkAPI:MonoBehaviour{
 	}
 
 
+	public struct DeleteUserRequest{
+		public int user_id;
+		public string password;
+	}
+
+	public struct DeleteUserResponse{
+		public int id;
+		public string error;
+	}
+
+	public static DeleteUserResponse DeleteUser(int userId, string password){
+		DeleteUserRequest request = new DeleteUserRequest ();
+		request.user_id = userId;
+		request.password = password;
+		DeleteUserResponse response = new DeleteUserResponse ();
+		response = ApiCall<DeleteUserRequest,DeleteUserResponse> (request, response, "DeleteUser.aspx");
+		return response;
+	}
+
 
 	public struct InsertContestRequest{
 		public int contest_id;
@@ -310,6 +329,31 @@ public class NetworkAPI:MonoBehaviour{
 		}
 		return response;
 	}
+
+
+
+	public struct VerifyUserRequest{
+		public int user_id;
+		public string password;
+		public string verifyCode;
+	}
+
+	public struct VerifyUserResponse{
+		public int id;
+		public string error;
+	}
+
+
+	public static VerifyUserResponse SendVerificationCode(int userId, string password, string code){
+		VerifyUserRequest request = new VerifyUserRequest ();
+		request.user_id = userId;
+		request.password = password;
+		request.verifyCode = code;
+		VerifyUserResponse response = new VerifyUserResponse ();
+		response = ApiCall<VerifyUserRequest,VerifyUserResponse> (request, response, "VerifyUser.aspx");
+		return response;
+	}
+
 
 
 	public struct RetrieveAllImagesRequest{

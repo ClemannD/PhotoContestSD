@@ -411,8 +411,11 @@ MonoBehaviour:
   profileButton: {fileID: 1172084216}
   competeButton: {fileID: 3299677}
   changePasswordButton: {fileID: 461962198}
-  myPicturesButton: {fileID: 0}
-  deleteProfileButton: {fileID: 0}
+  myPicturesButton: {fileID: 907090010}
+  deleteProfileButton: {fileID: 891048273}
+  changeEmailButton: {fileID: 33497743}
+  deletePopupValues: {fileID: 2085202921}
+  generalPopupValues: {fileID: 327897040}
 --- !u!114 &234561355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +428,121 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 234561354}
+--- !u!1001 &327897039
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 919072061}
+    m_Modifications:
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -99.899994
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -81.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: -1383.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777666880269754, guid: 9f82a3f9ffce71a48ba82d83a929adf6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9f82a3f9ffce71a48ba82d83a929adf6, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &327897040 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114902744061012908, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+    type: 2}
+  m_PrefabInternal: {fileID: 327897039}
+  m_Script: {fileID: 11500000, guid: 7b7d9d6d9239e6c44b84b31aa72ceb4a, type: 3}
+--- !u!224 &327897041 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224425702489434358, guid: 9f82a3f9ffce71a48ba82d83a929adf6,
+    type: 2}
+  m_PrefabInternal: {fileID: 327897039}
 --- !u!1 &342290324
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +1064,7 @@ GameObject:
   - component: {fileID: 907090014}
   - component: {fileID: 907090013}
   m_Layer: 5
-  m_Name: RemovePictureButton
+  m_Name: MyPicturesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1165,6 +1283,7 @@ RectTransform:
   - {fileID: 1268446547}
   - {fileID: 1172084215}
   - {fileID: 2085202916}
+  - {fileID: 327897041}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1357,7 +1476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.356}
   m_AnchorMin: {x: 0.5957093, y: 0.0772437}
   m_AnchorMax: {x: 0.9427889, y: 0.27}
-  m_AnchoredPosition: {x: 3.6799927, y: -0.15000153}
+  m_AnchoredPosition: {x: 3.6799927, y: -0.1499939}
   m_SizeDelta: {x: 9.899994, y: -0.5999985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033835850
@@ -2582,6 +2701,7 @@ GameObject:
   - component: {fileID: 2085202919}
   - component: {fileID: 2085202918}
   - component: {fileID: 2085202917}
+  - component: {fileID: 2085202921}
   m_Layer: 5
   m_Name: DeletePanel
   m_TagString: Untagged
@@ -2605,10 +2725,10 @@ RectTransform:
   m_Father: {fileID: 919072061}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.05625926, y: 0.39800003}
-  m_AnchorMax: {x: 0.94029635, y: 0.6475625}
-  m_AnchoredPosition: {x: 11.3354, y: -2.5}
-  m_SizeDelta: {x: 0.9000015, y: 14.099976}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 9.835388, y: 41}
+  m_SizeDelta: {x: -124.099976, y: -1426.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2085202917
 MonoBehaviour:
@@ -2671,3 +2791,16 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2085202915}
+--- !u!114 &2085202921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2085202915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0207333960dc4ef44a07759f1ebb3837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  confirmDelete: {fileID: 1780170681}
+  cancel: {fileID: 1033835852}

@@ -63,6 +63,10 @@ public static class SceneTransitions{
 
 	}
 
+	public static int LastScene(){
+		return pastScenes.Peek ();
+	}
+
 	public static void GoBack(){
 		if (pastScenes.Count > 0) {
 			SceneManager.LoadScene (pastScenes.Pop ());

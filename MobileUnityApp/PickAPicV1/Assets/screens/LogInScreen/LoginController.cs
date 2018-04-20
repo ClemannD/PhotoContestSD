@@ -39,6 +39,7 @@ public class LoginController : MonoBehaviour {
 		string username = ui.GetUsername ();
 		loginResponse = NetworkAPI.DoUserLogin (ui.GetUsername(),password);
 
+
 		if (loginResponse.error.Length > 0 || (loginResponse.isBanned == 1)) {
 			string message = loginResponse.error;
 			if (loginResponse.isBanned == 1) {
@@ -49,12 +50,18 @@ public class LoginController : MonoBehaviour {
 			popupControl.Show ();
 			//MessageForUser.OutputMessage(loginResponse.error);
 			//tell the user something is wrong TODO
-		} else {
+		} 
+		else {
 			UserInfo.SetUserId (loginResponse.id);
 			UserInfo.SetUserPassword (password);
 			UserInfo.SetUsername (username);
 			ContestInfo.SetCurrentWeekData ();
-			SceneTransitions.NextScene (SceneIndices.ENTRIES);
+			if (loginResponse.id == 1) {
+				SceneTransitions.NextScene (SceneIndices.ENTRIES);
+			} else {
+				SceneTransitions.NextScene (SceneIndices.VERIFY);
+			}
+
 		}
 	}
 
