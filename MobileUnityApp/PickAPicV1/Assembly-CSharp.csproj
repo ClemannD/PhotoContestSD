@@ -115,6 +115,8 @@
      <Compile Include="Assets\screens\PastContest\WeekButtonPrefabValues.cs" />
      <Compile Include="Assets\screens\PastContest\WinningImageEntry.cs" />
      <Compile Include="Assets\screens\PastContest\WinningImagePrefabValues.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\EmailChange\ChangeEmailController.cs" />
+     <Compile Include="Assets\screens\ProfileScreen\EmailChange\ChangeEmailUI.cs" />
      <Compile Include="Assets\screens\ProfileScreen\ProfileController.cs" />
      <Compile Include="Assets\screens\ProfileScreen\ProfileUI.cs" />
      <Compile Include="Assets\screens\ProfileScreen\TrophyController.cs" />

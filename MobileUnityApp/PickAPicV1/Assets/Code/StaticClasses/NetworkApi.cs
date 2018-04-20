@@ -53,6 +53,33 @@ public class NetworkAPI:MonoBehaviour{
 
 	/// /////////////
 
+	public struct UpdateEmailRequest{
+		public string user_id;
+		public string password;
+		public string newEmail;
+	}
+
+	public struct UpdateEmailResponse{
+		public int id;
+		public string error;
+	}
+
+	public static UpdateEmailResponse ChangeEmail(string userId, string password, string newEmail){
+		UpdateEmailRequest request = new UpdateEmailRequest ();
+		request.user_id = userId;
+		request.password = password;
+		request.newEmail = newEmail;
+
+		UpdateEmailResponse response = new UpdateEmailResponse ();
+
+		response = ApiCall<UpdateEmailRequest,UpdateEmailResponse> (request, response, "UpdateEmail.aspx");
+		return response;
+	}
+
+
+
+
+
 
 
 	public struct LoginUserRequest
@@ -64,8 +91,11 @@ public class NetworkAPI:MonoBehaviour{
 	public struct LoginUserResponse
 	{
 		public int id;
+		public int isAdmin;
+		public int isVerified;
 		public int isBanned;
-		public string ApiKey;
+		//public string ApiKey;
+		public int numVotes;
 		public string error;
 	}
 

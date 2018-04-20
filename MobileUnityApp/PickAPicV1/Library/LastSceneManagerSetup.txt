@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/screens/CreateAccount/CreateAccountScreen.unity
+- path: Assets/screens/ProfileScreen/EmailChange/ChangeEmailUI.unity
   isLoaded: 1
   isActive: 1
