@@ -19,7 +19,9 @@ public class EntriesController:MainScreensController, IImageAdder{
 
 	public void RefreshPics(){
 		ImageAddingHelper addEntries = new ImageAddingHelper (this);
-		int contestId = NetworkAPI.GetCurrentContestInfo ().contest_id;
+		ContestInfo.SetCurrentWeekData ();
+		ui.SetTheme (ContestInfo.GetWeekTheme ());
+		int contestId = ContestInfo.GetContestID();
 		List<NetworkAPI.imageInfo> entries = NetworkAPI.RetrieveImages(contestId).allImages;
 		List<IServerImage> imagesToDisplay = new List<IServerImage> ();
 		foreach (NetworkAPI.imageInfo item in entries) {

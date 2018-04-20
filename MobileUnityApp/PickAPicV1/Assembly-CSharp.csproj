@@ -104,6 +104,8 @@
      <Compile Include="Assets\screens\EntriesScreen\ReportPopupValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\VotableEntryPrefabValues.cs" />
      <Compile Include="Assets\screens\EntriesScreen\VoteableEntry.cs" />
+     <Compile Include="Assets\screens\GuestEntries\GuestEntriesController.cs" />
+     <Compile Include="Assets\screens\GuestEntries\GuestEntriesUI.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginController.cs" />
      <Compile Include="Assets\screens\LogInScreen\LoginScreenUI.cs" />
      <Compile Include="Assets\screens\Opening\OpeningController.cs" />

@@ -54,6 +54,10 @@ public class CompeteUI : MainScreensUI {
 		return description.text;
 	}
 
+	public void ClearDescription(){
+		description.text = "";
+	}
+
 	//todo maybe delete this
 	private Vector2 adjustDimensions(Vector2 currentDimensions, float newWidth){
 		float width = currentDimensions.x;

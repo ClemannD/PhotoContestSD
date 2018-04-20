@@ -68,7 +68,7 @@ public class CompeteController : MainScreensController {
 			capturedImageToUpload = null;
 		}
 
-
+		ui.ClearDescription ();
 
 	}
 

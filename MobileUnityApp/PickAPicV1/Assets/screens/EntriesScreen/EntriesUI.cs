@@ -21,11 +21,11 @@ public class EntriesUI : MainScreensUI {
 	}
 
 	void Start(){
-		themeText.text += " " + ContestInfo.GetWeekTheme();
+		
 	}
 
-	public void SetThemeText(string themeText){
-		this.themeText.text = themeText;
+	public void SetTheme(string themeText){
+		this.themeText.text += themeText;
 	}
 		
 	public string GetSearchContent(){
