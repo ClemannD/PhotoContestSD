@@ -13,8 +13,8 @@ public class GeneralPopupController{
 
 	}
 
-	public GeneralPopupController(IUsesGeneralPopup popup){
-		this.values = values;
+	public GeneralPopupController(IUsesGeneralPopup values){
+		this.values = values.GetPopupValues();
 		this.pendingMessage = "";
 	}
 
