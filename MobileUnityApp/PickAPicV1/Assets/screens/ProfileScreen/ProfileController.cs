@@ -9,21 +9,21 @@ public class ProfileController : MainScreensController {
 	void Start () {
 		AddListeners (ui);
 		ui.changePasswordButton.onClick.AddListener (ChangePasswordListener);
-		ui.trophyButton.onClick.AddListener (TrophyCabinetListener);
-		ui.removePictureButton.onClick.AddListener (RemovePictureListener);
+		ui.myPicturesButton.onClick.AddListener (MyPicturesListener);
+		ui.deleteProfileButton.onClick.AddListener (DeleteProfileListener);
 	}
 
 	public void ChangePasswordListener(){
 		SceneTransitions.NextScene (SceneIndices.CHANGE_PASSWORD);
 	}
 
-	public void TrophyCabinetListener(){
-		SceneTransitions.NextScene (SceneIndices.TROPHY_CABINET);
+	public void MyPicturesListener(){
+		SceneTransitions.NextScene (SceneIndices.MY_PICTURES);
 
 	}
 
-	public void RemovePictureListener(){
-		SceneTransitions.NextScene (SceneIndices.REMOVE_PICTURE);
+	public void DeleteProfileListener(){
+		SceneTransitions.NextScene (-1);
 
 	}
 

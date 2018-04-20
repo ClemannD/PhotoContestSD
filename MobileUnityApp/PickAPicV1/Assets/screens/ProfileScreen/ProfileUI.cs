@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ProfileUI : MainScreensUI {
 	public Button changePasswordButton;
-	public Button trophyButton;
-	public Button removePictureButton;
+	public Button myPicturesButton;
+	public Button deleteProfileButton;
 
 	// Use this for initialization
 	void Start () {
