@@ -238,12 +238,12 @@ GameObject:
   - component: {fileID: 33497747}
   - component: {fileID: 33497746}
   m_Layer: 5
-  m_Name: TrophyCabinetButton
+  m_Name: ChangeEmailButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &33497742
 RectTransform:
   m_ObjectHideFlags: 0
@@ -258,10 +258,10 @@ RectTransform:
   m_Father: {fileID: 1725824428}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.059660256, y: 0.6093492}
-  m_AnchorMax: {x: 0.9181175, y: 0.6942447}
-  m_AnchoredPosition: {x: 5.27594, y: -1.3657837}
-  m_SizeDelta: {x: 0.2932129, y: -5.8005066}
+  m_AnchorMin: {x: 0.059660256, y: 0.34}
+  m_AnchorMax: {x: 0.9181175, y: 0.4192052}
+  m_AnchoredPosition: {x: 11.405091, y: 0.4190979}
+  m_SizeDelta: {x: 0.2932129, y: 1.1994934}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33497743
 MonoBehaviour:
@@ -411,8 +411,8 @@ MonoBehaviour:
   profileButton: {fileID: 1172084216}
   competeButton: {fileID: 3299677}
   changePasswordButton: {fileID: 461962198}
-  trophyButton: {fileID: 33497743}
-  removePictureButton: {fileID: 907090010}
+  myPicturesButton: {fileID: 0}
+  deleteProfileButton: {fileID: 0}
 --- !u!114 &234561355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2293,7 +2293,7 @@ GameObject:
   - component: {fileID: 1923411823}
   - component: {fileID: 1923411825}
   m_Layer: 5
-  m_Name: TrophyCabinetText
+  m_Name: ChangeEmailText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2349,7 +2349,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Trophy Cabinet
+  m_Text: Change Email
 --- !u!222 &1923411824
 CanvasRenderer:
   m_ObjectHideFlags: 0
