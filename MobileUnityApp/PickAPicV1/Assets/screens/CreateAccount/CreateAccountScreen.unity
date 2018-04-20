@@ -2644,14 +2644,14 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 1
     m_MinSize: 1
-    m_MaxSize: 219
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Unfortunately you can not be registered at this time. \nPlease try again
+  m_Text: "Unfortunately you can not be \nregistered at this time. \nPlease try again
     later!"
 --- !u!114 &935312584
 MonoBehaviour:
@@ -2724,7 +2724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &952405950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,8 +2755,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.056296293, y: 0.30752084}
   m_AnchorMax: {x: 0.94029635, y: 0.59239584}
-  m_AnchoredPosition: {x: 2.160019, y: 142.42001}
-  m_SizeDelta: {x: 3.8199997, y: 503.16003}
+  m_AnchoredPosition: {x: 2.035, y: 2}
+  m_SizeDelta: {x: 4.07, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952405952
 MonoBehaviour:
