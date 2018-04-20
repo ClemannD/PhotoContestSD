@@ -348,7 +348,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Welcome to Pick-aPick!
+  m_Text: Welcome to Pick-aPic!
 --- !u!222 &969112003
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -923,7 +923,7 @@ Prefab:
     - target: {fileID: 224841624479141282, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.69147
+      value: -0.6914673
       objectReference: {fileID: 0}
     - target: {fileID: 224841624479141282, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
@@ -943,7 +943,7 @@ Prefab:
     - target: {fileID: 224805056680843234, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -0.5000458
+      value: -0.50006104
       objectReference: {fileID: 0}
     - target: {fileID: 224805056680843234, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
@@ -968,7 +968,7 @@ Prefab:
     - target: {fileID: 224311816497100380, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000036716
+      value: -0.000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 224311816497100380, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
@@ -983,7 +983,7 @@ Prefab:
     - target: {fileID: 224311816497100380, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1.15
+      value: 1.1499939
       objectReference: {fileID: 0}
     - target: {fileID: 224311816497100380, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
@@ -998,7 +998,7 @@ Prefab:
     - target: {fileID: 224227873628513530, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.40002
+      value: -0.4000206
       objectReference: {fileID: 0}
     - target: {fileID: 224227873628513530, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
@@ -1023,7 +1023,7 @@ Prefab:
     - target: {fileID: 224166572815342308, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0.82501
+      value: 0.8250084
       objectReference: {fileID: 0}
     - target: {fileID: 224166572815342308, guid: 110429627f36145dab81ec6e1d6d247d,
         type: 2}
